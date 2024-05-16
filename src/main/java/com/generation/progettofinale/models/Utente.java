@@ -1,7 +1,6 @@
 package com.generation.progettofinale.models;
 
 import java.sql.Date;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
