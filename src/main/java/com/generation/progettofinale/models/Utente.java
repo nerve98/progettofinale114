@@ -10,6 +10,6 @@ import lombok.EqualsAndHashCode;
 public class Utente extends Entity{
     private String username, password, nome, cognome, email,numeroCellulare;
     private Date dataNascita;
-    private boolean isAdmin;
+    private boolean admin;
     
 }

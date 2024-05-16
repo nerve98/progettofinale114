@@ -35,6 +35,7 @@ public class DaoCasco implements IDao<Long, Casco>{
         Casco c=null;
         Map<Long, Casco> caschiMap = new HashMap<>();
         for(Map<String, String> map: caschi.values()){
+            map.put("visieraOscurata", map.get("visieraOscurata").equals("1")?"true":"false");
             c=context.getBean(Casco.class, map);
             caschiMap.put(c.getId(), c);
         }
@@ -59,6 +60,7 @@ public class DaoCasco implements IDao<Long, Casco>{
         Map<Long, Map<String, String>> caschi = database.executeDQL(query, String.valueOf(id));
         Casco c=null;
         for(Map<String, String> map: caschi.values()){
+            map.put("visieraOscurata", map.get("visieraOscurata").equals("1")?"true":"false");
             c=context.getBean(Casco.class, map);
         }
         return c;
