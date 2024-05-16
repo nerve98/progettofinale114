@@ -13,9 +13,3 @@ public class Utente extends Entity{
     private boolean isAdmin;
     
 }
-
-
-
-
-
-
