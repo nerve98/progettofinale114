@@ -45,7 +45,7 @@ public class DatabaseMySql implements Database{
             connection = DriverManager.getConnection(path + nomeDb + timeZone, username, password);
         }
         catch(SQLException e){
-            System.out.println("Errore connesione: " + e.getMessage());
+            System.out.println("Errore connessione: " + e.getMessage());
             e.printStackTrace();
         }
         catch(ClassNotFoundException e){
