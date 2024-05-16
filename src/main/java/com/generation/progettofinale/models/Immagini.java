@@ -2,8 +2,9 @@ package com.generation.progettofinale.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-@EqualsAndHashCode(callSuper = false)
+
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Immagini extends Entity{
     
     private String nome, url;
