@@ -10,7 +10,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
-
 import jakarta.annotation.PostConstruct;
 
 @Service
@@ -45,7 +44,7 @@ public class DatabaseMySql implements Database{
             connection = DriverManager.getConnection(path + nomeDb + timeZone, username, password);
         }
         catch(SQLException e){
-            System.out.println("Errore connesione: " + e.getMessage());
+            System.out.println("Errore connessione: " + e.getMessage());
             e.printStackTrace();
         }
         catch(ClassNotFoundException e){
