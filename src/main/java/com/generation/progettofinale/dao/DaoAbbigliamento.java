@@ -20,6 +20,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
     
     @Override
     public Long create(Abbigliamento e) {
+
         Long id = null;
         String query="INSERT INTO abbigliamento(nomeAbbigliamento, coloreAbbigliamento, protezione, materiale, brand, prezzo) VALUES(?,?,?,?,?,?)";
         databaseMySql.executeDML(query,
@@ -31,6 +32,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         String.valueOf(e.getPrezzo()));     
         
         return id;
+        
         }
 
 
@@ -52,6 +54,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
 
     @Override
     public void update(Abbigliamento e) {
+
         String query="UPDATE abbigliamento SET nomeAbbigliamento=?, coloreAbbigliamento=?, protezione=?, materiale=?, brand=?, prezzo=? WHERE id=?";
         databaseMySql.executeDML(query,
         e.getNomeAbbigliamento(), 
@@ -61,18 +64,22 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         e.getBrand(),
         String.valueOf(e.getPrezzo()),
         String.valueOf(e.getId()));
+
     }
 
 
     @Override
     public void delete(Long id) {
+
         String query="DELETE FROM abbigliamento WHERE id=?";
         databaseMySql.executeDML(query,String.valueOf(id));
+
     }
 
 
     @Override
     public Abbigliamento readById(Long id) {
+
         String query="SELECT * FROM abbigliamento WHERE id=?";
         databaseMySql.executeDML(query,String.valueOf(id));
         Map<Long,Map<String,String>> vestiti = databaseMySql.executeDQL(query,String.valueOf(id));
