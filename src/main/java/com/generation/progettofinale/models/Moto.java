@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public class Moto extends Entity{
     private int cilindrata,capacitaSerbatoio,potenzaCV,potenzaKV;
     private double peso,altezzaSella,consumo,prezzo;
