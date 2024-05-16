@@ -1,5 +1,7 @@
 package com.generation.progettofinale.models;
 
+
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
