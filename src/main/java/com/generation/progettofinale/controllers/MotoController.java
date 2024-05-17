@@ -25,8 +25,6 @@ public class MotoController {
     public String moto(Model model, HttpSession session) {
         List<Moto> ris = serviceMoto.findAll();
         model.addAttribute("moto", ris);
-        Object utente = session.getAttribute("utente");
-        model.addAttribute("isAdmin",((Utente) utente).isAdmin());
         return "moto.html";
     }
 
