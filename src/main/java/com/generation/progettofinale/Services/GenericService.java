@@ -1,5 +1,7 @@
 package com.generation.progettofinale.Services;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -50,5 +52,34 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
         return true;
     }
 
-    public abstract E createEntity(Map<String, String> map);
+    public E insert(Map<String, String> map){
+        E e=createEntity(map);
+        Long id=getDao().create(e);
+        e.setId(id);
+        return e;
+    }
+
+    public E createEntity(Map<String, String> map){
+        E e=null;
+        try{
+            e = context.getBean(getGenericClass(), map);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return e;
+    }
+
+    @SuppressWarnings("unchecked")
+    protected Class<E> getGenericClass() throws ClassNotFoundException {
+        Type mySuperclass = getClass().getGenericSuperclass();
+        Type tType = ((ParameterizedType)mySuperclass).getActualTypeArguments()[1];
+        String className = tType.getTypeName();
+
+        return (Class<E>) Class.forName(className);
+    }
+
+    
+
+
 }
