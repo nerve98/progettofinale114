@@ -10,26 +10,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.generation.progettofinale.Services.ServiceCasco;
-import com.generation.progettofinale.models.Casco;
-import com.generation.progettofinale.models.Utente;
+import com.generation.progettofinale.Services.ServiceMoto;
+import com.generation.progettofinale.models.Moto;
 
 import jakarta.servlet.http.HttpSession;
+import com.generation.progettofinale.models.Utente;
 
 @Controller
-public class CascoController {
+public class MotoController {
+    
     @Autowired
-    private ServiceCasco serviceCasco;
-
-    @GetMapping("/caschi")
-    public String caschi(Model model) {
-        List<Casco> ris = serviceCasco.findAll();
-        model.addAttribute("caschi", ris);
-        return "caschi.html";
+    private ServiceMoto serviceMoto;
+    @GetMapping("/moto")
+    public String moto(Model model, HttpSession session) {
+        List<Moto> ris = serviceMoto.findAll();
+        model.addAttribute("moto", ris);
+        Object utente = session.getAttribute("utente");
+        model.addAttribute("isAdmin",((Utente) utente).isAdmin());
+        return "moto.html";
     }
 
-    @PostMapping("/inserisci-casco")
-    public String inserisciCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
+    @GetMapping("/elimina-moto")
+    public String eliminaMoto(@RequestParam(name = "idMoto", defaultValue = "0") Long idMoto, Model model, HttpSession session){
         Object utenteObj = session.getAttribute("utente");
         Object loggatoObj = (String) session.getAttribute("loggato");
         Utente utente = null;
@@ -40,8 +42,62 @@ public class CascoController {
             utente = (Utente) utenteObj;
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
-                    serviceCasco.insert(parametri);
-                    return "redirect:/caschi";
+                    if(idMoto==0){
+                        model.addAttribute("error", "Errore nell'eliminazione della moto");
+                        return "paginaErrore.html";
+                    }
+                    serviceMoto.delete(idMoto);
+                    return "redirect:/moto";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
+
+        
+    }
+
+
+    @PostMapping("/modifica-moto")
+    public String modificaMoto(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceMoto.update(parametri);
+                    return "redirect:/moto";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }   
+    }
+
+    @PostMapping("/inserisci-moto")  
+    public String inserisciMoto(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceMoto.insert(parametri);
+                    return "redirect:/moto";
                 }
             }
             return "redirect:/login";
@@ -52,75 +108,16 @@ public class CascoController {
         }        
     }
 
-    @PostMapping("/modifica-casco")
-    public String modificaCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
-        Object utenteObj = session.getAttribute("utente");
-        Object loggatoObj = (String) session.getAttribute("loggato");
-        Utente utente = null;
-        String loggato = null;
-
-        if(loggatoObj instanceof String && utenteObj instanceof Utente){
-            loggato = (String) loggatoObj;
-            utente = (Utente) utenteObj;
-            if(loggato!=null && utente!=null){
-                if(loggato.equals("ok") && utente.isAdmin()){
-                    serviceCasco.update(parametri);
-                    return "redirect:/caschi";
-                }
-            }
-            return "redirect:/login";
-        }
-        else{
-            model.addAttribute("error", "Ops, si è verificato un errore");
-            return "paginaErrore.html";
-        }   
-
-        
-    }
-
-    @GetMapping("/elimina-casco")
-    public String eliminaAlimentare(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
-
-        Object utenteObj = session.getAttribute("utente");
-        Object loggatoObj = (String) session.getAttribute("loggato");
-        Utente utente = null;
-        String loggato = null;
-
-        if(loggatoObj instanceof String && utenteObj instanceof Utente){
-            loggato = (String) loggatoObj;
-            utente = (Utente) utenteObj;
-            if(loggato!=null && utente!=null){
-                if(loggato.equals("ok") && utente.isAdmin()){
-                    if(idCasco==0){
-                        model.addAttribute("error", "Errore nell'eliminazione del casco");
-                        return "paginaErrore.html";
-                    }
-                    serviceCasco.delete(idCasco);
-                    return "redirect:/caschi";
-                }
-            }
-            return "redirect:/login";
-        }
-        else{
-            model.addAttribute("error", "Ops, si è verificato un errore");
-            return "paginaErrore.html";
-        }
-
-        
-    }
-
-    @GetMapping("/casco-byId")
-    public String consoleById(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
-        Casco casco = serviceCasco.findById(idCasco);
-        if(casco==null){
-            model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
-            return "paginaErrore.html";
-        }
-        else{
-            model.addAttribute("casco", casco);
-            return "dettaglioCasco.html";
+    
+    @GetMapping ("/moto-ById")
+    public String motoById(@RequestParam(name = "idMoto", defaultValue = "0") Long idMoto, Model model){
+        Moto moto = serviceMoto.findById(idMoto);
+        if (moto == null){
+            model.addAttribute("error", "Moto non trovata");
+            return "paginaErrore.html"; 
+        }else {
+            model.addAttribute("moto", moto);
+            return "dettaglioMoto.html";
         }
     }
-
-
 }
