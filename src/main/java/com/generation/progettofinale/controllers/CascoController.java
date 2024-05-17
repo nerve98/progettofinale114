@@ -111,36 +111,15 @@ public class CascoController {
 
     @GetMapping("/casco-byId")
     public String consoleById(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
-
-        Object utenteObj = session.getAttribute("utente");
-        Object loggatoObj = (String) session.getAttribute("loggato");
-        Utente utente = null;
-        String loggato = null;
-
-        if(loggatoObj instanceof String && utenteObj instanceof Utente){
-            loggato = (String) loggatoObj;
-            utente = (Utente) utenteObj;
-            if(loggato!=null && utente!=null){
-                if(loggato.equals("ok") && utente.isAdmin()){
-                    Casco casco = serviceCasco.findById(idCasco);
-                    if(casco==null){
-                        model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
-                        return "paginaErrore.html";
-                    }
-                    else{
-                        model.addAttribute("casco", casco);
-                        return "dettaglioCasco.html";
-                    }
-                }
-            }
-            return "redirect:/login";
+        Casco casco = serviceCasco.findById(idCasco);
+        if(casco==null){
+            model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
+            return "paginaErrore.html";
         }
         else{
-            model.addAttribute("error", "Ops, si è verificato un errore");
-            return "paginaErrore.html";
-        }   
-        
-
+            model.addAttribute("casco", casco);
+            return "dettaglioCasco.html";
+        }
     }
 
 
