@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import com.generation.progettofinale.dao.IDao;
-import com.generation.progettofinale.models.Casco;
 import com.generation.progettofinale.models.Entity;
 
 import lombok.Data;
@@ -53,6 +52,13 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
         return true;
     }
 
+    public E insert(Map<String, String> map){
+        E e=createEntity(map);
+        Long id=getDao().create(e);
+        e.setId(id);
+        return e;
+    }
+
     public E createEntity(Map<String, String> map){
         E e=null;
         try{
@@ -72,6 +78,8 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
 
         return (Class<E>) Class.forName(className);
     }
+
+    
 
 
 }
