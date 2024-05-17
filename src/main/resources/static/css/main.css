@@ -1787,6 +1787,7 @@ input, select, textarea {
 	button,
 	.button {
 		-webkit-appearance: none;
+        appearance: none;
 		display: inline-block;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
