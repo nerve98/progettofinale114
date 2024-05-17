@@ -24,18 +24,38 @@ public class DaoUtente implements IDao<Long, Utente>{
         String query="select * from utente where username=? and password=?";
         
         Map<Long, Map<String, String>> result=database.executeDQL(query, username, password);
-        Long idPersona=null;
-        
-        for(Long key:result.keySet()){
-            idPersona=key;
+        Utente u =null;
+        for(Map<String, String> map: result.values()){
+            map.put("admin", map.get("admin").equals("1")?"true":"false");
+            u=context.getBean(Utente.class, map);
         }
-
-        Utente utente=null;
-        if(idPersona!=null && idPersona>0){
-            utente = readById(idPersona);            
-        }
-        return utente;
+        return u;
     }
+
+    public Utente findUserByUsername(String username){
+        String query="select * from utente where username=?";
+        
+        Map<Long, Map<String, String>> result=database.executeDQL(query, username);
+        Utente u =null;
+        for(Map<String, String> map: result.values()){
+            map.put("admin", map.get("admin").equals("1")?"true":"false");
+            u=context.getBean(Utente.class, map);
+        }
+        return u;
+    }
+
+    public Utente findUserByEmail(String email){
+        String query="select * from utente where email=?";
+        
+        Map<Long, Map<String, String>> result=database.executeDQL(query, email);
+        Utente u =null;
+        for(Map<String, String> map: result.values()){
+            map.put("admin", map.get("admin").equals("1")?"true":"false");
+            u=context.getBean(Utente.class, map);
+        }
+        return u;
+    }
+
 
 
     @Override
