@@ -22,14 +22,23 @@ public class AppController {
 private ServiceUtente serviceUtente;
 
 
-@GetMapping("/")
-public String home(HttpSession session) {
-    if(session.getAttribute("loggato")==null){
-        return "redirect:/login";
-    }else{
-        return "main.html";
-    }
+@GetMapping("/home")
+public String home() {
+    return "index.html";
 }
+
+//@GetMapping("/")
+//public String home(HttpSession session) {
+//    if(session.getAttribute("loggato")==null){
+//        return "redirect:/login";
+//    }else{
+//        return "index.html";
+//    }
+//}
+
+
+
+
 @GetMapping("/login")
 public String login() {
     return "formLogin.html";
