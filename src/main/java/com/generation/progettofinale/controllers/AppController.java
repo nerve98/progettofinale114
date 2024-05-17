@@ -55,16 +55,16 @@ HttpSession session){
         session.setAttribute("loggato", "ok");
         session.setAttribute("utente", utenteLoggato);
         Boolean admin = utenteLoggato.isAdmin();
-        if(admin.equals(Boolean.TRUE)) {
+        if(admin) {
             return "redirect:/";
-        }else if(admin.equals(Boolean.FALSE)){
+        }else if(admin){
             return "redirect:/";
         }else{
             session.setAttribute("loggato", null);
             return "formLogin.html";
             }
 
-            
+
         }
     }
 }
