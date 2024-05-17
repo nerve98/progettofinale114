@@ -1,5 +1,7 @@
 package com.generation.progettofinale.Services;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import com.generation.progettofinale.dao.IDao;
+import com.generation.progettofinale.models.Casco;
 import com.generation.progettofinale.models.Entity;
 
 import lombok.Data;
@@ -50,5 +53,25 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
         return true;
     }
 
-    public abstract E createEntity(Map<String, String> map);
+    public E createEntity(Map<String, String> map){
+        E e=null;
+        try{
+            e = context.getBean(getGenericClass(), map);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return e;
+    }
+
+    @SuppressWarnings("unchecked")
+    protected Class<E> getGenericClass() throws ClassNotFoundException {
+        Type mySuperclass = getClass().getGenericSuperclass();
+        Type tType = ((ParameterizedType)mySuperclass).getActualTypeArguments()[1];
+        String className = tType.getTypeName();
+
+        return (Class<E>) Class.forName(className);
+    }
+
+
 }
