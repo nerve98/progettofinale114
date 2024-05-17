@@ -22,53 +22,124 @@ public class CascoController {
     private ServiceCasco serviceCasco;
 
     @GetMapping("/caschi")
-    public String caschi(Model model, HttpSession session) {
+    public String caschi(Model model) {
         List<Casco> ris = serviceCasco.findAll();
         model.addAttribute("caschi", ris);
-        Object utente = session.getAttribute("utente");
-        model.addAttribute("isAdmin",((Utente) utente).isAdmin());
         return "caschi.html";
     }
 
     @PostMapping("/inserisci-casco")
     public String inserisciCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
-        boolean isAdmin = false;
-        Object utente = session.getAttribute("utente");
-        if(utente != null && utente instanceof Utente){
-            Utente u = (Utente)utente;
-            model.addAttribute("isAdmin", isAdmin);
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceCasco.insert(parametri);
+                    return "redirect:/caschi";
+                }
+            }
+            return "redirect:/login";
         }
-        serviceCasco.insert(parametri);
-        return "redirect:/caschi";
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }        
     }
 
     @PostMapping("/modifica-casco")
-    public String modificaCasco(@RequestParam Map<String,String> parametri){
-        serviceCasco.update(parametri);
-        return "redirect:/caschi";
+    public String modificaCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceCasco.update(parametri);
+                    return "redirect:/caschi";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }   
+
+        
     }
 
     @GetMapping("/elimina-casco")
-    public String eliminaAlimentare(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, Model model){
-        if(idCasco==0){
-            model.addAttribute("error", "Errore nell'eliminazione del casco");
+    public String eliminaAlimentare(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
+
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    if(idCasco==0){
+                        model.addAttribute("error", "Errore nell'eliminazione del casco");
+                        return "paginaErrore.html";
+                    }
+                    serviceCasco.delete(idCasco);
+                    return "redirect:/caschi";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
             return "paginaErrore.html";
         }
-        serviceCasco.delete(idCasco);
-        return "redirect:/caschi";
+
+        
     }
 
     @GetMapping("/casco-byId")
-    public String consoleById(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, Model model){
-        Casco casco = serviceCasco.findById(idCasco);
-        if(casco==null){
-            model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
-            return "paginaErrore.html";
+    public String consoleById(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
+
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            loggato = (String) loggatoObj;
+            utente = (Utente) utenteObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    Casco casco = serviceCasco.findById(idCasco);
+                    if(casco==null){
+                        model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
+                        return "paginaErrore.html";
+                    }
+                    else{
+                        model.addAttribute("casco", casco);
+                        return "dettaglioCasco.html";
+                    }
+                }
+            }
+            return "redirect:/login";
         }
         else{
-            model.addAttribute("console", casco);
-            return "dettaglioCasco.html";
-        }
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }   
+        
 
     }
 
