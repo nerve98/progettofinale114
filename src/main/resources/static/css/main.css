@@ -1,12 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 
-/*
-	TXT by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -2109,8 +2103,7 @@ input, select, textarea {
 	form textarea {
         -webkit-appearance: none;
         appearance: none;
-		display: block;
-		width: 100%;
+		display: flex;
 		border-radius: 8px;
 		border: solid 2px #E7EAE8;
 	}
@@ -2542,7 +2535,6 @@ input, select, textarea {
 
 	#main {
 		background: #fff;
-		border-top: solid 5px #b1ddab;
 		border-bottom: solid 5px #c1cac5;
 		border-top-width: 35px;
 		border-bottom-width: 10px;
@@ -2660,7 +2652,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
+				padding: 2em 0;
 			}
 
 				#banner .content {
@@ -3050,7 +3042,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: calc(6em + 20px) 0 6em 0;
+				padding: calc(6em + 20px) 0 2em 0;
 			}
 
 				#banner .content {
