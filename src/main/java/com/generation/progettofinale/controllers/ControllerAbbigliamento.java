@@ -4,12 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.RestController;
 
 
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
@@ -19,7 +18,7 @@ import com.generation.progettofinale.models.Utente;
 import jakarta.servlet.http.HttpSession;
 
 
-@Controller
+@RestController
 public class ControllerAbbigliamento {
 
 
@@ -33,50 +32,139 @@ public class ControllerAbbigliamento {
         model.addAttribute("abbigliamento", ris);
         return "abbigliamento.html";
     }
-    @PostMapping("/inserisci-abbigliamento")
-    public String inserisciConsole(@RequestParam Map<String,String> paramsAbb, HttpSession session, Model model){
-        boolean isAdmin = false;
-        Object utente = session.getAttribute("utente");
-        if(utente != null && utente instanceof Utente){
-            Utente u = (Utente) utente;
-            if(u.isAdmin()){
-                isAdmin = true;
-            }
-        }
-        model.addAttribute("isAdmin", isAdmin);
-        serviceAbbigliamento.insert(paramsAbb);
-        return "redirect:/abbigliamento";
 
-    } 
-    @PostMapping("/modifica-abbigliamento")
-    public String modificaAbbigliamento(@RequestParam Map<String,String> paramsAbb){
-        serviceAbbigliamento.update(paramsAbb);
-        return "redirect:/abbigliamento";
+
+
+    @PostMapping("/inserisci-abbigliamento")
+    public String inserisciConsole(@RequestParam 
+    Map<String,String> paramsAbb, 
+    HttpSession session, 
+    Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceAbbigliamento.insert(paramsAbb);
+                    return "redirect:/abbigliamento";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
     }
+
+
+
+
+    @PostMapping("/modifica-abbigliamento")
+    public String modificaAbbigliamento(@RequestParam 
+    Map<String,String> paramsAbb,
+    HttpSession session, 
+    Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceAbbigliamento.update(paramsAbb);
+                    return "redirect:/abbigliamento";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
+    }
+
+
+
 
     @GetMapping("/elimina-abbigliamento")
-    public String eliminaAbbigliamento(@RequestParam(name="idAbbigliamento", defaultValue="0") Long idAbbigliamento, Model model){
-        if(idAbbigliamento == 0){
-            model.addAttribute("error","errore nell'eliminazione dell'abbigliamento");
+    public String eliminaAbbigliamento(@RequestParam
+    (name="idAbbigliamento", defaultValue="0") 
+    Long idAbbigliamento,
+    HttpSession session,
+    Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    if(idAbbigliamento == 0){
+                        model.addAttribute("error","errore nella eliminazione dell'abbigliamento");
+                        return "paginaErrore.html";
+                    }
+                    serviceAbbigliamento.delete(idAbbigliamento);
+                    return "redirect:/abbigliamento";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
             return "paginaErrore.html";
         }
-        serviceAbbigliamento.delete(idAbbigliamento); // Convert Integer to Long
-        return "redirect:/abbigliamento";
-    }
-    @GetMapping("/abbigliamento-byId")
-    public String abbigliamentoById(@RequestParam(
-        name="idAbbigliamento", defaultValue="0") 
-        Long idAbbigliamento, Model model){
-        if(idAbbigliamento == null){
-            model.addAttribute("error","errore nella visualizzazione dell'abbigliamento");
-            return "paginaErrore.html";
-        }
-        Abbigliamento abbigliamento = serviceAbbigliamento.findById(idAbbigliamento); // Convert Integer to Long
-        model.addAttribute("abbigliamento", abbigliamento);
-        return "IdAbbigliamento.html";
-    }
+    }    
 
+
+
+
+
+    @GetMapping("/abbigliamento-byId")
+    public String abbigliamentoById(@RequestParam
+    (name="idAbbigliamento", defaultValue="0") 
+    Long idAbbigliamento, HttpSession session,
+     Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    Abbigliamento abbigliamento = serviceAbbigliamento.findById(idAbbigliamento); // Convert Integer to Long
+                   if( abbigliamento == null){
+                          model.addAttribute("error","errore nella visualizzazione dell'abbigliamento");
+                          return "paginaErrore.html";
+                    }
+                      model.addAttribute("abbigliamento", abbigliamento);
+                      return "abbigliamento.html";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
+    
+    }
+        
+        
 }
+    
+
+
 
 
 
