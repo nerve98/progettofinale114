@@ -13,4 +13,14 @@ public class ServiceUtente extends GenericService<Long, Utente, DaoUtente>{
         Utente utente= getDao().readUsernameAndPassword(username, password);
         return utente;
     }
+
+    public Utente findByUsername(String username){
+        Utente utente= getDao().findUserByUsername(username);
+        return utente;
+    }
+
+    public Utente findByEmail(String email){
+        Utente utente= getDao().findUserByEmail(email);
+        return utente;
+    }
 }
