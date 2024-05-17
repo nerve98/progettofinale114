@@ -53,6 +53,13 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
         return true;
     }
 
+    public E insert(Map<String, String> map){
+        E e=createEntity(map);
+        Long id=getDao().create(e);
+        e.setId(id);
+        return e;
+    }
+
     public E createEntity(Map<String, String> map){
         E e=null;
         try{
@@ -72,6 +79,8 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
 
         return (Class<E>) Class.forName(className);
     }
+
+    
 
 
 }
