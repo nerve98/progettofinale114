@@ -3050,7 +3050,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: calc(6em + 44px) 0 6em 0;
+				padding: calc(6em + 20px) 0 6em 0;
 			}
 
 				#banner .content {
