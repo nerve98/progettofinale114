@@ -16,6 +16,7 @@ import lombok.Data;
 
 @Data
 public abstract class GenericService<TipoID, E extends Entity, D extends IDao<TipoID, E>> {
+
     @Autowired
     private D dao;
 
