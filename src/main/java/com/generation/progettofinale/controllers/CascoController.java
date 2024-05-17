@@ -113,7 +113,7 @@ public class CascoController {
     public String consoleById(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
         Casco casco = serviceCasco.findById(idCasco);
         if(casco==null){
-            model.addAttribute("error", "Errore nella ricerca della console associato al parametro idConsole con id = "+idCasco);
+            model.addAttribute("error", "Errore nella ricerca della casco associato al parametro idCasco con id = "+idCasco);
             return "paginaErrore.html";
         }
         else{
