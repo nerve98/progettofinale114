@@ -48,4 +48,13 @@ function chiudiFormModifica(){
     location.reload();
 }*/
 
+function apriFormAggiunta(){
+    var form = document.getElementById("Inserisci");
+    form.hidden = false;
+}
+
+function chiudiFrmAggiunta(){
+    var form = documento.getElementById("Inserisci");
+    form.hidden = true;
+}
 
