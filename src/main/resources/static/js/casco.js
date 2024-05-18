@@ -1,0 +1,61 @@
+function modificaCasco(oggetto){
+    var form = document.getElementById("form-Modifica");
+    form.hidden = false;
+    
+    var id = document.getElementById("modifica-id");
+    var nomeCasco = document.getElementById("modifica-nomeCasco");
+    var coloreCasco = document.getElementById("modifica-coloreCasco");
+    var visieraOscurata= document.getElementById("modifica-visieraOscurata");
+    var prezzo = document.getElementById("modifica-prezzo");
+    var modello = document.getElementById("modifica-modello");
+
+
+    id.value = oggetto.getAttribute("modifica-id");
+    nomeCasco.value = oggetto.getAttribute("modifica-nomeCasco");
+    coloreCasco.value = oggetto.getAttribute("modifica-coloreCasco");
+    visieraOscurata.value = oggetto.getAttribute("modifica-visieraOscurata");
+    prezzo.value = oggetto.getAttribute("modifica-prezzo");
+    modello.value = oggetto.getAttribute("modifica-modello");
+}
+
+function chiudiFormModifica(){
+    var form = document.getElementById("form-Modifica");
+    form.hidden = true;
+    var id = document.getElementById("modifica-id");
+    id.value = "";
+    var nomeCasco = document.getElementById("modifica-nomeCasco");
+    nomeCasco.value = "";
+    var coloreCasco = document.getElementById("modifica-coloreCasco");
+    coloreCasco.value = "";
+    var visieraOscurata = document.getElementById("modifica-visieraOscurata");
+    visieraOscurata.value = "";
+    var prezzo = document.getElementById("modifica-prezzo");
+    prezzo.value = "";
+    var modello = document.getElementById("modifica-modello");
+    modello.value = "";
+
+}
+
+/*function eliminaCasco(oggetto){
+    var id = oggetto.getAttribute("elimina-id");
+    var url = "/casco/elimina/"+id;
+    window.location.href    = url;  
+}*/
+
+/*function eliminaCasco(oggetto){
+    var id = oggetto.getAttribute("elimina-id");
+    var url = "/casco/elimina/"+id;
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url, true);
+    xhr.send();
+    location.reload();
+}*/
+function apriFormAggiunta(){
+    var form = document.getElementById("Inserisci");
+    form.hidden = false;
+}
+
+function chiudiFrmAggiunta(){
+    var form = documento.getElementById("Inserisci");
+    form.hidden = true;
+}
