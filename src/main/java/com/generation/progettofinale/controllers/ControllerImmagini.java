@@ -23,8 +23,8 @@ public class ControllerImmagini {
 @Autowired
 private ServiceImmagini serviceImmagini;
 
-@GetMapping("/immagini")
-public String immagini(Model model) {
+    @GetMapping("/immagini")
+    public String immagini(Model model) {
     List<Immagini> ris = serviceImmagini.findAll();
     model.addAttribute("immagini", ris);
     return "immagini.html";
@@ -34,51 +34,119 @@ public String immagini(Model model) {
     @PostMapping("/inserisci-immagine")
     public String inserisciImmagine(@RequestParam
     Map<String,String> paramsImm,
-    HttpSession session, Model model){
-        boolean isAdmin = false;
-        Object utente = session.getAttribute("utente");
-        if(utente != null && utente instanceof Utente){
-            Utente u = (Utente) utente;
-            if(u.isAdmin()){
-                isAdmin = true;
+    HttpSession session, 
+    Model model){
+    Object utenteObj = session.getAttribute("utente");
+    Object loggatoObj = session.getAttribute("loggato");
+    Utente utente = null;
+    String loggato = null;
+        if(loggatoObj instanceof String && 
+        utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceImmagini.insert(paramsImm);
+                    return "redirect:/immagini";
+                }
             }
+            return "redirect:/login";
         }
-        model.addAttribute("isAdmin", isAdmin);
-        serviceImmagini.insert(paramsImm);
-        return "redirect:/immagini";
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
     }
+
+
+
+
+       
     @PostMapping("/modifica-immagine")
     public String modificaImmagine(@RequestParam 
-    Map<String,String> paramsImm){
-        serviceImmagini.update(paramsImm);
-        return "redirect:/immagini";
+    Map<String,String> paramsImm,
+    HttpSession session,
+    Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    serviceImmagini.update(paramsImm);
+                    return "redirect:/immagini";
+                }
+            }
+            return "redirect:/login";
+        }
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
     }
+
+
+
+
+
+
+
+
 
     @GetMapping("/elimina-immagine")
     public String eliminaImmagine(@RequestParam
     (name="idImmagine", defaultValue="0") 
-    Long idImmagine, Model model){
-        if(idImmagine == 0){
-            model.addAttribute("error",
-                              "errore nell'eliminazione dell'immagine");
-        }else{
-            serviceImmagini.delete(idImmagine);
+    Long idImmagine,
+    HttpSession session,
+    Model model){
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+            utente = (Utente) utenteObj;
+            loggato = (String) loggatoObj;
+            if(loggato!=null && utente!=null){
+                if(loggato.equals("ok") && utente.isAdmin()){
+                    if(idImmagine == 0){
+                        model.addAttribute("error",
+                                          "errore nella eliminazione dell'immagine");
+                        return "paginaErrore.html";
+                    }
+                    serviceImmagini.delete(idImmagine);
+                    return "redirect:/immagini";
+                }
+            }
+            return "redirect:/login";
         }
-        return "redirect:/immagini";
+        else{
+            model.addAttribute("error", "Ops, si è verificato un errore");
+            return "paginaErrore.html";
+        }
     }
+
+
+
+
+
 
     @GetMapping("/immagini-byId")
     public String immaginiById(@RequestParam(
         name="idImmagine", defaultValue="0") 
-        Long idImmagine, Model model){
-        if(idImmagine == 0){
-            model.addAttribute("error",
-                              "errore nella ricerca dell'immagine");
-            return "paginaErrore.html";
-        }
+        Long idImmagine, HttpSession session,
+        Model model){
         Immagini immagine = serviceImmagini.findById(idImmagine);
-        model.addAttribute("immagine", immagine);
-        return "dettaglioImmagine.html";
+        if(immagine==null){
+            model.addAttribute("error", "Errore nella ricerca dell'immagine associato al parametro con id = "+ idImmagine);
+            return "paginaErrore.html"; 
+        }
+        else{
+            model.addAttribute("immagine", immagine);
+            return "dettaglioImmagine.html";
+        }
     }
 
 }
