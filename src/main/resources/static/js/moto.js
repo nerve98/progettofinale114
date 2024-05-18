@@ -1,8 +1,28 @@
 function modificaMoto(oggetto){
-
+if(!oggetto){
+    console.error("valori non validi");
+    return;
+}
 var form = document.getElementById("form-Modifica");
+if(!form){
+    console.error("form modifica non trovato");
+    return;
+}
 form.hidden = false;
-var id = document.getElementById("modifica-id");
+var valori = [
+    "id","cilindrata","capacitaSerbatoio","potenzaCV","potenzaKV","peso","altezzaSella","consumo",
+    "prezzo","elettronico","trasmissioneM","euro","nomeMotore","marca","tipoMoto","coloreMoto","targa",
+    "annoProduzione"]
+valori.forEach(function(valore){
+    var input = document.getElementById("modifica-"+valore);
+    if(input){
+        input.value = oggetto.getAttribute("modifica-"+valore);
+    }else{
+        console.error("elemento non trovato per modifica-"+valore+" in apertura");
+    }
+}
+);
+/*var id = document.getElementById("modifica-id");
 var cilindrata = document.getElementById("modifica-cilindrata");
 var capacitaSerbatoio = document.getElementById("modifica-capacitaSerbatoio");
 var potenzaCV = document.getElementById("modifica-potenzaCV");
@@ -38,16 +58,26 @@ marca.value = oggetto.getAttribute("modifica-marca");
 tipoMoto.value = oggetto.getAttribute("modifica-tipoMoto");
 coloreMoto.value = oggetto.getAttribute("modifica-coloreMoto");
 targa.value = oggetto.getAttribute("modifica-targa");
-annoProduzione.value = oggetto.getAttribute("modifica-annoProduzione");
-
-
+annoProduzione.value = oggetto.getAttribute("modifica-annoProduzione");*/
 } 
 
 
 function chiudiFormModifica(){
 var form = document.getElementById("form-Modifica");
 form.hidden = true;
-var id = document.getElementById("modifica-id");
+var valori = [
+    "id","cilindrata","capacitaSerbatoio","potenzaCV","potenzaKV","peso","altezzaSella","consumo",
+    "prezzo","elettronico","trasmissioneM","euro","nomeMotore","marca","tipoMoto","coloreMoto","targa",
+    "annoProduzione"]
+valori.forEach(function(valore){
+    var input = document.getElementById("modifica-"+valore);
+    if(input){
+        input.value = "";
+    }else{
+        console.error("elemento non trovato per modifica-"+valore +" in chiusura");
+    }
+});
+/*var id = document.getElementById("modifica-id");
 id.value = "";
 var cilindrata = document.getElementById("modifica-cilindrata");
 cilindrata.value = "";
@@ -82,7 +112,7 @@ coloreMoto.value = "";
 var targa = document.getElementById("modifica-targa");
 targa.value = "";
 var annoProduzione = document.getElementById("modifica-annoProduzione");
-annoProduzione.value = "";
+annoProduzione.value = "";*/
 
 }
 

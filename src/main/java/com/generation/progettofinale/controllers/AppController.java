@@ -60,20 +60,18 @@ HttpSession session){
     if (utenteLoggato == null){
         model.addAttribute("error","username o password errati");
         return "formLogin.html";
-    } else {
+    } else {                    //rivedere da qui in poi
         session.setAttribute("loggato", "ok");
         session.setAttribute("utente", utenteLoggato);
         Boolean admin = utenteLoggato.isAdmin();
         if(admin) {
             return "redirect:/";
-        }else if(admin){
+        }else if(admin){               
             return "redirect:/";
         }else{
             session.setAttribute("loggato", null);
             return "formLogin.html";
             }
-
-
         }
     }
 }

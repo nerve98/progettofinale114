@@ -15,7 +15,7 @@ import lombok.Data;
 public class DaoImmagini implements IDao<Long, Immagini>{
 
 
-   private Database db;
+    private Database db;
     private final ApplicationContext context;
     private String query;
     
