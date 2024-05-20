@@ -1,3 +1,19 @@
-img:hover {
-	background: #f5cb22;
-}
+.tilt {
+    box-shadow: 0 20px 30px -13px rgba(0, 0, 0, 0.7);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+            transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+  }
+
+  .bg-two {
+    background: linear-gradient(45deg, #ff5f4b, #821564);
+  }
+
+  .bg-one {
+    background: linear-gradient(45deg, #ff194b, #8215f0);
+  }
+
+  
+  
+  
