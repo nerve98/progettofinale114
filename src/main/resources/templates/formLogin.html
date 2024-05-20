@@ -4,10 +4,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="/css/main.css" type="text/css" />
 </head>
-<body class="homepage is-preload" style="padding-top: 0%;">
-    <div id="page-wrapper">
+<body class="homepage is-preload" style="padding-top: 0%;  max-height: 100%;">
 
-        <header id="header">
+    <div id="page-wrapper" >
+
+        <header id="header" >
             <div class="logo container">
                 <div>
                     <h1><a href="/home" id="logo">Motoroni</a></h1>
@@ -18,43 +19,31 @@
 
 
 
-
         <section id="main" style="padding: 0%;">
-            <div class="container">
-                <div class="row">
+            <section id="banner" style="padding: 0%;">
 
-                    <div class="col-3 col-12-medium"> <img src="https://www.corsedimoto.com/wp-content/uploads/2024/05/Ducati-MotoGP.jpg" style="object-fit: contain ; width: 100%;"></div>
+                <div class="container">
                     
+                    <div class="content" style="display: flex; flex-direction: row;text-align: center; object-fit: contain;">
 
-                    <div class="col-6 col-12-medium">
+                        <form href="/login" style="padding-left: 100px; padding-right: 60px;" >
+                            <h2>Pronto a partire!</h2>
+                            <h3><a href="/formRegister">Clicca per registrarti</a></h3>
+                            <br>
+                                <section style="display: inline-block;" >
+                                    <input  type="text" id="username" name="username" placeholder="Username" required>
+                                    <br>
+                                    <input type="password" id="password" name="password" placeholder="password" required>
+                                </section>
+                            <br>
+                            <input type="submit" value="Accedi">
+                        </form>
+                        <img src="https://www.corsedimoto.com/wp-content/uploads/2024/05/Ducati-MotoGP.jpg" style="float: right; ">
 
-                        <section id="banner" style="padding: 0%;">
-                            <div class="content">
-                                <form>
-                                    <h2>Pronto a partire!</h2>
-                                    <h3><a href="/formRegister">Clicca per registrarti</a></h3>
-                                    <br>
-                                        <section style="display: inline-block;" >
-                                            <input  type="text" id="username" name="username" placeholder="Username" required>
-                                            <br>
-                                            <input type="password" id="password" name="password" placeholder="password" required>
-                                        </section>
-                                    <br>
-                                    <input type="submit" value="Accedi">
-                                </form>
-                            </div>
-                        </section> 
 
                     </div>
+                </section>
 
-
-                    <div class="col-3 col-12-medium">
-
-                    </div>
-
-
-                </div>
-            </div>
         </section>
 
 
