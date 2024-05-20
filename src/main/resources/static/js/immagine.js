@@ -23,21 +23,6 @@ function chiudiFormModifica(){
     var tipo = document.getElementById("modifica-tipo");
     tipo.value = "";
 }
-
-/*function eliminaImmagine(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/immagine/elimina/"+id;
-    window.location.href    = url;  
-}*/
-
-/*function eliminaImmagine(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/immagine/elimina/"+id;
-    var xhr = new XMLHttpRequest();
-    xhr.open("DELETE", url, true);
-    xhr.send();
-    location.reload();
-}*/
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = false;
