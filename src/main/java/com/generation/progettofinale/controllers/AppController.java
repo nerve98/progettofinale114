@@ -48,7 +48,7 @@ public String login() {
     public String logout(HttpSession session){
         session.setAttribute("loggato", null);;
         session.setAttribute("utente", null);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 
@@ -65,9 +65,9 @@ HttpSession session){
         session.setAttribute("utente", utenteLoggato);
         Boolean admin = utenteLoggato.isAdmin();
         if(admin) {
-            return "redirect:/";
+            return "redirect:/home";
         }else if(!admin){               
-            return "redirect:/";
+            return "redirect:/home";
         }else{
             session.setAttribute("loggato", null);
             return "formLogin.html";

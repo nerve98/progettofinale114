@@ -74,7 +74,7 @@
                 onclick="modificaMoto(this)">Modifica</button>
             </td>
             <td>
-                <button href="|/elimina-moto?id=${motorone.id}|">Elimina</button>
+                <a th:href="|/elimina-moto?id=${motorone.id}|"><button>Elimina</button></a>
             </td>
         </tr>
     </tbody>
@@ -111,17 +111,55 @@
             <input type="number" name="potenzaKV" id="modifica-potenzaKV" >
             <label for="consumo">Consumo</label>
             <input type="number" name="consumo" id="modifica-consumo" >
-            <label for="trasmissioneM">Trasmissione</label>
-            <input type="text" name="trasmissioneM" id="modifica-trasmissioneM" >
-            <label for="elettronico">Elettronico</label>
-            <input type="text" name="elettronico" id="modifica-elettronico" >
+            <label for="trasmissioneM">Trasmissione Manuale</label>
+            <input type="checkbox" name="trasmissioneM" id="modifica-trasmissioneM" value="true">
+            <label for="elettronico">Avviamento Elettronico</label>
+            <input type="checkbox" name="elettronico" id="modifica-elettronico" value="true">
             <label for="tipoMoto">Tipo</label>
             <input type="text" name="tipoMoto" id="modifica-tipoMoto" >
             <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
         </form>
     </div>
-    <button onclick="aggiungiMoto()">Aggiungi Moto</button>
-    <div>
+    <button onclick="apriFormAggiunta()">Aggiungi Moto</button>
+    <div id="Inserisci" hidden>
+        <form id="form-inserisci" action="/inserisci-moto" method="post">
+            <label for="marca">Marca</label>
+            <input type="text" name="marca" id="marca" required>
+            <label for="targa">Targa</label>
+            <input type="text" name="targa" id="targa" required>
+            <label for="euro">Euro</label>
+            <input type="text" name="euro" id="euro" required>
+            <label for="nomeMotore">Motore</label>
+            <input type="text" name="nomeMotore" id="nomeMotore" required>
+            <label for="coloreMoto">Colore</label>
+            <input type="text" name="coloreMoto" id="coloreMoto" required>
+            <label for="annoProduzione">Anno</label>
+            <input type="number" name="annoProduzione" id="annoProduzione" required>
+            <label for="prezzo">Prezzo</label>
+            <input type="number" name="prezzo" id="prezzo" required>
+            <label for="altezzaSella">Altezza sella</label>
+            <input type="number" name="altezzaSella" id="altezzaSella" required>
+            <label for="peso">Peso</label>
+            <input type="number" name="peso" id="peso" required>
+            <label for="cilindrata">Cilindrata</label>
+            <input type="number" name="cilindrata" id="cilindrata" required>
+            <label for="capacitaSerbatoio">Capacità serbatoio</label>
+            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" required>
+            <label for="potenzaCV">Potenza CV</label>
+            <input type="number" name="potenzaCV" id="potenzaCV" required>
+            <label for="potenzaKV">Potenza KW</label>
+            <input type="number" name="potenzaKV" id="potenzaKV" required>
+            <label for="consumo">Consumo</label>
+            <input type="number" name="consumo" id="consumo" required>
+            <label for="trasmissioneM">Trasmissione Manuale</label>
+            <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true">
+            <label for="elettronico">Avviamento Elettronico</label>
+            <input type="checkbox" name="elettronico" id="elettronico" value="true">
+            <label for="tipoMoto">Tipo</label>
+            <input type="text" name="tipoMoto" id="tipoMoto" required>
+            <button onclick="chiudiFormIAggiunta()">Salva</button>  
+
+        </form>
 
     </div>
 </body>
