@@ -36,20 +36,6 @@ function chiudiFormModifica(){
 
 }
 
-/*function eliminaCasco(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/casco/elimina/"+id;
-    window.location.href    = url;  
-}*/
-
-/*function eliminaCasco(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/casco/elimina/"+id;
-    var xhr = new XMLHttpRequest();
-    xhr.open("DELETE", url, true);
-    xhr.send();
-    location.reload();
-}*/
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = false;
