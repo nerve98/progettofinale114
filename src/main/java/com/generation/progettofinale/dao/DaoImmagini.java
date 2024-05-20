@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.generation.progettofinale.models.Abbigliamento;
 import com.generation.progettofinale.models.Casco;
 import com.generation.progettofinale.models.Entity;
 import com.generation.progettofinale.models.Immagini;

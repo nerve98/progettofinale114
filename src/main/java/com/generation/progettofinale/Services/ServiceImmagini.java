@@ -1,12 +1,8 @@
 package com.generation.progettofinale.Services;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.stereotype.Service;
-
 import com.generation.progettofinale.dao.DaoImmagini;
 import com.generation.progettofinale.models.Abbigliamento;
 import com.generation.progettofinale.models.Casco;

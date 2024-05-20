@@ -13,16 +13,13 @@ import jakarta.servlet.http.HttpSession;
 
 public class ControllerAbbigliamento {
 
-
-    
     @Autowired
     private ServiceAbbigliamento serviceAbbigliamento;
 
     @GetMapping("/abbigliamento")
-    public String home() {
+    public String abbigliamento() {
         return "abbigliamento.html";
     }
-
 
 
     @PostMapping("/inserisci-abbigliamento")
