@@ -25,7 +25,7 @@ public class MotoController {
     public String moto(Model model, HttpSession session) {
         List<Moto> ris = serviceMoto.findAll();
         model.addAttribute("moto", ris);
-        return "moto.html";
+        return "adminMoto.html";
     }
 
     @GetMapping("/elimina-moto")
@@ -55,7 +55,7 @@ public class MotoController {
             return "paginaErrore.html";
         }
 
-        
+
     }
 
 
