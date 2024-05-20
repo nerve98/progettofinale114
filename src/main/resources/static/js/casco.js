@@ -55,7 +55,7 @@ function apriFormAggiunta(){
     form.hidden = false;
 }
 
-function chiudiFrmAggiunta(){
+function chiudiFormAggiunta(){
     var form = documento.getElementById("Inserisci");
     form.hidden = true;
 }
