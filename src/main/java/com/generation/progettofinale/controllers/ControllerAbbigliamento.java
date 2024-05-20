@@ -16,20 +16,16 @@ import com.generation.progettofinale.models.Utente;
 
 import jakarta.servlet.http.HttpSession;
 
-
 @Controller
 public class ControllerAbbigliamento {
 
-
-    
     @Autowired
     private ServiceAbbigliamento serviceAbbigliamento;
 
     @GetMapping("/abbigliamento")
-    public String home() {
+    public String abbigliamento() {
         return "abbigliamento.html";
     }
-
 
 
     @PostMapping("/inserisci-abbigliamento")
