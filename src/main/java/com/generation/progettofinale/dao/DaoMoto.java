@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class DaoMoto implements IDao<Long, Moto>{
 
 
-    private Database db;
+    private final Database db;
     private final ApplicationContext context;
     private String query;
 
