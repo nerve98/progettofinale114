@@ -1,0 +1,146 @@
+
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbfbfb;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #000000;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 10px 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="number"] {
+    border-color: #4CAF50;
+    width: 30%;
+}
+
+#form-Modifica {
+    margin-top: 20px;
+}
+
+#form-Modifica label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+table {
+    max-width: 800px; /* Larghezza massima della tabella */
+    width: 100%;
+    margin: 0 auto; /* Centra la tabella */
+}
+
+th, td {
+    padding: 6px; /* Riduce il padding */
+}
+
+/* Regola la larghezza delle colonne */
+th:first-child,
+td:first-child {
+    width: 5%; /* Regola la larghezza della prima colonna */
+}
+
+/* Regola la larghezza delle colonne rimanenti */
+th:not(:first-child),
+td:not(:first-child) {
+    width: 10%; /* Regola la larghezza delle colonne rimanenti */
+}
+#form-Modifica label {
+    display: inline-block;
+    width: 30%; /* Regola la larghezza del label */
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#form-Modifica input[type="text"],
+#form-Modifica input[type="number"] {
+    display: inline-block;
+    width: 30%; /* Regola la larghezza dell'input e riduce il margine */
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-right: 300px; /* Aggiunge un margine sinistro per separare gli input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#Salva {
+    display: block;
+}
