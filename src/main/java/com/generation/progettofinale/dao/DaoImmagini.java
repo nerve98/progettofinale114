@@ -6,8 +6,11 @@ import java.util.Map;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import com.generation.progettofinale.models.Abbigliamento;
+import com.generation.progettofinale.models.Casco;
+import com.generation.progettofinale.models.Entity;
 import com.generation.progettofinale.models.Immagini;
-
+import com.generation.progettofinale.models.Moto;
 
 import lombok.Data;
 @Service
@@ -15,7 +18,7 @@ import lombok.Data;
 public class DaoImmagini implements IDao<Long, Immagini>{
 
 
-    private Database db;
+    private final Database db;
     private final ApplicationContext context;
     private String query;
     
@@ -63,8 +66,7 @@ public class DaoImmagini implements IDao<Long, Immagini>{
     @Override
     public Immagini readById(Long id) {
 
-       query="SELECT * FROM immaggini WHERE id=?";
-       db.executeDML(query, String.valueOf(id));
+       query="SELECT * FROM immagini WHERE id=?";
        Map<Long, Map<String, String>> immaginiMap=db.executeDQL(query, String.valueOf(id));
        Immagini i=null;
        for(Map<String,String> map: immaginiMap.values()){
@@ -74,6 +76,26 @@ public class DaoImmagini implements IDao<Long, Immagini>{
     return i;
     }
 
+    
+    public Immagini readByForeignKey(Entity e) {
+        String queryS="SELECT * FROM immagini";
+        if(e instanceof Moto){
+            queryS+=" WHERE idMoto=?";
+        }
+        else if(e instanceof Casco){
+            queryS+=" WHERE idCasco=?";
+        }
+        else {
+            queryS+=" WHERE idAbbigliamento=?";
+        }
+        Map<Long, Map<String, String>> immaginiMap=db.executeDQL(queryS, String.valueOf(e.getId()));
+        Immagini i=null;
+        for(Map<String,String> map: immaginiMap.values()){
+            i=context.getBean(Immagini.class,map);
+        }
+
+        return i;
+    }
 
 
 
