@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="/css/adminMoto.css" type="text/css" />
     <script src="js/moto.js" defer></script>
 </head>
 <body>
@@ -13,7 +14,7 @@
                 <th>ID</th>
                 <th>Marca</th>
                 <th>Targa</th>
-                <th>euro</th>
+                <th>Standard</th>
                 <th>Motore</th>
                 <th>Colore</th>
                 <th>Anno</th>
@@ -37,30 +38,91 @@
                 <td th:text="${motorone.targa}"></td>
                 <td th:text="${motorone.euro}"></td>
                 <td th:text="${motorone.nomeMotore}"></td>
-                <td th:text="${motorone.colore}"></td>
-                <td th:text="${motorone.anno}"></td>
+                <td th:text="${motorone.coloreMoto}"></td>                   
+                <td th:text="${motorone.annoProduzione}"></td>
                 <td th:text="${motorone.prezzo}"></td>
                 <td th:text="${motorone.altezzaSella}"></td>
                 <td th:text="${motorone.peso}"></td>
                 <td th:text="${motorone.cilindrata}"></td>
                 <td th:text="${motorone.capacitaSerbatoio}"></td>
                 <td th:text="${motorone.potenzaCV}"></td>
-                <td th:text="${motorone.potenzaKW}"></td>
+                <td th:text="${motorone.potenzaKV}"></td>
                 <td th:text="${motorone.consumo}"></td>
-                <td th:text="${motorone.trasmissione}"></td>
+                <td th:text="${motorone.trasmissioneM}"></td>
                 <td th:text="${motorone.elettronico}"></td>
-                <td th:text="${motorone.tipo}"></td>
-            </tr>
-
-
-
-
-
-        </tbody>
-
-
-
-
+                <td th:text="${motorone.tipoMoto}"></td>
+            
+            <td>
+                <button th:modifica-id="${motorone.id}" 
+                th:modifica-marca="${motorone.marca}"
+                th:modifica-targa="${motorone.targa}"
+                th:modifica-euro="${motorone.euro}" 
+                th:modifica-nomeMotore="${motorone.nomeMotore}"
+                th:modifica-coloreMoto="${motorone.coloreMoto}"
+                th:modifica-annoProduzione="${motorone.annoProduzione}"
+                th:modifica-prezzo="${motorone.prezzo}"
+                th:modifica-altezzaSella="${motorone.altezzaSella}"
+                th:modifica-peso="${motorone.peso}"
+                th:modifica-cilindrata="${motorone.cilindrata}"
+                th:modifica-capacitaSerbatoio="${motorone.capacitaSerbatoio}"
+                th:modifica-potenzaCV="${motorone.potenzaCV}"
+                th:modifica-potenzaKV="${motorone.potenzaKV}"
+                th:modifica-consumo="${motorone.consumo}"
+                th:modifica-trasmissioneM="${motorone.trasmissioneM}"
+                th:modifica-elettronico="${motorone.elettronico}"
+                th:modifica-tipoMoto="${motorone.tipoMoto}"
+                onclick="modificaMoto(this)">Modifica</button>
+            </td>
+            <td>
+                <button href="|/elimina-moto?id=${motorone.id}|">Elimina</button>
+            </td>
+        </tr>
+    </tbody>
     </table>
+    <div id="form-Modifica" hidden>
+        <form action="/modifica-moto" method="post">
+            <label for="id">ID</label>
+            <input type="number" name="id" id="modifica-id" hidden readonly >
+            <label for="marca">Marca</label>
+            <input type="text" name="marca" id="modifica-marca" >
+            <label for="targa">Targa</label>
+            <input type="text" name="targa" id="modifica-targa" >
+            <label for="euro">Euro</label>
+            <input type="text" name="euro" id="modifica-euro" >
+            <label for="nomeMotore">Motore</label>
+            <input type="text" name="nomeMotore" id="modifica-nomeMotore" >
+            <label for="coloreMoto">Colore</label>
+            <input type="text" name="coloreMoto" id="modifica-coloreMoto">
+            <label for="annoProduzione">Anno</label>
+            <input type="number" name="annoProduzione" id="modifica-annoProduzione" >
+            <label for="prezzo">Prezzo</label>
+            <input type="number" name="prezzo" id="modifica-prezzo" >
+            <label for="altezzaSella">Altezza sella</label>
+            <input type="number" name="altezzaSella" id="modifica-altezzaSella" >
+            <label for="peso">Peso</label>
+            <input type="number" name="peso" id="modifica-peso" >
+            <label for="cilindrata">Cilindrata</label>
+            <input type="number" name="cilindrata" id="modifica-cilindrata" >
+            <label for="capacitaSerbatoio">Capacità serbatoio</label>
+            <input type="number" name="capacitaSerbatoio" id="modifica-capacitaSerbatoio" >
+            <label for="potenzaCV">Potenza CV</label>
+            <input type="number" name="potenzaCV" id="modifica-potenzaCV" >
+            <label for="potenzaKV">Potenza KW</label>
+            <input type="number" name="potenzaKV" id="modifica-potenzaKV" >
+            <label for="consumo">Consumo</label>
+            <input type="number" name="consumo" id="modifica-consumo" >
+            <label for="trasmissioneM">Trasmissione</label>
+            <input type="text" name="trasmissioneM" id="modifica-trasmissioneM" >
+            <label for="elettronico">Elettronico</label>
+            <input type="text" name="elettronico" id="modifica-elettronico" >
+            <label for="tipoMoto">Tipo</label>
+            <input type="text" name="tipoMoto" id="modifica-tipoMoto" >
+            <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
+        </form>
+    </div>
+    <button onclick="aggiungiMoto()">Aggiungi Moto</button>
+    <div>
+
+    </div>
 </body>
 </html>

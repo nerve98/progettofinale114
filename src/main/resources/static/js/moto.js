@@ -68,10 +68,10 @@ form.hidden = true;
 var valori = [
     "id","cilindrata","capacitaSerbatoio","potenzaCV","potenzaKV","peso","altezzaSella","consumo",
     "prezzo","elettronico","trasmissioneM","euro","nomeMotore","marca","tipoMoto","coloreMoto","targa",
-    "annoProduzione"]
+    "annoProduzione"];
 valori.forEach(function(valore){
     var input = document.getElementById("modifica-"+valore);
-    if(input){
+    if(input){  
         input.value = "";
     }else{
         console.error("elemento non trovato per modifica-"+valore +" in chiusura");
