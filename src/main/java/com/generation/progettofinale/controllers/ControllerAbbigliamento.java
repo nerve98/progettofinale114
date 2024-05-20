@@ -27,9 +27,7 @@ public class ControllerAbbigliamento {
     private ServiceAbbigliamento serviceAbbigliamento;
 
     @GetMapping("/abbigliamento")
-    public String abbigliamento(Model model){
-        List<Abbigliamento> ris = serviceAbbigliamento.findAll();
-        model.addAttribute("abbigliamento", ris);
+    public String home() {
         return "abbigliamento.html";
     }
 
