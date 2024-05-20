@@ -73,14 +73,14 @@
 
 				
 				<!-- Main -->
-				<section id="main">
+				<section id="main" style="background: #180148;">
 					<div class="container">
 							<div th:each="i: ${#numbers.sequence(0, #lists.size(caschi), 3)}">
 								<div class="row gtr-200">
 									<div class="col-4" th:each="j: ${#numbers.sequence(0, 2, 1)}" th:if="${(j+i)<#lists.size(caschi)}" >
-										<div class="card">
-											<img class="card-img-top" th:if="${immagini[i+j]!=null}" th:src="@{${immagini[i+j].url}}">
-											<img class="card-img-top" th:if="${immagini[i+j]==null}" th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}">
+										<div class="card" style="border:none;">
+											<img class="card-img-top" th:if="${immagini[i+j]!=null}" th:src="@{${immagini[i+j].url}}" style="padding:25px;">
+											<img class="card-img-top" th:if="${immagini[i+j]==null}" th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}" style="padding:25px;">
 											<div class="card-body bg-two" >
 											  <h5 class="card-title" th:text="${caschi[i+j].nomeCasco}" style="color: white;"></h5>
 											  <a href="#" class="btn btn-primary" >Visualizza il prodotto</a>
