@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="js/moto.js" defer></script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Targa</th>
+                <th>euro</th>
+                <th>Motore</th>
+                <th>Colore</th>
+                <th>Anno</th>
+                <th>Prezzo</th>
+                <th>Altezza sella</th>
+                <th>Peso</th>
+                <th>Cilindrata</th>
+                <th>Capacità serbatoio</th>
+                <th>Potenza CV</th>
+                <th>Potenza KW</th>
+                <th>Consumo</th>
+                <th>Trasmissione</th>
+                <th>Elettronico</th>
+                <th>Tipo</th>               
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="motorone:${moto}">
+                <td th:text="${motorone.id}"></td>
+                <td th:text="${motorone.marca}"></td>
+                <td th:text="${motorone.targa}"></td>
+                <td th:text="${motorone.euro}"></td>
+                <td th:text="${motorone.motore}"></td>
+                <td th:text="${motorone.colore}"></td>
+                <td th:text="${motorone.anno}"></td>
+                <td th:text="${motorone.prezzo}"></td>
+                <td th:text="${motorone.altezzaSella}"></td>
+                <td th:text="${motorone.peso}"></td>
+                <td th:text="${motorone.cilindrata}"></td>
+                <td th:text="${motorone.capacitaSerbatoio}"></td>
+                <td th:text="${motorone.potenzaCV}"></td>
+                <td th:text="${motorone.potenzaKW}"></td>
+                <td th:text="${motorone.consumo}"></td>
+                <td th:text="${motorone.trasmissione}"></td>
+                <td th:text="${motorone.elettronico}"></td>
+                <td th:text="${motorone.tipo}"></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+
+
+
+
+    </table>
+</body>
+</html>
