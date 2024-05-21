@@ -72,7 +72,7 @@ public class DatabaseMySql implements Database{
         PreparedStatement ps=null;
         ResultSet rs=null;
         try{
-            String generatedColumns[] = { "ID" };
+            String generatedColumns[] = { "id" };
             ps = connection.prepareStatement(query, generatedColumns);
             for(int i=0;i<params.length;i++){
                 ps.setString(i+1, params[i]);
