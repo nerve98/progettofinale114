@@ -23,6 +23,11 @@ public class AdminController {
 
     @Autowired
     private ServiceImmagini serviceImmagini;
+    @GetMapping("/admin-caschi")
+    public String adminCaschi(Model model) {
+        model.addAttribute("caschi", serviceCasco.findAll());
+        return "adminCasco.html";
+    }
 
     @PostMapping("/inserisci-casco")
     public String inserisciCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
