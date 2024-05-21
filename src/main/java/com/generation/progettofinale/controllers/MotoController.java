@@ -21,7 +21,7 @@ public class MotoController {
     
     @Autowired
     private ServiceMoto serviceMoto;
-    @GetMapping("/moto")
+    @GetMapping("/admin-moto")
     public String moto(Model model, HttpSession session) {
         List<Moto> ris = serviceMoto.findAll();
         model.addAttribute("moto", ris);
@@ -45,7 +45,7 @@ public class MotoController {
                         return "paginaErrore.html";
                     }
                     serviceMoto.delete(idMoto);
-                    return "redirect:/moto";
+                    return "redirect:/admin-moto";
                 }
             }
             return "redirect:/login";
@@ -69,14 +69,10 @@ public class MotoController {
         //if(loggatoObj instanceof String && utenteObj instanceof Utente){
             loggato = (String) loggatoObj;
             utente = (Utente) utenteObj;
-            System.out.println("loggato: "+loggato);
-            System.out.println("utente: "+utente);
-            System.out.println("********************************");
-            System.out.println("PARAMETRI!!!! "+parametri.keySet()+", values: "+parametri.values());
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceMoto.update(parametri);
-                    return "redirect:/moto";
+                    return "redirect:/admin-moto";
                 }
                 else{
                     return "redirect:/login";
@@ -105,7 +101,7 @@ public class MotoController {
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceMoto.insert(parametri);
-                    return "redirect:/moto";
+                    return "redirect:/admin-moto";
                 }
             }
             return "redirect:/login";
