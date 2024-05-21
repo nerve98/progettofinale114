@@ -35,7 +35,7 @@ public class MotoController {
         Utente utente = null;
         String loggato = null;
 
-        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+        //if(loggatoObj instanceof String && utenteObj instanceof Utente){
             loggato = (String) loggatoObj;
             utente = (Utente) utenteObj;
             if(loggato!=null && utente!=null){
@@ -49,11 +49,11 @@ public class MotoController {
                 }
             }
             return "redirect:/login";
-        }
+        /* }
         else{
             model.addAttribute("error", "Ops, si è verificato un errore");
             return "paginaErrore.html";
-        }
+        }*/
 
 
     }
@@ -66,21 +66,30 @@ public class MotoController {
         Utente utente = null;
         String loggato = null;
 
-        if(loggatoObj instanceof String && utenteObj instanceof Utente){
+        //if(loggatoObj instanceof String && utenteObj instanceof Utente){
             loggato = (String) loggatoObj;
             utente = (Utente) utenteObj;
+            System.out.println("loggato: "+loggato);
+            System.out.println("utente: "+utente);
+            System.out.println("********************************");
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceMoto.update(parametri);
                     return "redirect:/moto";
                 }
+                else{
+                    return "redirect:/login";
+                }
             }
-            return "redirect:/login";
-        }
+            else{
+                return "redirect:/login";
+            }
+            
+        /* }
         else{
             model.addAttribute("error", "Ops, si è verificato un errore");
             return "paginaErrore.html";
-        }   
+        }   */
     }
 
     @PostMapping("/inserisci-moto")  

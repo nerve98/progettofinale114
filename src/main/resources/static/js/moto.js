@@ -14,7 +14,7 @@ var valori = [
     "prezzo","elettronico","trasmissioneM","euro","nomeMotore","marca","tipoMoto","coloreMoto","targa",
     "annoProduzione"]
 valori.forEach(function(valore){
-    var input = document.getElementById("modifica-"+valore);
+    var input = document.getElementById(valore);
     if(input){
         input.value = oggetto.getAttribute("modifica-"+valore);
     }else{
@@ -50,4 +50,8 @@ function apriFormAggiunta(){
 function chiudiFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = true;
+}
+
+function checkTheCheckBox(oggetto){
+    oggetto.value = oggetto.checked ? "true" : "false";
 }

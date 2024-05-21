@@ -74,7 +74,7 @@
                 onclick="modificaMoto(this)">Modifica</button>
             </td>
             <td>
-                <a th:href="|/elimina-moto?id=${motorone.id}|"><button>Elimina</button></a>
+                <a th:href="|/elimina-moto?idMoto=${motorone.id}|"><button>Elimina</button></a>
             </td>
         </tr>
     </tbody>
@@ -82,41 +82,41 @@
     <div id="form-Modifica" hidden>
         <form action="/modifica-moto" method="post">
             <label for="id">ID</label>
-            <input type="number" name="id" id="modifica-id" hidden readonly >
+            <input type="number" name="id" id="id" hidden readonly >
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="modifica-marca" >
+            <input type="text" name="marca" id="marca" >
             <label for="targa">Targa</label>
-            <input type="text" name="targa" id="modifica-targa" >
+            <input type="text" name="targa" id="targa" >
             <label for="euro">Euro</label>
-            <input type="text" name="euro" id="modifica-euro" >
+            <input type="text" name="euro" id="euro" >
             <label for="nomeMotore">Motore</label>
-            <input type="text" name="nomeMotore" id="modifica-nomeMotore" >
+            <input type="text" name="nomeMotore" id="nomeMotore" >
             <label for="coloreMoto">Colore</label>
-            <input type="text" name="coloreMoto" id="modifica-coloreMoto">
+            <input type="text" name="coloreMoto" id="coloreMoto">
             <label for="annoProduzione">Anno</label>
-            <input type="number" name="annoProduzione" id="modifica-annoProduzione" >
+            <input type="number" name="annoProduzione" id="annoProduzione" >
             <label for="prezzo">Prezzo</label>
-            <input type="number" name="prezzo" id="modifica-prezzo" >
+            <input type="number" name="prezzo" id="prezzo" >
             <label for="altezzaSella">Altezza sella</label>
-            <input type="number" name="altezzaSella" id="modifica-altezzaSella" >
+            <input type="number" name="altezzaSella" id="altezzaSella" >
             <label for="peso">Peso</label>
-            <input type="number" name="peso" id="modifica-peso" >
+            <input type="number" name="peso" id="peso" >
             <label for="cilindrata">Cilindrata</label>
-            <input type="number" name="cilindrata" id="modifica-cilindrata" >
+            <input type="number" name="cilindrata" id="cilindrata" >
             <label for="capacitaSerbatoio">Capacità serbatoio</label>
-            <input type="number" name="capacitaSerbatoio" id="modifica-capacitaSerbatoio" >
+            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" >
             <label for="potenzaCV">Potenza CV</label>
-            <input type="number" name="potenzaCV" id="modifica-potenzaCV" >
+            <input type="number" name="potenzaCV" id="potenzaCV" >
             <label for="potenzaKV">Potenza KW</label>
-            <input type="number" name="potenzaKV" id="modifica-potenzaKV" >
+            <input type="number" name="potenzaKV" id="potenzaKV" >
             <label for="consumo">Consumo</label>
-            <input type="number" name="consumo" id="modifica-consumo" >
+            <input type="number" name="consumo" id="consumo" >
             <label for="trasmissioneM">Trasmissione Manuale</label>
-            <input type="checkbox" name="trasmissioneM" id="modifica-trasmissioneM" value="true">
+            <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true" onclick="checkTheCheckBox(this)">
             <label for="elettronico">Avviamento Elettronico</label>
-            <input type="checkbox" name="elettronico" id="modifica-elettronico" value="true">
+            <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
             <label for="tipoMoto">Tipo</label>
-            <input type="text" name="tipoMoto" id="modifica-tipoMoto" >
+            <input type="text" name="tipoMoto" id="tipoMoto" >
             <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
         </form>
     </div>
@@ -152,9 +152,9 @@
             <label for="consumo">Consumo</label>
             <input type="number" name="consumo" id="consumo" required>
             <label for="trasmissioneM">Trasmissione Manuale</label>
-            <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true">
+            <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true" onclick="checkTheCheckBox(this)">
             <label for="elettronico">Avviamento Elettronico</label>
-            <input type="checkbox" name="elettronico" id="elettronico" value="true">
+            <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
             <label for="tipoMoto">Tipo</label>
             <input type="text" name="tipoMoto" id="tipoMoto" required>
             <button onclick="chiudiFormIAggiunta()">Salva</button>  

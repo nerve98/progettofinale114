@@ -20,6 +20,7 @@ public class ModelsContext {
     @Bean
     @Scope("prototype")
     public Moto moto(Map<String, String> map) {
+        System.out.println("\n\n\nMap keys: "+map.keySet()+"\n\n\n"+map.values()+"\n\n\n");
         Moto m = new Moto();
         Long id = -1L;
         if(map.containsKey("id")) {
@@ -135,7 +136,7 @@ public class ModelsContext {
         u.setPassword(map.get("password"));
         u.setNumeroCellulare(map.get("numeroCellulare"));
         u.setDataNascita(Date.valueOf(map.get("dataNascita")));
-        u.setAdmin(Boolean.parseBoolean(map.get("isAdmin")));
+        u.setAdmin(Boolean.parseBoolean(map.get("admin")));
 
         return u;
     }
