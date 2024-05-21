@@ -34,11 +34,11 @@ var valori = [
     "annoProduzione"];
 valori.forEach(function(valore){
     var input = document.getElementById("modifica-"+valore);
-    if(input){  
+    /*if(input){  
         input.value = "";
     }else{
         console.error("elemento non trovato per modifica-"+valore +" in chiusura");
-    }
+    }*/
 });
 }
 

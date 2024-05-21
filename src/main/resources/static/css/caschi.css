@@ -14,6 +14,10 @@
     background: linear-gradient(45deg, #ff194b, #8215f0);
   }
 
-  
+  img{
+    height:150px;
+
+    object-fit: cover;
+  }
   
   

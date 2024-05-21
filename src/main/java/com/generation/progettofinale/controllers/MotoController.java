@@ -72,6 +72,7 @@ public class MotoController {
             System.out.println("loggato: "+loggato);
             System.out.println("utente: "+utente);
             System.out.println("********************************");
+            System.out.println("PARAMETRI!!!! "+parametri.keySet()+", values: "+parametri.values());
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceMoto.update(parametri);
