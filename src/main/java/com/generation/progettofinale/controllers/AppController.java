@@ -64,6 +64,9 @@ HttpSession session){
         session.setAttribute("loggato", "ok");
         session.setAttribute("utente", utenteLoggato);
         Boolean admin = utenteLoggato.isAdmin();
+
+        //return "redirect:/";
+
         if(admin) {
             return "redirect:/";
         }else if(!admin){               
