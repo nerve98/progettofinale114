@@ -2254,6 +2254,15 @@ input, select, textarea {
 
 /* Icons */
 
+.iconlogin{
+	text-decoration: none;
+	position: relative;
+	text-decoration: none;
+	height: 40px;
+	width: 40px;
+	margin-top: 5px;
+}
+
 	.icon {
 		text-decoration: none;
 		position: relative;
@@ -2361,6 +2370,8 @@ input, select, textarea {
 		#nav ul {
 			position: relative;
 			z-index: 1001;
+			display: flex;
+			justify-content: center;
 		}
 
 		#nav li {
@@ -2478,7 +2489,7 @@ input, select, textarea {
 		position: relative;
 		background-image: url("https://www.aprilia.com/wlassets/aprilia/master/Aprilia_World/Racing/moto-gp-2021/news/08-MotoGP_Race_German/MotoGP_Hero_1920x800/original/MotoGP_Hero_1920x800.jpg");
 		background-position: top left, top left, center center;
-		background-repeat: repeat, repeat, no-repeat;
+		background-repeat: no-repeat;
 		background-size: auto, auto, cover;
 		z-index: 1;
 		padding: 11em 0;
