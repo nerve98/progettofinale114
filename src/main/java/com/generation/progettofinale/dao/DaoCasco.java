@@ -50,7 +50,7 @@ public class DaoCasco implements IDao<Long, Casco>{
 
     @Override
     public void delete(Long id) {
-        String query="DELETE FROM persone WHERE id=?";
+        String query="DELETE FROM casco WHERE id=?";
         database.executeDML(query, String.valueOf(id));
     }
 
