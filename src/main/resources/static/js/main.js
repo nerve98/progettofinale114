@@ -46,3 +46,10 @@ function cercaMoto() {
 }
 
 
+	// Dropdowns.
+    $('#nav > ul').dropotron({
+        mode: 'fade',
+        noOpenerFade: true,
+        speed: 300,
+        alignment: 'center'
+    });
