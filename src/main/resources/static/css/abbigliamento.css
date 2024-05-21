@@ -78,11 +78,11 @@
 }
 
 .bg-one {
-  background: linear-gradient(45deg, #43a143, #72a886);
+  background: linear-gradient(45deg, #ffffff, #5e6d636d);
 }
 
 .bg-two {
-  background: linear-gradient(45deg, #ff5f4b, #821564);
+  background: linear-gradient(45deg,  #ffffff, #5e6d636d);
 }
 
 .bg-three {
@@ -119,4 +119,15 @@
   font-size:12px;
   position:absolute;
   bottom:20px;
+}
+.details{
+display: inline-block;
+font-family: 'Open Sans Condensed', sans-serif;
+text-decoration: none;
+background: #b1ddab;
+color: #fff;
+line-height: 1em;
+cursor: pointer;
+padding: 0.85em 1.85em;
+text-align: center;
 }
