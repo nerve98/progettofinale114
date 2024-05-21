@@ -44,6 +44,7 @@ public abstract class GenericService<TipoID, E extends Entity, D extends IDao<Ti
     public boolean update(Map<String, String> map){
         //devo trasformare la mappa in un oggetto di tipo E
         E e= createEntity(map);
+        System.out.println("\n\n\nGeneric Service: Update: e: "+e.toString()+"\n\n\n");
         dao.update(e);
         return true;
     }
