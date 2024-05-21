@@ -1,5 +1,6 @@
 package com.generation.progettofinale.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,14 @@ public class ControllerAbbigliamento {
     @Autowired
     private ServiceAbbigliamento serviceAbbigliamento;
 
+
+
+
+
     @GetMapping("/abbigliamento")
-    public String abbigliamento() {
+    public String abbigliamento(Model model){
+        List<Abbigliamento> ris = serviceAbbigliamento.findAll();
+        model.addAttribute("vestiti", ris);
         return "abbigliamento.html";
     }
 
@@ -141,8 +148,8 @@ public class ControllerAbbigliamento {
                           return "paginaErrore.html";
                     }
                       model.addAttribute("abbigliamento", abbigliamento);
-                      return "abbigliamento.html";
-                }
+                      return "dettaglioabbigliamento.html";
+                    }
             }
             return "redirect:/login";
         }
@@ -150,10 +157,7 @@ public class ControllerAbbigliamento {
             model.addAttribute("error", "Ops, si è verificato un errore");
             return "paginaErrore.html";
         }
-    
     }
-        
-        
 }
     
 

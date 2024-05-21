@@ -33,20 +33,10 @@ function chiudiFormModifica(){
 
 }
 
-/*function eliminaAbbigliamento(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/abbigliamento/elimina/"+id;
-    window.location.href    = url;  
-}*/
-
-/*function eliminaAbbigliamento(oggetto){
-    var id = oggetto.getAttribute("elimina-id");
-    var url = "/abbigliamento/elimina/"+id;
-    var xhr = new XMLHttpRequest();
-    xhr.open("DELETE", url, true);
-    xhr.send();
-    location.reload();
-}*/
+function cercaAbbigliamento() {
+    var id = document.getElementById("abbigliamento-id").value;
+    window.location.href = "/abbigliamento-byId?idAbbigliamento=" + id;
+}   
 
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
