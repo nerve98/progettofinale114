@@ -17,7 +17,12 @@
   -webkit-box-direction: normal;
           flex-flow: row wrap;
   padding: 3em 1em;
-  background: #3a3f3c5f;
+  background-image: url(https://superbikeitalia.it/wp-content/uploads/2021/12/triumph-speed-triple-1200-rs-imola-piega-dx.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #000;
   
 }
 .flex-container .flex-item {
