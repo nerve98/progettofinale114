@@ -81,6 +81,7 @@
     </table>
     <div id="form-Modifica" hidden>
         <form action="/modifica-moto" method="post" >
+            <h2>MODIFICA</h2>
             <label for="id">ID</label>
             <input type="number" name="id" id="id" readonly >
             <label for="marca">Marca</label>
@@ -134,6 +135,7 @@
     <button onclick="apriFormAggiunta()">Aggiungi Moto</button>
     <div id="Inserisci" hidden>
         <form id="form-inserisci" action="/inserisci-moto" method="post">
+            <h2>INSERISCI</h2>
             <label for="marca">Marca</label>
             <input type="text" name="marca" id="marca" required maxlength="50" minlength="2">
             <div class="error-message">Inserisci almeno 2 caratteri.</div>

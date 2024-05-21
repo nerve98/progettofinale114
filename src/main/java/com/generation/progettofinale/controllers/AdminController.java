@@ -23,6 +23,12 @@ public class AdminController {
 
     @Autowired
     private ServiceImmagini serviceImmagini;
+    
+    @GetMapping("/admin-caschi")
+    public String adminCaschi(Model model) {
+        model.addAttribute("caschi", serviceCasco.findAll());
+        return "adminCasco.html";
+    }
 
     @PostMapping("/inserisci-casco")
     public String inserisciCasco(@RequestParam Map<String,String> parametri, HttpSession session, Model model){
@@ -37,7 +43,7 @@ public class AdminController {
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceCasco.insert(parametri);
-                    return "redirect:/caschi";
+                    return "redirect:/admin-caschi";
                 }
             }
             return "redirect:/login";
@@ -61,7 +67,7 @@ public class AdminController {
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceCasco.update(parametri);
-                    return "redirect:/caschi";
+                    return "redirect:/admin-caschi";
                 }
             }
             return "redirect:/login";
@@ -75,7 +81,7 @@ public class AdminController {
     }
 
     @GetMapping("/elimina-casco")
-    public String eliminaAlimentare(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
+    public String eliminaCasco(@RequestParam(name = "idCasco", defaultValue = "0") Long idCasco, HttpSession session, Model model){
 
         Object utenteObj = session.getAttribute("utente");
         Object loggatoObj = (String) session.getAttribute("loggato");
@@ -92,7 +98,7 @@ public class AdminController {
                         return "paginaErrore.html";
                     }
                     serviceCasco.delete(idCasco);
-                    return "redirect:/caschi";
+                    return "redirect:/admin-caschi";
                 }
             }
             return "redirect:/login";
