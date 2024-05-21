@@ -26,8 +26,8 @@
                 <th>Potenza CV</th>
                 <th>Potenza KW</th>
                 <th>Consumo</th>
-                <th>Trasmissione</th>
-                <th>Elettronico</th>
+                <th>Trasmissione Manuale</th>
+                <th>Avvio Elettronico</th>
                 <th>Tipo</th>               
             </tr>
         </thead>
@@ -80,43 +80,54 @@
     </tbody>
     </table>
     <div id="form-Modifica" hidden>
-        <form action="/modifica-moto" method="post">
+        <form action="/modifica-moto" method="post" >
             <label for="id">ID</label>
-            <input type="number" name="id" id="id" hidden readonly >
+            <input type="number" name="id" id="id" readonly >
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca" >
+            <input type="text" name="marca" id="marca" maxlength="50" minlength="2" required>
+            <div class="error-message">Inserisci almeno 2 caratteri</div>
             <label for="targa">Targa</label>
-            <input type="text" name="targa" id="targa" >
+            <input type="text" name="targa" id="targa" maxlength="7" minlength="7" required>
+            <div class="error-message">Inserisci 7 caratteri</div>
             <label for="euro">Euro</label>
-            <input type="text" name="euro" id="euro" >
+            <input type="text" name="euro" id="euro" required >
             <label for="nomeMotore">Motore</label>
-            <input type="text" name="nomeMotore" id="nomeMotore" >
+            <input type="text" name="nomeMotore" id="nomeMotore" required>
             <label for="coloreMoto">Colore</label>
-            <input type="text" name="coloreMoto" id="coloreMoto">
+            <input type="text" name="coloreMoto" id="coloreMoto" required>
             <label for="annoProduzione">Anno</label>
-            <input type="number" name="annoProduzione" id="annoProduzione" >
+            <input type="number" name="annoProduzione" id="annoProduzione" min="1970" max="2024"  required>
+            <div class="error-message">Inserisci un anno valido (1970-2024).</div>
             <label for="prezzo">Prezzo</label>
-            <input type="number" name="prezzo" id="prezzo" >
+            <input type="number" name="prezzo" id="prezzo" required  >
             <label for="altezzaSella">Altezza sella</label>
-            <input type="number" name="altezzaSella" id="altezzaSella" >
+            <input type="number" name="altezzaSella" id="altezzaSella" required>
             <label for="peso">Peso</label>
-            <input type="number" name="peso" id="peso" >
+            <input type="number" name="peso" id="peso" step="0.5">
             <label for="cilindrata">Cilindrata</label>
-            <input type="number" name="cilindrata" id="cilindrata" >
+            <input type="number" name="cilindrata" id="cilindrata" step="1" required>
+            <div class="error-message">Solo numeri interi.</div>
             <label for="capacitaSerbatoio">Capacità serbatoio</label>
-            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" >
+            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" step="1" required>
+            <div class="error-message">Solo numeri interi.</div>
             <label for="potenzaCV">Potenza CV</label>
-            <input type="number" name="potenzaCV" id="potenzaCV" >
+            <input type="number" name="potenzaCV" id="potenzaCV" step="1" required>
+            <div class="error-message">Solo numeri interi.</div>
             <label for="potenzaKV">Potenza KW</label>
-            <input type="number" name="potenzaKV" id="potenzaKV" >
+            <input type="number" name="potenzaKV" id="potenzaKV" step="1" required> 
+            <div class="error-message">Solo numeri interi.</div>
             <label for="consumo">Consumo</label>
-            <input type="number" name="consumo" id="consumo" >
+            <input type="number" name="consumo" id="consumo" step="0.01" required>
             <label for="trasmissioneM">Trasmissione Manuale</label>
             <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true" onclick="checkTheCheckBox(this)">
             <label for="elettronico">Avviamento Elettronico</label>
             <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
             <label for="tipoMoto">Tipo</label>
-            <input type="text" name="tipoMoto" id="tipoMoto" >
+            <select name="tipoMoto" id="tipoMoto" required> 
+                <option value="sportiva">Sportiva</option>
+                <option value="scooter">Scooter</option>
+                <option value="cross">Cross</option>
+            </select>
             <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
         </form>
     </div>
@@ -124,39 +135,50 @@
     <div id="Inserisci" hidden>
         <form id="form-inserisci" action="/inserisci-moto" method="post">
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca" required>
+            <input type="text" name="marca" id="marca" required maxlength="50" minlength="2">
+            <div class="error-message">Inserisci almeno 2 caratteri.</div>
             <label for="targa">Targa</label>
-            <input type="text" name="targa" id="targa" required>
+            <input type="text" name="targa" id="targa" required maxlength="7" minlength="7">
+            <div class="error-message">Inserisci 7 caratteri.</div>
             <label for="euro">Euro</label>
-            <input type="text" name="euro" id="euro" required>
+            <input type="text" name="euro" id="euro" required >
             <label for="nomeMotore">Motore</label>
             <input type="text" name="nomeMotore" id="nomeMotore" required>
             <label for="coloreMoto">Colore</label>
             <input type="text" name="coloreMoto" id="coloreMoto" required>
             <label for="annoProduzione">Anno</label>
-            <input type="number" name="annoProduzione" id="annoProduzione" required>
+            <input type="number" name="annoProduzione" id="annoProduzione" max="2024" min="1970">
+            <div class="error-message">Inserisci un anno valido (1970-2024).</div>
             <label for="prezzo">Prezzo</label>
             <input type="number" name="prezzo" id="prezzo" required>
             <label for="altezzaSella">Altezza sella</label>
             <input type="number" name="altezzaSella" id="altezzaSella" required>
             <label for="peso">Peso</label>
-            <input type="number" name="peso" id="peso" required>
+            <input type="number" name="peso" id="peso" required step="0.5">
             <label for="cilindrata">Cilindrata</label>
-            <input type="number" name="cilindrata" id="cilindrata" required>
+            <input type="number" name="cilindrata" id="cilindrata" required step="1">
+            <div class="error-message">Solo numeri interi.</div>
             <label for="capacitaSerbatoio">Capacità serbatoio</label>
-            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" required>
+            <input type="number" name="capacitaSerbatoio" id="capacitaSerbatoio" required step="1">
+            <div class="error-message">Solo numeri interi.</div>
             <label for="potenzaCV">Potenza CV</label>
-            <input type="number" name="potenzaCV" id="potenzaCV" required>
+            <input type="number" name="potenzaCV" id="potenzaCV" required step="1">
+            <div class="error-message">Solo numeri interi.</div>
             <label for="potenzaKV">Potenza KW</label>
-            <input type="number" name="potenzaKV" id="potenzaKV" required>
+            <input type="number" name="potenzaKV" id="potenzaKV" required step="1">
+            <div class="error-message">Solo numeri interi.</div>
             <label for="consumo">Consumo</label>
-            <input type="number" name="consumo" id="consumo" required>
+            <input type="number" name="consumo" id="consumo" required step="0.01">
             <label for="trasmissioneM">Trasmissione Manuale</label>
             <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true" onclick="checkTheCheckBox(this)">
             <label for="elettronico">Avviamento Elettronico</label>
             <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
-            <label for="tipoMoto">Tipo</label>
-            <input type="text" name="tipoMoto" id="tipoMoto" required>
+            <label for="tipoMoto">Tipo</label >
+            <select name="tipoMoto" id="tipoMoto" required> 
+                <option value="sportiva">Sportiva</option>
+                <option value="scooter">Scooter</option>
+                <option value="cross">Cross</option>
+            </select>
             <button onclick="chiudiFormIAggiunta()">Salva</button>  
 
 </form>

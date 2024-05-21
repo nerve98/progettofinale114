@@ -1,146 +1,123 @@
-
-/* Reset CSS */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-body {
-    line-height: 1;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-blockquote, q {
-    quotes: none;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-/* Basic styling */
-body {
+/* General form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
     font-family: Arial, sans-serif;
-    background-color: #fbfbfb;
-    padding: 20px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+label {
+    font-weight: bold;
+    margin-bottom: 3px;
+    font-size: 14px;
 }
 
-table, th, td {
-    border: 1px solid #000000;
-}
-
-th, td {
+input[type="text"], input[type="number"], select {
     padding: 8px;
-    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-th {
-    background-color: #f2f2f2;
+input[type="checkbox"] {
+    transform: scale(1.1);
+    margin-right: 5px;
+}
+
+.error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: -8px;
+    display: none; /* Hidden by default */
 }
 
 button {
-    padding: 10px 10px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #48b91f;  
     color: white;
+    padding: 8px 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color:  #327f1a;
 }
 
-input[type="text"],
-input[type="number"] {
-    width: calc(100% - 10px);
-    padding: 8px;
-    margin: 5px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+/* Form container styles */
+#form-Modifica, #Inserisci {
+    margin-top: 15px;
 }
 
-input[type="text"],
-input[type="number"] {
-    border-color: #4CAF50;
-    width: 30%;
+
+
+/* Display error messages when invalid input */
+input:invalid + .error-message {
+    display: block;
 }
 
-#form-Modifica {
-    margin-top: 20px;
+/* Style specific to readonly fields */
+input[readonly] {
+    background-color: #e9ecef;
 }
 
-#form-Modifica label {
-    display: inline-block;
-    margin-bottom: 5px;
+/* Additional custom styles */
+input:focus, select:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
 }
-
-table {
-    max-width: 800px; /* Larghezza massima della tabella */
-    width: 100%;
-    margin: 0 auto; /* Centra la tabella */
-}
-
 th, td {
-    padding: 6px; /* Riduce il padding */
+    border: 1px solid black; /* Aggiunge un bordo nero di 1px a tutti gli elementi th e td */
+    padding: 8px; /* Aggiunge spaziatura interna ai celle */
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Regola la larghezza delle colonne */
-th:first-child,
-td:first-child {
-    width: 5%; /* Regola la larghezza della prima colonna */
+thead {
+    background-color: #48b91f;  
+    color: white;
 }
 
-/* Regola la larghezza delle colonne rimanenti */
-th:not(:first-child),
-td:not(:first-child) {
-    width: 10%; /* Regola la larghezza delle colonne rimanenti */
+thead th {
+    padding: 10px;
+    text-align: center;
 }
-#form-Modifica label {
-    display: inline-block;
-    width: 30%; /* Regola la larghezza del label */
-    margin-bottom: 5px;
+
+tbody tr {
+    background-color: #f4f4f4;
+}
+
+tbody tr:hover {
+    background-color: #cad8cbce;
+}
+
+tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
-#form-Modifica input[type="text"],
-#form-Modifica input[type="number"] {
-    display: inline-block;
-    width: 30%; /* Regola la larghezza dell'input e riduce il margine */
-    padding: 8px;
-    margin-bottom: 5px;
-    margin-right: 300px; /* Aggiunge un margine sinistro per separare gli input */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#Salva {
-    display: block;
+body {
+    background-color: black;
 }
