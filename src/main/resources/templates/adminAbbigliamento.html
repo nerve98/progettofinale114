@@ -17,7 +17,7 @@
             <th>Materiale</th>
             <th>Brand</th>
             <th>Protettivo</th>
-            <th>Prezzo</th>ù
+            <th>Prezzo</th>
             </tr>
         </thead>
         <tbody>
@@ -48,23 +48,23 @@
         <form action="/modifica-abbigliamento" method="post">
             <h2>MODIFICA</h2>
             <label for="id">ID</label>
-            <input type="number" id="id" name="modifica-id" readonly>
+            <input type="number" id="id" name="id" readonly>
             <label for="nomeAbbigliamento">Nome</label>
-            <input type="text" id="nomeAbbigliamento" name="modifica-nomeAbbigliamento">
+            <input type="text" id="nomeAbbigliamento" name="nomeAbbigliamento">
             <label for="coloreAbbigliamento">Colore</label>
-            <input type="text" id="coloreAbbigliamento" name="modifica-coloreAbbigliamento">
+            <input type="text" id="coloreAbbigliamento" name="coloreAbbigliamento">
             <label for="materiale">Materiale</label>
-            <input type="text" id="materiale" name="modifica-materiale">
+            <input type="text" id="materiale" name="materiale">
             <label for="brand">Brand</label>
-            <input type="text" id="brand" name="modifica-brand">
+            <input type="text" id="brand" name="brand">
             <label for="protezione">Protettivo</label>
-            <input type="checkbox" id="protezione" name="modifica-protezione" value="true" onclick="checkTheCheckBox()">
+            <input type="checkbox" id="protezione" name="protezione" value="true" onclick="checkTheCheckBox()">
             <label for="prezzo">Prezzo</label>
-            <input type="number" id="prezzo" name="modifica-prezzo">
+            <input type="number" id="prezzo" name="prezzo">
             <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
         </form> 
     </div>
-    <button onclick="apriFormAggiunta()">Inserisci</button><button href="/home">Torna alla Home</button>
+    <button onclick="apriFormAggiunta()">Inserisci</button>                             <a href="/home"><button>Home Page</button></a>
     <div id="Inserisci" hidden>
         <form action="/inserisci-abbigliamento" method="post">
             <h2>INSERISCI</h2>
