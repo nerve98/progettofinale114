@@ -71,7 +71,7 @@ public class AdminControllerAbbigliamento {
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceAbbigliamento.update(paramsAbb);
-                    return "redirect:/adminAbbigliamento";
+                    return "redirect:/admin-abbigliamento";
                 }
             }
             return "redirect:/login";
