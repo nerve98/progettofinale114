@@ -26,17 +26,22 @@ public class CascoController {
     private ServiceImmagini serviceImmagini;
 
     @GetMapping("/caschi")
-    public String caschi(Model model, @RequestParam(name = "casco") Optional<String> param) {
-        String casco = param.orElse(null);
+    public String caschi(Model model, 
+        @RequestParam(name = "casco") Optional<String> paramCasco, 
+        @RequestParam(name = "visiera") Optional<Boolean> paramVisieraOscurata,
+        @RequestParam(name = "prezzoMax") Optional<Integer> paramPrezzoMax) {
+        String casco = paramCasco.orElse(null);
+        Integer prezzoMax = paramPrezzoMax.orElse(null);
+        Boolean visieraOscurata = paramVisieraOscurata.orElse(null);
         System.out.println("*******\n"+casco+"\n*******");
         List<Casco> caschi;
         List<Immagini> immagini;
-        if(casco==null || casco.isEmpty()){
+        if((casco==null || casco.isEmpty()) && (prezzoMax==null) && (visieraOscurata==null)){
             caschi = serviceCasco.findAll();
             immagini = serviceImmagini.findImmaginiCaschi(caschi);
         }
         else{
-            caschi = serviceCasco.search(casco);
+            caschi = serviceCasco.search(casco, prezzoMax, visieraOscurata);
             immagini = serviceImmagini.findImmaginiCaschi(caschi);
         }
         model.addAttribute("caschi", caschi);
