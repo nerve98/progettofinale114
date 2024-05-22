@@ -1,0 +1,24 @@
+.dropdown-toggle{
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #b1ddab;
+    color: #fff;
+    border: 0;
+    line-height: 1em;
+    border-radius: 8px;
+    outline: 0;
+    cursor: pointer;
+    -moz-transition: background-color .2s ease-in-out;
+    -webkit-transition: background-color .2s ease-in-out;
+    -o-transition: background-color .2s ease-in-out;
+    -ms-transition: background-color .2s ease-in-out;
+    transition: background-color .2s ease-in-out;
+    font-size: 1.25em;
+    padding: 0.85em 1.85em;
+    text-align: center;
+}

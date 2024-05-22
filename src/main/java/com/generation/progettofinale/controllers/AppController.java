@@ -37,6 +37,10 @@ public String home() {
 //}
 
 
+@GetMapping("/prova")
+public String prova(){
+    return "prove.html";
+}
 
 
 @GetMapping("/login")
