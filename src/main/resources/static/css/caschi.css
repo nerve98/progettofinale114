@@ -9,7 +9,7 @@
   }
 
   .bg-two {
-    background: linear-gradient(45deg, #ff5f4b, #821564);
+    background: linear-gradient(45deg, #ffffff, #5e6d636d);
   }
 
   .bg-one {
@@ -28,9 +28,9 @@
     height: 50px;
     font-size: 18px;
     margin-right: 30px;
-    background-color: #180148;
+    background-color: white;
     border-color: #007bff;
-    color: #ffffff90;
+    color: black;
   }
   
   #bottone-ricerca{
@@ -41,5 +41,42 @@
 
 
 
-  .btn-myblue{color: #007bff; border-color: #007bff;}
-  .btn-myblue:hover{background-color:#007bff; color: white;}
+  .btn-myblue{color: white; border-color: hsl(126, 42%, 30%);}
+  .btn-myblue:hover{background-color:#b1ddab; color: white;}
+
+  .immagine-sfondo{
+    min-height: 80vh;
+    background-image: url(https://superbikeitalia.it/wp-content/uploads/2021/12/triumph-speed-triple-1200-rs-imola-piega-dx.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #000;
+    max-width: 100%;
+  }
+
+  img:hover {
+    transform: rotateY(150deg);
+  }
+
+  .col-2{
+    margin-right: -20px; 
+    width:300px;
+  }
+
+  /*.form-group{
+    height: 150px; 
+    background-color: #f0f0f0; 
+    
+  }*/
+
+.form-control-range{
+
+  /*top: 30%;*/
+
+  width: 20px; /* Dimensione del cerchio */
+  height: 1px;
+  background-color: blue; /* Colore del cerchio */
+  /*border-radius: 50%; /* Forma del cerchio */
+
+}
