@@ -8,6 +8,8 @@
     <script src="js/casco.js" defer></script>
 </head>
 <body>
+    <a href="/home" ><button id="homepage">Torna alla home</button></a>
+    <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Casco</button>
     <table>
         <thead>
             <tr>
@@ -59,7 +61,7 @@
         <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
         </form>
     </div>
-    <button onclick="apriFormAggiunta()">Inserisci</button>  <a href="/home"><button>Home Page</button></a>
+    
     <div id="Inserisci" hidden>
     <form  action="/inserisci-casco" method="post">
         <h2>INSERISCI</h2>

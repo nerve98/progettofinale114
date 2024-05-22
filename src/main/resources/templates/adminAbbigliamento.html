@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/adminMoto.css">
 </head>
 <body>
+    <a href="/home" ><button id="homepage">Torna alla home</button></a>
+    <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Capo</button> 
     <table>
         <thead>
             <tr>
@@ -63,7 +65,8 @@
             <button id="Salva" onclick="chiudiFormModifica()">Salva&Chiudi</button>
         </form> 
     </div>
-    <button onclick="apriFormAggiunta()">Inserisci</button>                  <a href="/home"><button>Home Page</button></a>
+
+                    
     <div id="Inserisci" hidden>
         <form action="/inserisci-abbigliamento" method="post">
             <h2>INSERISCI</h2>
@@ -82,11 +85,5 @@
             <button id="Salva" onclick="chiudiFormAggiunta()">Salva&Chiudi</button>
         </form>
     </div>
-
-
-
-    
-    
-    
 </body>
 </html>
