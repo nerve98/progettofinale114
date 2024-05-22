@@ -73,13 +73,18 @@
 
 				
 				<!-- Main -->
-				<section id="main" style="background: #180148;">
-					<div class="container">
-						
+				<div class="immagine-sfondo">
+				<section class="main">
+					<div class="container " style="background: none;" >
+						<div class="row">
+							
+						<div class="col-10">
+							<br>
+							<br>
 							
 							<form class="form-inline" method="get" href="/caschi">
 								<input class="form-control" type="search" placeholder="Search" aria-label="Search" id="barra-ricerca" name="casco">
-								<button class="btn btn-myblue" type="submit" id="bottone-ricerca" style="color: #007bff; border-color: #007bff;" onmouseover="this.style.backgroundColor='#007bff'; this.style.color='white';" onmouseout="this.style.color='#007bff'; this.style.backgroundColor='transparent'">Search</button>		
+								<button class="btn btn-myblue" type="submit" id="bottone-ricerca" style="color:white;background-color: hsl(126, 42%, 30%); border-color: hsl(126, 42%, 30%);" onmousedown="this.style.boxShadow='none';this.style.backgroundColor='#b1ddab'; this.style.color='white'; this.style.borderColor='#b1ddab'" onmouseup="this.style.color='white'; this.style.backgroundColor='hsl(126, 42%, 30%)'; this.style.borderColor='hsl(126, 42%, 30%)'">Search</button>		
 							</form>
 							<br><br>
 						  
@@ -87,11 +92,11 @@
 								<div class="row gtr-200">
 									<div class="col-lg-3 col-sm-6 col-12" th:each="j: ${#numbers.sequence(0, 3, 1)}" th:if="${(j+i)<#lists.size(caschi)}" >
 										<div class="card" style="border:none;">
-											<img class="card-img-top" th:if="${immagini[i+j]!=null}" th:src="@{${immagini[i+j].url}}" style="padding:10px;">
-											<img class="card-img-top" th:if="${immagini[i+j]==null}" th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}" style="padding:10px;">
+											<img class="card-img-top" th:if="${immagini[i+j]!=null}" th:src="@{${immagini[i+j].url}}">
+											<img class="card-img-top" th:if="${immagini[i+j]==null}" th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}">
 											<div class="card-body bg-two" >
-											  <h5 class="card-title" th:text="${caschi[i+j].nomeCasco}" style="color: white;"></h5>
-											  <a href="#" class="btn btn-primary" >Visualizza il prodotto</a>
+											  <h5 class="card-title" th:text="${caschi[i+j].nomeCasco}" style="color: black"></h5>
+											  <a href="#" class="btn" style="background-color: #b1ddab; border-color: #b1ddab; color:white; font-family: 'Open Sans Condensed', sans-serif;" >VISUALIZZA PRODOTTO</a>
 											</div>
 										  </div>
 									</div>
@@ -100,8 +105,18 @@
 								<br>
 							</div>
 						</div>
-                    
+						<div class="col-2" style="background-color: white; margin-right: 0; width:300px;">
+							<form>
+								<div class="form-group">
+								  <label for="formControlRange">Example Range input</label>
+								  <input type="range" class="form-control-range" id="formControlRange">
+								</div>
+							  </form>
+						</div>
+                    </div>
+					</div>
                 </section>
+			</div>
 
 				<!--<section id="main" style="background: #180148;">
 					<div class="container">
