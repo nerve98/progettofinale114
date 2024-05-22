@@ -2,12 +2,12 @@ function modificaCasco(oggetto){
     var form = document.getElementById("form-Modifica");
     form.hidden = false;
     
-    var id = document.getElementById("modifica-id");
-    var nomeCasco = document.getElementById("modifica-nomeCasco");
-    var coloreCasco = document.getElementById("modifica-coloreCasco");
-    var visieraOscurata= document.getElementById("modifica-visieraOscurata");
-    var prezzo = document.getElementById("modifica-prezzo");
-    var modello = document.getElementById("modifica-modello");
+    var id = document.getElementById("id");
+    var nomeCasco = document.getElementById("nomeCasco");
+    var coloreCasco = document.getElementById("coloreCasco");
+    var visieraOscurata= document.getElementById("visieraOscurata");
+    var prezzo = document.getElementById("prezzo");
+    var modello = document.getElementById("modello");
 
 
     id.value = oggetto.getAttribute("modifica-id");

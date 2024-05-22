@@ -75,14 +75,46 @@
 			</li>
 		</ul>
 	</nav>
-	
+
+
+
+		
 	<div class="flex-container">
 
 		<table>
 			<tbody>
 				<tr th:each="abbigliamento : ${vestiti}">
 
-					<div class="flex-item bg-two tilt">
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button id="button-box"
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
+
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
 
 						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
 
@@ -99,8 +131,239 @@
 				</tr>
 			</tbody>
 		</table>
-
 	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex-container">
+		<table>
+			<tbody>
+				<tr th:each="abbigliamento : ${vestiti}">
+
+					<div class="flex-item bg-one tilt">
+
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+					
+								<button 
+								th:findbyid="${abbigliamento.id}"
+								onclick="cercaAbbigliamento(this)">Scopri di più</button>
+
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	
 <script src="script.js"></script>
 </body>
 </html>

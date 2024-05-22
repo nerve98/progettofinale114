@@ -60,7 +60,6 @@ public class AdminControllerCasco {
         Object loggatoObj = (String) session.getAttribute("loggato");
         Utente utente = null;
         String loggato = null;
-
         if(loggatoObj instanceof String && utenteObj instanceof Utente){
             loggato = (String) loggatoObj;
             utente = (Utente) utenteObj;
