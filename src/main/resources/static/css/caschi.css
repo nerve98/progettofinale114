@@ -59,19 +59,21 @@
     transform: rotateY(150deg);
   }
 
-  .form-group{
-    position: center;
-    width: 100%;
-    height: 150px; /* Altezza della barra di scorrimento */
-    background-color: #f0f0f0; /* Colore di sfondo della barra */
-
+  .col-2{
+    margin-right: -20px; 
+    width:300px;
   }
 
+  /*.form-group{
+    height: 150px; 
+    background-color: #f0f0f0; 
+    
+  }*/
+
 .form-control-range{
-  position: center;
-  right: 10%; /* Posizione del cerchio */
+
   /*top: 30%;*/
-  transform: translate(-50%, -50%);
+
   width: 20px; /* Dimensione del cerchio */
   height: 1px;
   background-color: blue; /* Colore del cerchio */
