@@ -47,4 +47,7 @@ function chiudiFrmAggiunta(){
     var form = documento.getElementById("Inserisci");
     form.hidden = true;
 }
+function checkTheCheckBox(oggetto){
+    oggetto.value = oggetto.checked ? "true" : "false";
+}
 

@@ -26,7 +26,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         databaseMySql.executeDML(query,
         e.getNomeAbbigliamento(),
         e.getColoreAbbigliamento(),
-        String.valueOf(e.isProtezione()),
+        String.valueOf(e.isProtezione()?1:0),
         e.getMateriale(),
         e.getBrand(),
         String.valueOf(e.getPrezzo()));     
@@ -59,7 +59,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         databaseMySql.executeDML(query,
         e.getNomeAbbigliamento(), 
         e.getColoreAbbigliamento(),
-        String.valueOf(e.isProtezione()),
+        String.valueOf(e.isProtezione()?1:0),
         e.getMateriale(),
         e.getBrand(),
         String.valueOf(e.getPrezzo()),
