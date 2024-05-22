@@ -59,7 +59,7 @@
 								<li><a href="#">Registrazione</a></li>
 
 								<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
-								<li><a href="/logout">Logout</a></li>
+								<li th:if="${loggato}"><a href="/logout">Logout</a></li>
 
 							</ul>
 						</li>

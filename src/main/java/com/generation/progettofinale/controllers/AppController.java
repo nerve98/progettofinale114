@@ -26,6 +26,7 @@ private ServiceUtente serviceUtente;
 public String home(Model model,
 HttpSession session) {
     model.addAttribute("isAdmin", session.getAttribute("admin"));
+    model.addAttribute("loggato", session.getAttribute("loggato"));
     return "index.html";
 }
 
