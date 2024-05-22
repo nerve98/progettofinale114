@@ -8,7 +8,7 @@
     <script src="js/moto.js" defer></script>
 </head>
 <body>
-    <a href="/home" ><button id="homepage">Torna alla home</button></a>
+    <a href="/admin" ><button id="homepage">Torna al menù</button></a>
     <button id="tInser" onclick="apriFormAggiunta()">Aggiungi Moto</button>  
     <div class="table-container">
         <table>
@@ -85,7 +85,7 @@
 </div>
     <div id="form-Modifica" hidden>
         <form action="/modifica-moto" method="post" >
-            <h2>MODIFICA</h2>
+            <h2 id="h2">MODIFICA</h2>
             <label for="id">ID</label>
             <input type="number" name="id" id="id" readonly >
             <label for="marca">Marca</label>
@@ -133,13 +133,13 @@
                 <option value="scooter">Scooter</option>
                 <option value="cross">Cross</option>
             </select>
-            <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
+            <button id="Salva" onclick="chiudiFormModifica()">Salva & Chiudi</button>
         </form>
     </div>
     
     <div id="Inserisci" hidden>
         <form id="form-inserisci" action="/inserisci-moto" method="post">
-            <h2>INSERISCI</h2>
+            <h2 id="h2">INSERISCI</h2>
             <label for="marca">Marca</label>
             <input type="text" name="marca" id="marca" required maxlength="50" minlength="2">
             <div class="error-message">Inserisci almeno 2 caratteri.</div>
@@ -185,7 +185,7 @@
                 <option value="scooter">Scooter</option>
                 <option value="cross">Cross</option>
             </select>
-            <button onclick="chiudiFormIAggiunta()">Salva</button>  
+            <button onclick="chiudiFormIAggiunta()">Salva & Chiudi</button>  
 
 </form>
 

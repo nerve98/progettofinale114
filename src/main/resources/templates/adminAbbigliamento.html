@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/adminMoto.css">
 </head>
 <body>
-    <a href="/home" ><button id="homepage">Torna alla home</button></a>
+    <a href="/admin" ><button id="homepage">Torna al menù</button></a>
     <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Capo</button> 
-    <table>
+    <table id="tableC">
         <thead>
             <tr>
             <th>ID</th>
@@ -47,7 +47,7 @@
     </table>
     <div id="form-Modifica" hidden >
         <form action="/modifica-abbigliamento" method="post">
-            <h2>MODIFICA</h2>
+            <h2 id="h2">MODIFICA</h2>
             <label for="id">ID</label>
             <input type="number" id="id" name="id" readonly>
             <label for="nomeAbbigliamento">Nome</label>
@@ -62,14 +62,14 @@
             <input type="checkbox" id="protezione" name="protezione" value="true" onclick="checkTheCheckBox(this)">
             <label for="prezzo">Prezzo</label>
             <input type="number" id="prezzo" name="prezzo" required>
-            <button id="Salva" onclick="chiudiFormModifica()">Salva&Chiudi</button>
+            <button id="Salva" onclick="chiudiFormModifica()">Salva & Chiudi</button>
         </form> 
     </div>
 
                     
     <div id="Inserisci" hidden>
         <form action="/inserisci-abbigliamento" method="post">
-            <h2>INSERISCI</h2>
+            <h2 id="h2">INSERISCI</h2>
             <label for="nomeAbbigliamento">Nome</label>
             <input type="text" id="nomeAbbigliamento" name="nomeAbbigliamento" required>
             <label for="coloreAbbigliamento">Colore</label>
@@ -82,7 +82,7 @@
             <input type="checkbox" id="protezione" name="protezione" value="true" onclick="checkTheCheckBox(this)">
             <label for="prezzo">Prezzo</label>
             <input type="number" id="prezzo" name="prezzo" required>
-            <button id="Salva" onclick="chiudiFormAggiunta()">Salva&Chiudi</button>
+            <button id="Salva" onclick="chiudiFormAggiunta()" >Salva & Chiudi</button>
         </form>
     </div>
 </body>
