@@ -1,10 +1,13 @@
 package com.generation.progettofinale.dao;
 
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.generation.progettofinale.models.Casco;
 
@@ -43,9 +46,47 @@ public class DaoCasco implements IDao<Long, Casco>{
     }
 
 
-    public Map<Long, Casco> search(String prodotto) {
-        String query = "select * from casco where nomeCasco like CONCAT( ?,'%')";
-        Map<Long, Map<String, String>> caschi = database.executeDQL(query, prodotto);
+    public Map<Long, Casco> search(String prodotto, Integer prezzoMax, Boolean visieraOscurata) {
+        String query = "select * from casco where $1 $2 $3";
+        boolean oneParam=false;
+        List<String> parametri=new ArrayList<>();
+        if(prodotto!=null && !prodotto.isEmpty()) {
+            query=query.replace("$1", "nomeCasco like CONCAT( ?,'%')");
+            parametri.add(prodotto);
+            oneParam=true;
+        }
+        else {
+            query=query.replace("$1", "");
+        }
+        if(prezzoMax!=null) {
+            if(oneParam){
+                query=query.replace("$2"," and  $2");
+                System.out.println(query);
+            }
+            else{
+                oneParam=true;
+            }
+            query=query.replace("$2", "prezzo<=?");
+            parametri.add(String.valueOf(prezzoMax));
+        }
+        else {
+            query=query.replace("$2", "");
+        }
+        if(visieraOscurata!=null) {
+            if(oneParam){
+                query=query.replace("$3"," and  $3");
+            }
+            else{
+                oneParam=true;
+            }
+            query=query.replace("$3", "visieraOscurata=?");
+            parametri.add(visieraOscurata?"1":"0");
+        }
+        else {
+            query=query.replace("$3", "");
+        }
+        System.out.println(query);
+        Map<Long, Map<String, String>> caschi = database.executeDQL(query, parametri.toArray(new String[parametri.size()]));
         Casco c=null;
         Map<Long, Casco> caschiMap = new HashMap<>();
         for(Map<String, String> map: caschi.values()){
