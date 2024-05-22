@@ -3,13 +3,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #f1f1f1;
+    background-color:#f9f9f9;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     margin: 20px auto;
     font-family: Arial, sans-serif;
+    border-radius: 25px;
+    border:  2px solid #000;
 }
 
 label {
@@ -79,11 +81,12 @@ input:focus, select:focus {
     
     margin: 20px 0;
     /* Personalizzazione della barra di scorrimento */
-    scrollbar-width: thin; /* Larghezza della barra di scorrimento */
-    scrollbar-color: #000000 #ffffff; /* Colore della barra di scorrimento */
+    scrollbar-width:thin;
+    scrollbar-color: #000000 #ffffff0c; /* Colore della barra di scorrimento */
     overflow-x: scroll;
-  overflow-y: auto;
-}	
+    overflow-y: auto;
+
+}
 table {
     width: auto;
     border-collapse: collapse;
@@ -92,7 +95,12 @@ table {
     text-align: center;
     table-layout: auto; /* Assicurati che il layout della tabella sia automatico */
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 50px;
    
+}
+#tableC{
+    margin-left: 28%;
+
 }
 #homepage {
     display: inline-block;
@@ -124,24 +132,27 @@ th, td {
 #tdModifica, #tdElimina {
     width: 100px;
     border: none;
+    background-color: #e6e6e6;
+    padding: 8px 3px;
 }
 #tdModifica,#tdElimina:hover {
-    background-color: #ffffff;
-}
-
-tbody tr:nth-of-type {
-    background-color: #f3f3f3;
+    background-color:  #e6e6e6;
+}ù
+#tdElimina {
+    width: 30px;
 }
 
 tbody tr:nth-of-type(odd) {
-    background-color: #ffffff;
+    background-color: #ffffffbe;
 }
 
 tbody td:hover {
     background-color: #f1f1f1;
 }
 
-
+#bottoneE {
+    margin-left: 5px;
+}
 button {
     padding: 10px 20px; 
     margin: 5px;
@@ -163,15 +174,15 @@ button:hover {
 }
 
 #bottoneE {
-    background-color: #f44336; /* Red */
+    background-color: #df1506; /* Red */
 }
 
 #bottoneE:hover {
-    background-color: #e31e1e;
+    background-color: rgb(255, 24, 44);
 }
 #tInser{
     position:absolute;
-    margin-top : 60px;
+    margin-top : 90px;
     margin-left: 40%;
     transform: translate(-50%, -50%);
     background-color: #000000;
@@ -180,8 +191,8 @@ button:hover {
 #bInsert{
     background-color:#000000;
     position: absolute;
-    margin-top: 25px;
-    margin-left: 120px;
+    margin-top:55px;
+    margin-left: 36%;
 }
 #bInsert:hover{
     background-color: #343434;
@@ -189,3 +200,11 @@ button:hover {
 #tInser:hover{
     background-color: #343434;
 }
+#h2{
+    text-align: center;
+}
+body {
+  
+background-color: #e6e6e6;
+     
+    }
