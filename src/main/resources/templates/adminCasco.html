@@ -27,7 +27,7 @@
                     <td th:text="${elmo.visieraOscurata}"></td>
                     <td th:text="${elmo.coloreCasco}"></td>
                     <td th:text="${elmo.prezzo}"></td>
-                    <td>
+                    <td id="tdModifica">
                         <button th:modifica-id="${elmo.id}"
                         th:modifica-modello="${elmo.modello}"
                         th:modifica-nomeCasco="${elmo.nomeCasco}"
@@ -35,7 +35,7 @@
                         th:modifica-coloreCasco="${elmo.coloreCasco}"
                         th:modifica-prezzo="${elmo.prezzo}" onclick="modificaCasco(this)">Modifica</button>
                     </td>
-                        <td>
+                        <td id="tdElimina">
                             <a th:href="|/elimina-casco?idCasco=${elmo.id}|"><button id="bottoneE">Elimina</button></a> 
                         </td>
                 </tr>    

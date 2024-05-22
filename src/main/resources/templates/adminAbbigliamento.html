@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <script src="js/abbigliamento.js" defer></script>
-    <link rel="stylesheet" href="css/abbigliamento.css">
+    <link rel="stylesheet" href="css/adminMoto.css">
 </head>
 <body>
     <table>
@@ -29,7 +29,7 @@
                 <td th:text="${abbigliamento.brand}"></td>
                 <td th:text="${abbigliamento.protezione}"></td>
                 <td th:text="${abbigliamento.prezzo}"></td>
-                <td>
+                <td id="tdModifica">
                     <button th:modifica-id="${abbigliamento.id}"
                     th:modifica-nomeAbbigliamento="${abbigliamento.nomeAbbigliamento}"
                     th:modifica-coloreAbbigliamento="${abbigliamento.coloreAbbigliamento}"
@@ -38,9 +38,8 @@
                     th:modifica-protezione="${abbigliamento.protezione}"
                     th:modifica-prezzo="${abbigliamento.prezzo}" onclick="modificaAbbigliamento(this)">Modifica</button>
                 </td>
-                <td>
-                    <a th:href="|/elimina-abbigliamento?idAbbigliamento=${abbigliamento.id}|"><button>Elimina</button></a>
-                </td>
+                <td id="tdElimina">
+                    <a th:href="|/elimina-abbigliamento?idAbbigliamento=${abbigliamento.id}|"><button id="bottoneE">Elimina</button></a>
              </tr>
         </tbody>
     </table>

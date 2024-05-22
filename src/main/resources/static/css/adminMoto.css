@@ -81,13 +81,16 @@ table {
     font-size: 18px;
     text-align: center;
     table-layout: auto; /* Assicurati che il layout della tabella sia automatico */
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 thead tr {
     background-color: #4CAF50;
     color: #ffffff;
     text-align: center;
-    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
 }
 
 th, td {
@@ -95,8 +98,15 @@ th, td {
     border: 1px solid #dddddd;
     text-align: center;
 }
+#tdModifica, #tdElimina {
+    width: 100px;
+    border: none;
+}
+#tdModifica,#tdElimina:hover {
+    background-color: #ffffff;
+}
 
-tbody tr:nth-of-type(even) {
+tbody tr:nth-of-type {
     background-color: #f3f3f3;
 }
 
@@ -104,7 +114,7 @@ tbody tr:nth-of-type(odd) {
     background-color: #ffffff;
 }
 
-tbody tr:hover {
+tbody td:hover {
     background-color: #f1f1f1;
 }
 
@@ -130,3 +140,4 @@ button:hover {
 #bottoneE:hover {
     background-color: #e31e1e;
 }
+

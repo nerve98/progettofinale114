@@ -52,7 +52,7 @@
                 <td th:text="${motorone.elettronico}"></td>
                 <td th:text="${motorone.tipoMoto}"></td>
             
-            <td>
+            <td id="tdModifica">
                 <button th:modifica-id="${motorone.id}" 
                 th:modifica-marca="${motorone.marca}"
                 th:modifica-targa="${motorone.targa}"
@@ -73,9 +73,9 @@
                 th:modifica-tipoMoto="${motorone.tipoMoto}"
                 onclick="modificaMoto(this)">Modifica</button>
             </td>
-            <td>
-                <a th:href="|/elimina-moto?idMoto=${motorone.id}|"><button>Elimina</button></a>
-            </td>
+            <td id="tdElimina">
+                    <a th:href="|/elimina-moto?idMoto=${motorone.id}|"><button id="bottoneE">Elimina</button></a>
+                </td>
         </tr>
     </tbody>
     </table>
