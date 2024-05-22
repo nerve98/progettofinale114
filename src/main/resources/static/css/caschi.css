@@ -80,3 +80,10 @@
   /*border-radius: 50%; /* Forma del cerchio */
 
 }
+.form-group{
+  color: black;
+
+}
+#flexCheckChecked{
+  background-color: black;
+}
