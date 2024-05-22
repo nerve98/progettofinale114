@@ -2381,9 +2381,6 @@ input, select, textarea {
 			transition: top .15s ease-in-out;
 		}
 
-			#nav li > ul {
-				display: none;
-			}
 
 			#nav li a, #nav li span {
 				-moz-transition: background-color .075s ease-in-out, color .075s ease-in-out;
@@ -2420,29 +2417,7 @@ input, select, textarea {
 				color: #fff;
 			}
 			
-			.dropdown:hover .dropdown-menu {
-				display: block;
-			}
-			.dropdown-menu {
-				display: none;
-				position: absolute;
-				background-color: #fff;
-				border: 1px solid #c1cac5;
-				border-radius: 4px;
-				padding: 0.5em;
-				top: 100%;
-				left: 0;
-				z-index: 999;
-			}
-			.dropdown-menu li {
-				display: block;
-				padding: 0.5em 1em;
-				cursor: pointer;
-			}
-			.dropdown-menu li:hover {
-				background-color: #c1cac5;
-				color: #fff;
-			}
+			
 /* Banner */
 
 	#banner {

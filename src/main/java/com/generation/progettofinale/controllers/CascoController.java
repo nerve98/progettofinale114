@@ -1,6 +1,7 @@
 package com.generation.progettofinale.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,9 +26,19 @@ public class CascoController {
     private ServiceImmagini serviceImmagini;
 
     @GetMapping("/caschi")
-    public String caschi(Model model) {
-        List<Casco> caschi = serviceCasco.findAll();
-        List<Immagini> immagini = serviceImmagini.findImmaginiCaschi(caschi);
+    public String caschi(Model model, @RequestParam(name = "casco") Optional<String> param) {
+        String casco = param.orElse(null);
+        System.out.println("*******\n"+casco+"\n*******");
+        List<Casco> caschi;
+        List<Immagini> immagini;
+        if(casco==null || casco.isEmpty()){
+            caschi = serviceCasco.findAll();
+            immagini = serviceImmagini.findImmaginiCaschi(caschi);
+        }
+        else{
+            caschi = serviceCasco.search(casco);
+            immagini = serviceImmagini.findImmaginiCaschi(caschi);
+        }
         model.addAttribute("caschi", caschi);
         model.addAttribute("immagini", immagini);
         System.out.println(immagini);

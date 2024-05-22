@@ -23,8 +23,8 @@
   background-position: center;
   background-attachment: fixed;
   background-color: #000;
-  
 }
+
 .flex-container .flex-item {
   margin: 25px;
   border-radius: 2px;
@@ -80,40 +80,24 @@
 .bg-one {
   background: linear-gradient(45deg, #ffffff, #5e6d636d);
 }
-
-.bg-two {
-  background: linear-gradient(45deg,  #ffffff, #5e6d636d);
+#button-box{
+  background-color: #b1ddab;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
 }
 
-.bg-three {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-four {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-five {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-six {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-seven {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-eight {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-nine {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
-.bg-ten {
-  background: linear-gradient(45deg, #ff00bb, #82000f);
-}
+
 .flex-item span > img {
   width:200px;
 }
 .flex-item .text{
-  color:white;
+  color:black;
   font-weight:800;
   /*font-family:*/
   font-size:12px;
@@ -129,5 +113,5 @@ color: #fff;
 line-height: 1em;
 cursor: pointer;
 padding: 0.85em 1.85em;
-text-align: center;
+text-align: justify;
 }

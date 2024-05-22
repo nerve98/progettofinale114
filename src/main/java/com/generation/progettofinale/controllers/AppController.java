@@ -23,19 +23,11 @@ private ServiceUtente serviceUtente;
 
 
 @GetMapping("/home")
-public String home() {
+public String home(Model model,
+HttpSession session) {
+    model.addAttribute("isAdmin", session.getAttribute("admin"));
     return "index.html";
 }
-
-//@GetMapping("/")
-//public String home(HttpSession session) {
-//    if(session.getAttribute("loggato")==null){
-//        return "redirect:/login";
-//    }else{
-//        return "index.html";
-//    }
-//}
-
 
 @GetMapping("/prova")
 public String prova(){
@@ -72,6 +64,7 @@ HttpSession session){
         //return "redirect:/";
 
         if(admin) {
+            session.setAttribute("admin", admin);
             return "redirect:/home";
         }else if(!admin){               
             return "redirect:/home";
