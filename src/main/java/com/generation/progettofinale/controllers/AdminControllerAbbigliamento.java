@@ -1,7 +1,9 @@
 package com.generation.progettofinale.controllers;
 
+
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +18,12 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AdminControllerAbbigliamento {
-
+    @Autowired
     private ServiceAbbigliamento serviceAbbigliamento;
 
     @GetMapping("/admin-abbigliamento")
-    public String abbigliamento() {
+    public String abbigliamento(Model model) {
+        model.addAttribute("vestiti", serviceAbbigliamento.findAll());
         return "adminAbbigliamento.html";
     }
 
@@ -68,7 +71,7 @@ public class AdminControllerAbbigliamento {
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceAbbigliamento.update(paramsAbb);
-                    return "redirect:/adminAbbigliamento";
+                    return "redirect:/admin-abbigliamento";
                 }
             }
             return "redirect:/login";

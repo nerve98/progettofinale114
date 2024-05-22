@@ -63,11 +63,11 @@
 					<div class="container">
 						
 							
-							<form class="form-inline" >
-								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  style="width:100%;">
-								<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>		
+							<form class="form-inline" method="get" href="/caschi">
+								<input class="form-control" type="search" placeholder="Search" aria-label="Search" id="barra-ricerca" name="casco">
+								<button class="btn btn-myblue" type="submit" id="bottone-ricerca" style="color: #007bff; border-color: #007bff;" onmouseover="this.style.backgroundColor='#007bff'; this.style.color='white';" onmouseout="this.style.color='#007bff'; this.style.backgroundColor='transparent'">Search</button>		
 							</form>
-						  
+							<br><br>
 						  
 							<div th:each="i: ${#numbers.sequence(0, #lists.size(caschi), 4)}">
 								<div class="row gtr-200">

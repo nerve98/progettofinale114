@@ -2,11 +2,13 @@ function modificaAbbigliamento(oggetto){
     var form = document.getElementById("form-Modifica");
     form.hidden = false;
 
-    var id = document.getElementById("modifica-id");
-    var nomeAbbigliamento = document.getElementById("modifica-nomeAbbigliamento");
-    var coloreAbbigliamento = document.getElementById("modifica-coloreAbbigliamento");
-    var protezione = document.getElementById("modifica-protezione");
-    var prezzo = document.getElementById("modifica-prezzo");
+    var id = document.getElementById("id");
+    var nomeAbbigliamento = document.getElementById("nomeAbbigliamento");
+    var coloreAbbigliamento = document.getElementById("coloreAbbigliamento");
+    var materiale= document.getElementById("materiale");
+    var brand= document.getElementById("brand");
+    var protezione = document.getElementById("protezione");
+    var prezzo = document.getElementById("prezzo");
 
 
     id.value = oggetto.getAttribute("modifica-id");
@@ -14,6 +16,8 @@ function modificaAbbigliamento(oggetto){
     coloreAbbigliamento.value = oggetto.getAttribute("modifica-coloreAbbigliamento");
     protezione.value = oggetto.getAttribute("modifica-protezione");
     prezzo.value = oggetto.getAttribute("modifica-prezzo");
+    materiale.value = oggetto.getAttribute("modifica-materiale");
+    brand.value = oggetto.getAttribute("modifica-brand");
 }
 
 
@@ -46,5 +50,8 @@ function apriFormAggiunta(){
 function chiudiFrmAggiunta(){
     var form = documento.getElementById("Inserisci");
     form.hidden = true;
+}
+function checkTheCheckBox(oggetto){
+    oggetto.value = oggetto.checked ? "true" : "false";
 }
 

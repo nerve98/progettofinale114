@@ -42,6 +42,21 @@ public class DaoCasco implements IDao<Long, Casco>{
         return caschiMap;
     }
 
+
+    public Map<Long, Casco> search(String prodotto) {
+        String query = "select * from casco where nomeCasco like CONCAT( ?,'%')";
+        Map<Long, Map<String, String>> caschi = database.executeDQL(query, prodotto);
+        Casco c=null;
+        Map<Long, Casco> caschiMap = new HashMap<>();
+        for(Map<String, String> map: caschi.values()){
+            map.put("visieraOscurata", map.get("visieraOscurata").equals("1")?"true":"false");
+            c=context.getBean(Casco.class, map);
+            caschiMap.put(c.getId(), c);
+        }
+        return caschiMap;
+    }
+
+
     @Override
     public void update(Casco e) {
         String query = "UPDATE casco SET modello=?, nomeCasco=?, visieraOscurata=?, coloreCasco=?, prezzo=? WHERE id=?";
