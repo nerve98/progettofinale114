@@ -27,11 +27,6 @@ input[type="text"], input[type="number"], select {
     box-sizing: border-box;
 }
 
-input[type="checkbox"] {
-    transform: scale(1.1);
-    margin-right: 5px;
-}
-
 .error-message {
     font-size: 12px;
     color: red;
@@ -78,46 +73,60 @@ input:focus, select:focus {
     outline: none;
     box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
 }
-th, td {
-    border: 1px solid black; /* Aggiunge un bordo nero di 1px a tutti gli elementi th e td */
-    padding: 8px; /* Aggiunge spaziatura interna ai celle */
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    
-}
+
 table {
-    width: 100%;
+    width:  auto;
     border-collapse: collapse;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    table-layout: auto; /* Assicurati che il layout della tabella sia automatico */
 }
 
-thead {
-    background-color: #48b91f;  
-    color: white;
+thead tr {
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
 }
 
-thead th {
-    padding: 10px;
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
     text-align: center;
 }
 
-tbody tr {
-    background-color: #f4f4f4;
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #ffffff;
 }
 
 tbody tr:hover {
-    background-color: #cad8cbce;
+    background-color: #f1f1f1;
 }
 
-tbody td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-body {
-    background-color: black;
+button:hover {
+    background-color: #45a049;
+}
+
+#bottoneE {
+    background-color: #f44336; /* Red */
+}
+
+#bottoneE:hover {
+    background-color: #e31e1e;
 }
