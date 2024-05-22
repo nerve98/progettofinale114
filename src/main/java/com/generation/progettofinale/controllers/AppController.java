@@ -44,6 +44,7 @@ public String login() {
     public String logout(HttpSession session){
         session.setAttribute("loggato", null);;
         session.setAttribute("utente", null);
+        session.setAttribute("admin", null);
         return "redirect:/home";
     }
 

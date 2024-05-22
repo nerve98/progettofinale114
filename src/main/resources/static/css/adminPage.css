@@ -9,7 +9,7 @@ body {
 .container {
     text-align: center;
     margin-left: 20%;
-    margin-top: 2%;
+    margin-top: 2%; 
 }
 .button {
     height: 300px; /* Imposta un'altezza fissa */
@@ -19,7 +19,7 @@ body {
     border-radius: 10px;
     border: 5px solid #000000;
     background-color: #000000;
-    color: #e6e6e6c9;
+    color: #ffffffe1;
     margin: 10px;
     transition: all 0.3s ease; 
     display: inline-flex; /* Per centrare il testo verticalmente */
