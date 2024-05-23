@@ -38,9 +38,9 @@
 						<li>
 							<a type="button" data-bs-toggle="dropdown" aria-expanded="false" >Motoroni</a>
 							<ul class="dropdown-menu">
-								<li><a href="/sportive">Sportive</a></li>
-								<li><a href="#">Cross</a></li>
-								<li><a href="#">Scooter</a></li>
+								<li><a href="/sportive" style="background-color: transparent; color: #6b7770;">Sportive</a></li>
+								<li><a href="#" style="background-color: transparent; color: #6b7770;">Cross</a></li>
+								<li><a href="#" style="background-color: transparent; color: #6b7770;">Scooter</a></li>
 							</ul>
 						</li>
 
@@ -55,10 +55,10 @@
 						<li>
 							<a type="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin"></a>
 							<ul class="dropdown-menu">
-								<li th:unless="${loggato}"><a href="/login">Login</a></li>
-								<li th:unless="${loggato}"><a href="/formRegistrazione">Registrazione</a></li>
-								<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
-								<li th:if="${loggato}"><a href="/logout">Logout</a></li>
+								<li th:unless="${loggato}"><a href="/login" style="background-color: transparent; color: #6b7770;">Login</a></li>
+								<li th:unless="${loggato}"><a href="/formRegistrazione" style="background-color: transparent; color: #6b7770;">Registrazione</a></li>
+								<li th:if="${isAdmin}"><a href="/admin" style="background-color: transparent; color: #6b7770;">Admin-Page</a></li>
+								<li th:if="${loggato}"><a href="/logout" style="background-color: transparent; color: #6b7770;">Logout</a></li>
 
 							</ul>
 						</li>
