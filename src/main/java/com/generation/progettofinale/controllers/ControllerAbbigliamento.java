@@ -33,7 +33,7 @@ public class ControllerAbbigliamento {
     public String abbigliamento(Model model,
         @RequestParam (name = "abbigliamento") Optional<String> paramAbbigliamento,
         @RequestParam (name = "prezzoMax") Optional<Integer> paramPrezzoMax,
-        @RequestParam (name ="protezione") Optional<Boolean> paramProtezione){
+        @RequestParam (name ="protezione") Optional<Boolean> paramProtezione,HttpSession session){
         String abbigliamento = paramAbbigliamento.orElse(null);
         Integer prezzoMax = paramPrezzoMax.orElse(null);
         Boolean protezione = paramProtezione.orElse(null);
@@ -50,6 +50,8 @@ public class ControllerAbbigliamento {
         }
         model.addAttribute("vestiti", vestiti);
         model.addAttribute("immagini", immagini);
+        model.addAttribute("isAdmin", session.getAttribute("admin"));
+        model.addAttribute("loggato", session.getAttribute("loggato"));
         System.out.println(immagini);
         return "abbigliamento.html";
     }
