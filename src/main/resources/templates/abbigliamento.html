@@ -105,9 +105,9 @@
 											
 												<h5 class="card-title" th:text="${vestiti[i+j].nomeAbbigliamento}"
 													style="color: black"></h5>
-												<button class="btn" onclick=cercaAbbigliamento(this.id)
-													style="background-color: #b1ddab; border-color: #b1ddab; color:white; font-family: 'Open Sans Condensed', sans-serif;">VISUALIZZA
-													PRODOTTO</button>
+
+													<a th:href="|/abbigliamento-byId?idAbbigliamento=${vestiti[i+j].id}|" class="btn" 
+													style="background-color: #b1ddab; border-color: #b1ddab; color:white; font-family: 'Open Sans Condensed', sans-serif;">VISUALIZZA</a>
 											</div>
 										</div>
 									</div>
