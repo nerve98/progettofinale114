@@ -57,3 +57,4 @@ function chiudiFormAggiunta(){
 function checkTheCheckBox(oggetto){
     oggetto.value = oggetto.checked ? "true" : "false";
 }
+

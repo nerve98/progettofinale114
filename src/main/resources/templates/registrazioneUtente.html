@@ -2,16 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Registrazione Utente</title>
+    <title>Registrazione</title>
     <link rel="stylesheet" href="/css/register.css" type="text/css" />
     </head>
-<body>
-    <div id="loginDiv">
-        <div>
-          <h3>Registrati</h3>
-        </div>
-        <div id="loginFormDiv">
+    <body class="homepage is-preload" style="padding-top: 0%;  max-height: 100%;">
+
+        <div id="page-wrapper" >
+    
+            <header id="header" >
+                <div class="logo container">
+                    <div>
+                        <h1><a href="/home" id="logo">Motoroni</a></h1>
+                        <p>i più belli di sempre</p>
+                    </div>
+                </div>
+            </header>
+        
             <form id="loginForm" action="/register" method="post" th:object="${utente}">
+                    <div>
+                    <h3>Benvenuto!</h3>
+                    </div>
                 <div>
                     <label for="nome"></label>
                     <input type="text" id="nome" name="nome" required="required" placeholder="Nome" th:field="${utente.nome}">
@@ -21,29 +31,63 @@
                     <input type="text" id="cognome" name="cognome" required="required" placeholder="Cognome" th:field="${utente.cognome}"/>
                 </div>
                 <div>
-                    <label for="username"></label>
-                    <input type="text" id="username" name="username" required="required" placeholder="Username" th:field="${utente.username}">
+                    <label for="data"></label>
+                    <input type="date" id="data" name="dataNascita" required 
+                    placeholder="Data nascita"
+                    th:field="${utente.dataNascita}" 
+                    onfocus="this.type='date'" 
+                    onblur="(this.value=='')?this.type='text':this.type='date'" 
+                    oninput="this.type='date'"/>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var dateInput = document.getElementById('data');
+                                if (!dateInput.value) {
+                                    dateInput.type = 'text';
+                                }
+                            });
+                        </script>
                 </div>
                 <div>
                     <label for="email"></label>
-                    <input type="email" id="email" name="email" required="required" placeholder="Email" th:field="${utente.email}"/>
+                    <input type="email" id="email" name="email" required placeholder="E-mail" th:field="${utente.email}"/>
                 </div>
                 <div>
+                    <label for="username"></label>
+                    <input type="text" id="username" name="username" required placeholder="Username" th:field="${utente.username}">
+                </div>
+                
+                <div>
                     <label for="password"></label>
-                    <input type="password" id="password" name="password" required="required" placeholder="Password" th:field="${utente.password}"/>
+                    <input type="password" id="password" name="password" required placeholder="Password" th:field="${utente.password}" />
                 </div>
                 <div>
                     <label for="confermaPassword"></label>
                     <input type="password" id="confermaPassword" name="confermaPassword" required placeholder="Conferma Password"/>
                 </div>
-                <div>
-                    <label for="data"></label>
-                    <input type="date" id="data" name="dataNascita" required placeholder="Data nascita" th:field="${utente.dataNascita}"/>
-                </div>
+                
                 <div>
                     <button type="submit">Registrati</button>
+                    <br>
+                    <h8 id="h8">Sei già registrato? <a href="/login">Clicca qui</a></h8>
                 </div>
+                   
             </form>
         </div>
+    </div>
+        <footer id="footer" style="padding: 0%;">
+            <div class="container">
+
+                <div id="copyright">
+                    <ul class="menu">
+                        <li>&copy; Alessandro</li><li>&copy; Giacomo</li><li>&copy; Gianluca</li><li>&copy; Michele</li>
+                    </ul>
+                </div>
+
+            </div>
+        </footer>
+
+
+    </div>
+
 </body>
 </html>

@@ -26,7 +26,7 @@
                     <td th:text="${elmo.id}"></td>
                     <td th:text="${elmo.modello}"></td>
                     <td th:text="${elmo.nomeCasco}"></td>
-                    <td th:text="${elmo.visieraOscurata}"></td>
+                    <td th:text="${elmo.visieraOscurata ? 'Sì' : 'No'}"></td>
                     <td th:text="${elmo.coloreCasco}"></td>
                     <td th:text="${elmo.prezzo}"></td>
                     <td id="tdModifica">
@@ -53,7 +53,7 @@
         <label for="nomeCasco">Casco</label>
         <input type="text" id="nomeCasco" name="nomeCasco" required>
         <label for="visieraOscurata">Visiera Oscurata</label>
-        <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true" onclick="checkTheCheckBox(this)">
+        <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true" onclick="checkTheCheckBox(this)" >
         <label for="coloreCasco">Colore</label>
         <input type="text" id="coloreCasco" name="coloreCasco" required>
         <label for="prezzo">Prezzo</label>
@@ -70,7 +70,7 @@
         <label for="nomeCasco">Casco</label>
         <input type="text" id="nomeCasco" name="nomeCasco" required>
         <label for="visieraOscurata">Visiera Oscurata</label>
-        <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true" onclick="checkTheCheckBox(this)">
+        <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true"  onclick="checkTheCheckBox(this)">
         <label for="coloreCasco">Colore</label>
         <input type="text" id="coloreCasco" name="coloreCasco" required>
         <label for="prezzo">Prezzo</label>

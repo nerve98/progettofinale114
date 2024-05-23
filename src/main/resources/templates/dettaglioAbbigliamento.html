@@ -13,7 +13,7 @@
         <p>Colore: <span th:text = "${abbigliamento.coloreAbbigliamento}"></span></p>
         <p>Marca: <span th:text = "${abbigliamento.brand}"></span></p>
         <p>materiale: <span th:text = "${abbigliamento.materiale}"></span></p>
-        <p>protezione: <span th:text = "${abbigliamento.protezione}"></span></p>
+        <p>protezione: <span th:text = "${abbigliamento.protezione ? 'Sì' : 'No'}"></span></p>
     </div>
 </body>
 </html>
