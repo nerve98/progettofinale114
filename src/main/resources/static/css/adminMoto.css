@@ -204,7 +204,38 @@ button:hover {
     text-align: center;
 }
 body {
-  
 background-color: #e6e6e6;
-     
+     }
+     select#tipoMoto {
+        width: 400px;
+        padding: 10px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        color: #333;
+        appearance: none; /* Rimuove lo stile predefinito su alcuni browser */
+        -webkit-appearance: none; /* Rimuove lo stile predefinito su Safari */
+        -moz-appearance: none; /* Rimuove lo stile predefinito su Firefox */
     }
+
+    /* Stile per le opzioni */
+    select#tipoMoto option {
+        background-color: #fff;
+        color: #333;
+        padding: 10px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    select#tipoMoto:focus {
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: 0 0 3px rgb(58, 255, 23);
+    }
+   
+    /* Icona per la freccia */
+    select#tipoMoto {
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D"http%3A//www.w3.org/2000/svg" width%3D"16" height%3D"16" fill%3D"currentColor" class%3D"bi bi-chevron-down" viewBox%3D"0 0 16 16"%3E%3Cpath fill-rule%3D"evenodd" d%3D"M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"%3E%3C/path%3E%3C/svg%3E');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 16px 16px;}
