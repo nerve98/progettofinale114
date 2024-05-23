@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/moto.css" type="text/css" />
+
+
+
+    <title>Sportive</title>
+</head>
+<body>
+    <div id="page-wrapper">
+
+        <nav id="nav" >
+        
+	    	<ul style="display: flex; align-items: center; justify-content: center; top: -2px;">
+	    		<li class="current"><a href="/home">Home</a></li>
+            
+	    		<li>
+	    			<a type="button" data-bs-toggle="dropdown" aria-expanded="false" >Motoroni</a>
+	    			<ul class="dropdown-menu">
+	    				<li><a href="/sportive">Sportive</a></li>
+	    				<li><a href="#">Cross</a></li>
+	    				<li><a href="#">Scooter</a></li>
+	    			</ul>
+	    		</li>
+	    		<li>
+	    			<a href="/caschi">Caschi</a>
+	    		</li>
+	    		<li>
+	    			<a href="/abbigliamento">Abbigliamento</a>
+	    		</li>
+	    		<li>
+	    			<a type="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin"></a>
+	    			<ul class="dropdown-menu">
+	    				<li><a href="/login">Login</a></li>
+	    				<li><a href="#">Registrazione</a></li>
+	    				<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
+	    			</ul>
+	    		</li>
+	    	</ul>
+	    </nav>
+    </div>
+
+    <br><br>
+
+
+    <!-- carousel -->
+
+    <div class="carousel">
+        <div class="list">
+            <table>
+                <tbody>
+                    <tr  th:each="moto : motori">
+                        <div class="item">
+                            <img src="https://images.ctfassets.net/x7j9qwvpvr5s/4dVp0rqMOc8eWUaMIEgO4E/691c8b587eddbbbb49ac27e6acef95ca/Panigale-V4S-Red-MY18-01-Pista-Video-Full-1330x748.jpg">
+                            <div class="content">
+                                <div class="title" th:text="${moto.nomeMotore}"></div>
+                                <div class="topic" th:text="${moto.marca}"></div>
+                                <div class="des" th:text="${moto.potenzaCV}"></div>
+                            </div>
+                            <div class="buttons">
+                                <button>SEE MORE</button>
+                                <button>SUBSCRIBE</button>
+                            </div>
+                                
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="carousel">
+        <!-- lista moto -->
+        <div class="list">
+            <div class="item">
+                <img src="https://images.ctfassets.net/x7j9qwvpvr5s/4dVp0rqMOc8eWUaMIEgO4E/691c8b587eddbbbb49ac27e6acef95ca/Panigale-V4S-Red-MY18-01-Pista-Video-Full-1330x748.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        <!-- descrizione -->
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/95229/left-front-three-quarter.jpeg?q=80">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://s3-us-west-2.amazonaws.com/my-car-mexico/modelos/d5cd51a8/BMW-S-RR-1.webp">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://cdn2.yamaha-motor.eu/prod/product-assets/2024/YZF1000R1/2024-Yamaha-YZF1000R1-EU-Icon_Blue-Static-0499-01.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://cdn2.yamaha-motor.eu/prod/product-assets/2024/YZF1000R1/2024-Yamaha-YZF1000R1-EU-Icon_Blue-Static-0499-01.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- lista thumbnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="https://images.ctfassets.net/x7j9qwvpvr5s/4dVp0rqMOc8eWUaMIEgO4E/691c8b587eddbbbb49ac27e6acef95ca/Panigale-V4S-Red-MY18-01-Pista-Video-Full-1330x748.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/95229/left-front-three-quarter.jpeg?q=80">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://s3-us-west-2.amazonaws.com/my-car-mexico/modelos/d5cd51a8/BMW-S-RR-1.webp">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://cdn2.yamaha-motor.eu/prod/product-assets/2024/YZF1000R1/2024-Yamaha-YZF1000R1-EU-Icon_Blue-Static-0499-01.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- tempo -->
+        <div class="time"></div>
+    </div>
+
+    <script src="/js/carouselMoto.js"></script>
+</body>
+</html>

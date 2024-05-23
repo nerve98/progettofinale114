@@ -31,7 +31,7 @@
 		<li>
 			<a type="button" data-bs-toggle="dropdown" aria-expanded="false" >Motoroni</a>
 			<ul class="dropdown-menu">
-				<li><a href="#">Sportive</a></li>
+				<li><a href="/sportive">Sportive</a></li>
 				<li><a href="#">Cross</a></li>
 				<li><a href="#">Scooter</a></li>
 			</ul>
@@ -46,38 +46,38 @@
 		</li>
 
 		<li>
-			<a href="/login" >
-				<img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin">
-			</a>
+			<a type="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin"></a>
+			<ul class="dropdown-menu">
+				<li><a href="/login">Login</a></li>
+				<li><a href="#">Registrazione</a></li>
+
+				<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
+
+			</ul>
 		</li>
 	</ul>
 </nav>
 	
-	<div class="flex-container">
 
-		<table>
-			<tbody>
-				<tr th:each="abbigliamento : ${vestiti}">
-
+	<table>
+		<tbody>
+			<tr th:each="abbigliamento : ${vestiti}">
+				<div class="flex-container">
 					<div class="flex-item bg-two tilt">
-
 						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
-
 						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
-
 						<div class="text" th:text="${abbigliamento.prezzo}"></div>
-					
-								<button 
-								th:findbyid="${abbigliamento.id}"
-								onclick="cercaAbbigliamento(this)">Scopri di più</button>
-
+						
+						<button 
+						th:findbyid="${abbigliamento.id}"
+						onclick="cercaAbbigliamento(this)">Scopri di più</button>
+						
 					</div>
+				</div>
+			</tr>
+		</tbody>
+	</table>
 
-				</tr>
-			</tbody>
-		</table>
-
-	</div>
 <script src="script.js"></script>
 </body>
 </html>
