@@ -43,11 +43,11 @@
                 <td th:text="${motorone.nomeMotore}"></td>
                 <td th:text="${motorone.coloreMoto}"></td>                   
                 <td th:text="${motorone.annoProduzione}"></td>
-                <td th:text="${motorone.prezzo}"></td>
-                <td th:text="${motorone.altezzaSella}"></td>
-                <td th:text="${motorone.peso}"></td>
+                <td th:text="${motorone.prezzo}+'€'"></td>
+                <td th:text="${motorone.altezzaSella}+' cm'"></td>
+                <td th:text="${motorone.peso}+' kg'"></td>
                 <td th:text="${motorone.cilindrata}"></td>
-                <td th:text="${motorone.capacitaSerbatoio}"></td>
+                <td th:text="${motorone.capacitaSerbatoio}+'L'"></td>
                 <td th:text="${motorone.potenzaCV}"></td>
                 <td th:text="${motorone.potenzaKV}"></td>
                 <td th:text="${motorone.consumo}"></td>
@@ -133,7 +133,8 @@
                 <option value="scooter">Scooter</option>
                 <option value="cross">Cross</option>
             </select>
-            <button id="Salva" onclick="chiudiFormModifica()">Salva & Chiudi</button>
+            <button id="salvaCasc" onclick="chiudiFormModifica()">Salva & Chiudi</button>
+            <button id="annullaCasc" type="reset" onclick="chiudiFormModifica()">Annulla</button>
         </form>
     </div>
     
@@ -185,7 +186,8 @@
                 <option value="scooter">Scooter</option>
                 <option value="cross">Cross</option>
             </select>
-            <button onclick="chiudiFormIAggiunta()">Salva & Chiudi</button>  
+            <button id="salvaCasc" onclick="chiudiFormAggiunta()">Salva & Chiudi</button> 
+            <button id="annullaCasc" type="reset" onclick="chiudiFormAggiunta()">Annulla</button> 
 
 </form>
 
