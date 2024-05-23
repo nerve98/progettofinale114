@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import com.generation.progettofinale.models.Moto;
 import com.generation.progettofinale.models.Casco;
@@ -126,6 +127,7 @@ public class ModelsContext {
 
     @Bean
     @Scope("prototype")
+    @Primary
     public Utente utente(Map<String, String> map) {
         Utente u = new Utente();
         Long id = -1L;

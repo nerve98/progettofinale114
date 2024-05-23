@@ -26,7 +26,7 @@ public class UtenteController {
 
     @GetMapping("/formRegistrazione")
     public String formRegistrazione(Model model){
-        Utente u= applicationContext.getBean("utente",Utente.class);
+        Utente u= applicationContext.getBean("newUtente",Utente.class);
         model.addAttribute("utente", u);
         return "registrazioneUtente.html";
     }
@@ -41,11 +41,13 @@ public class UtenteController {
             @RequestParam Map<String, String> allParams) {
         Utente utenteDB;
         utenteDB=serviceUtente.findByUsername(utente.getUsername());
+        System.out.println("findByUsername: " +utenteDB);
         if(utenteDB!=null){
             model.addAttribute("error", "Username già in uso");
             return "registrazioneUtente.html";
         }
         utenteDB=serviceUtente.findByEmail(utente.getEmail());
+        System.out.println("findByEmail: " +utenteDB);
         if(utenteDB!=null){
             model.addAttribute("error", "Email già in uso");
             return "registrazioneUtente.html";
@@ -55,12 +57,12 @@ public class UtenteController {
             model.addAttribute("error", "Le password non coincidono");
             return "registrazioneUtente.html";
         }
-        allParams.put("isAdmin", "false");
-
+        allParams.put("admin", "false");
+        System.out.println("mappa: KEYS:" +allParams.keySet()+" //n VALUES: "+allParams.values());
        
         serviceUtente.insert(allParams);
 
         session.setAttribute("utente", utente);
-        return "formLogin.html";
+        return "redirect:/login";
     }
 }
