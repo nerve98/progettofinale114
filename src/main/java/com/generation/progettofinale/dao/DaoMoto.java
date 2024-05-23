@@ -2,7 +2,10 @@ package com.generation.progettofinale.dao;
 
 import com.generation.progettofinale.models.Moto;
 import lombok.Data;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -110,4 +113,17 @@ public class DaoMoto implements IDao<Long, Moto>{
 
         return m;
     }
+
+    public List<Moto> readByTipoMoto(String tipo) {
+        query="SELECT * FROM moto WHERE tipoMoto=?";
+        Map<Long, Map<String, String>> motoMap=db.executeDQL(query, tipo);
+        List<Moto> m= new ArrayList<>();
+        for(Map<String,String> map: motoMap.values()){
+            map.put("elettronico", map.get("elettronico").equals("1")?"true":"false");
+            map.put("trasmissioneM", map.get("trasmissioneM").equals("1")?"true":"false");
+            m.add(context.getBean(Moto.class,map));
+        }
+        return m;
+    }
+            
 }

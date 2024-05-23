@@ -16,7 +16,7 @@
     background: linear-gradient(45deg, #ff194b, #8215f0);
   }
 
-  img{
+  .img-prodotto{
     height: 200px;
     width: 200px;
     object-fit:contain;
@@ -55,7 +55,7 @@
     max-width: 100%;
   }
 
-  img:hover {
+  #img-fill-prodotto:hover {
     transform: rotateY(150deg);
   }
 

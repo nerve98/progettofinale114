@@ -1,22 +1,18 @@
 package com.generation.progettofinale.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
 import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Abbigliamento;
 import com.generation.progettofinale.models.Casco;
 import com.generation.progettofinale.models.Immagini;
 import com.generation.progettofinale.models.Utente;
-
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -55,8 +51,8 @@ public class ControllerAbbigliamento {
         model.addAttribute("immagini", immagini);
         System.out.println(immagini);
        
-        return "abbigliamento.html";
-    }
+
+ 
     
 
     @GetMapping("/abbigliamento-byId")
@@ -79,6 +75,7 @@ public class ControllerAbbigliamento {
                           return "paginaErrore.html";
                     }
                       model.addAttribute("abbigliamento", abbigliamento);
+                      
                       return "dettaglioabbigliamento.html";
                     }
             }

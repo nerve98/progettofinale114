@@ -26,8 +26,6 @@ public class UtenteController {
 
     @GetMapping("/formRegistrazione")
     public String formRegistrazione(Model model){
-        Utente utente = applicationContext.getBean("utente",Utente.class);
-        model.addAttribute("utente", utente);
         return "registrazioneUtente.html";
     }
 
@@ -38,8 +36,7 @@ public class UtenteController {
             @RequestParam("confermaPassword") String confermaPassword,
             @ModelAttribute Utente utente,
             HttpSession session,
-            @RequestParam Map<String, String> allParams)
-    {
+            @RequestParam Map<String, String> allParams) {
         Utente utenteDB;
         utenteDB=serviceUtente.findByUsername(utente.getUsername());
         if(utenteDB!=null){

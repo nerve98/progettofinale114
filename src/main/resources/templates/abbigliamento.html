@@ -28,6 +28,7 @@
 					<p>i più belli di sempre</p>
 				</div>
 			</div>
+
 		</header>
 
 		<!-- Nav -->
@@ -148,6 +149,41 @@
 
 
 	</div>
+
+=======
+		<li>
+			<a type="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin"></a>
+			<ul class="dropdown-menu">
+				<li th:unless="${loggato}"><a href="/login">Login</a></li>
+								<li th:unless="${loggato}"><a href="/formRegistrazione">Registrazione</a></li>
+								<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
+								<li th:if="${loggato}"><a href="/logout">Logout</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+	
+
+	<table>
+		<tbody>
+			<tr th:each="abbigliamento : ${vestiti}">
+				<div class="flex-container">
+					<div class="flex-item bg-two tilt">
+						<span><img src="https://www.motoneracing.com/online/222034-thickbox_default/abbigliamento-moto-rukka-giacca-offlane-nera-gialla-fluo-goretex.jpg"></span>
+						<div class="text" th:text="${abbigliamento.nomeAbbigliamento}"></div>
+						<div class="text" th:text="${abbigliamento.prezzo}"></div>
+						
+						<button 
+						th:findbyid="${abbigliamento.id}"
+						onclick="cercaAbbigliamento(this)">Scopri di più</button>
+						
+					</div>
+				</div>
+			</tr>
+		</tbody>
+	</table>
+
+<script src="script.js"></script>
 
 </body>
 
