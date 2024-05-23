@@ -13,7 +13,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-		<script src="js/abbigliameto.js" defer></script>
+		<script src="js/abbigliamento.js" defer></script>
 
 </head>
 
@@ -96,9 +96,9 @@
 										th:if="${(j+i)<#lists.size(vestiti)}">
 										<div class="card" style="border:none;">
 											
-											<img class="card-img-top" th:if="${immagini[i+j]!=null}"
-												th:src="@{${immagini[i+j].url}}">
-											<img class="card-img-top" th:if="${immagini[i+j]==null}"
+											<img class="card-img-top img-prodotto" th:if="${immagini[i+j]!=null}"
+												th:src="@{${immagini[i+j].url}}" id="img-fill-prodotto">
+											<img class="card-img-top img-prodotto" th:if="${immagini[i+j]==null}"
 												th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}">
 										
 											<div class="card-body bg-two">
