@@ -13,6 +13,22 @@ form {
     border-radius: 25px;
     border:  2px solid #000;
 }
+ 
+  
+#annullaCasc, #salvaCasc {
+    display: inline-block;
+    align-self: normal;
+    border-radius: 50px;
+}
+#annullaCasc {
+    background-color:  #df1506;
+    
+}
+#annullaCasc:hover {
+    background-color:rgb(255, 24, 44);
+}
+  
+  
 
 label {
     font-weight: bold;
@@ -146,6 +162,8 @@ table {
         border: none; /* Rimuove il bordo */
         border-radius: 5px; /* Bordi arrotondati */
         cursor: pointer; 
+       
+
 }
 #homepage:hover {
     background-color: #0d4a7c;
@@ -228,6 +246,7 @@ button:hover {
     position: absolute;
     margin-top:55px;
     margin-left: 36%;
+
 }
 #bInsert:hover{
     background-color: #343434;

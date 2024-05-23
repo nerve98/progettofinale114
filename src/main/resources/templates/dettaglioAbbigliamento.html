@@ -9,11 +9,11 @@
     
     <div>
         <p>Nome: <span th:text = "${abbigliamento.nomeAbbigliamento}"></span></p>
-        <p>Prezzo: <span th:text = "${abbigliamento.prezzo}"></span></p>
+        <p>Prezzo: <span th:text = "${abbigliamento.prezzo}+ ' €'"></span></p>
         <p>Colore: <span th:text = "${abbigliamento.coloreAbbigliamento}"></span></p>
         <p>Marca: <span th:text = "${abbigliamento.brand}"></span></p>
-        <p>materiale: <span th:text = "${abbigliamento.materiale}"></span></p>
-        <p>protezione: <span th:text = "${abbigliamento.protezione ? 'Sì' : 'No'}"></span></p>
+        <p>Materiale: <span th:text = "${abbigliamento.materiale}"></span></p>
+        <p>Protettivo: <span th:text = "${abbigliamento.protezione ? 'Sì' : 'No'}"></span></p>
     </div>
 </body>
 </html>
