@@ -8,6 +8,7 @@ if(!form){
     console.error("form modifica non trovato");
     return;
 }
+chiudiFormAggiunta();
 form.hidden = false;
 var valori = [
     "id","cilindrata","capacitaSerbatoio","potenzaCV","potenzaKV","peso","altezzaSella","consumo",
@@ -43,6 +44,7 @@ valori.forEach(function(valore){
 }
 
 function apriFormAggiunta(){
+    chiudiFormModifica();
     var form = document.getElementById("Inserisci");
     form.hidden = false;
 }
