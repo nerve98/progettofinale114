@@ -62,9 +62,9 @@
   
 
   /*.form-group{
-    height: 150px; 
-    background-color: #f0f0f0; 
-    
+  
+  .tilt {
+      box-shadow: 0 20px 30px -13px rgba(0, 0, 0, 0.7);
   }*/
 
 .form-control-range{
@@ -120,4 +120,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.col-3{
+  background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 16%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 100%);
 }

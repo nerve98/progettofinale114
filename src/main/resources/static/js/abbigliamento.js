@@ -21,6 +21,10 @@ function modificaAbbigliamento(oggetto){
     brand.value = oggetto.getAttribute("modifica-brand");
    
 }
+function cercaAbbigliamento() {
+    var id = document.getElementById("abbigliamento-id").value;
+    window.location.href = "/abbigliamento-byId?idAbbigliamento=" + id;
+}
 
 
 function chiudiFormModifica(){
