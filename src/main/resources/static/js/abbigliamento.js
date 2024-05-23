@@ -1,7 +1,8 @@
 function modificaAbbigliamento(oggetto){
+    
     var form = document.getElementById("form-Modifica");
     form.hidden = false;
-
+    chiudiFormAggiunta();
     var id = document.getElementById("id");
     var nomeAbbigliamento = document.getElementById("nomeAbbigliamento");
     var coloreAbbigliamento = document.getElementById("coloreAbbigliamento");
@@ -9,7 +10,7 @@ function modificaAbbigliamento(oggetto){
     var brand= document.getElementById("brand");
     var protezione = document.getElementById("protezione");
     var prezzo = document.getElementById("prezzo");
-
+   
 
     id.value = oggetto.getAttribute("modifica-id");
     nomeAbbigliamento.value = oggetto.getAttribute("modifica-nomeAbbigliamento");
@@ -18,6 +19,7 @@ function modificaAbbigliamento(oggetto){
     prezzo.value = oggetto.getAttribute("modifica-prezzo");
     materiale.value = oggetto.getAttribute("modifica-materiale");
     brand.value = oggetto.getAttribute("modifica-brand");
+   
 }
 
 
@@ -45,10 +47,11 @@ function checkTheCheckBox(oggetto){
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = false;
+    chiudiFormModifica();   
 }
 
 function chiudiFormAggiunta(){
-    var form = documento.getElementById("Inserisci");
+    var form = document.getElementById("Inserisci");
     form.hidden = true;
 }
 

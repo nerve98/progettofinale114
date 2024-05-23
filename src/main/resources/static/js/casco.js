@@ -1,7 +1,8 @@
 function modificaCasco(oggetto){
     var form = document.getElementById("form-Modifica");
+    chiudiFormAggiunta();
     form.hidden = false;
-    
+   
     var id = document.getElementById("id");
     var nomeCasco = document.getElementById("nomeCasco");
     var coloreCasco = document.getElementById("coloreCasco");
@@ -16,6 +17,7 @@ function modificaCasco(oggetto){
     visieraOscurata.value = oggetto.getAttribute("modifica-visieraOscurata");
     prezzo.value = oggetto.getAttribute("modifica-prezzo");
     modello.value = oggetto.getAttribute("modifica-modello");
+    
 }
 
 function chiudiFormModifica(){
@@ -39,10 +41,11 @@ function chiudiFormModifica(){
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = false;
+    chiudiFormModifica();
 }
 
 function chiudiFormAggiunta(){
-    var form = documento.getElementById("Inserisci");
+    var form = document.getElementById("Inserisci");
     form.hidden = true;
 }
 function checkTheCheckBox(oggetto){
