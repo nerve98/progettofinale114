@@ -29,11 +29,10 @@ public class CascoController {
     public String caschi(Model model, 
         @RequestParam(name = "casco") Optional<String> paramCasco, 
         @RequestParam(name = "visiera") Optional<Boolean> paramVisieraOscurata,
-        @RequestParam(name = "prezzoMax") Optional<Integer> paramPrezzoMax) {
+        @RequestParam(name = "prezzoMax") Optional<Integer> paramPrezzoMax,HttpSession session) {
         String casco = paramCasco.orElse(null);
         Integer prezzoMax = paramPrezzoMax.orElse(null);
         Boolean visieraOscurata = paramVisieraOscurata.orElse(null);
-        System.out.println("*******\n"+casco+"\n*******");
         List<Casco> caschi;
         List<Immagini> immagini;
         if((casco==null || casco.isEmpty()) && (prezzoMax==null) && (visieraOscurata==null)){
@@ -46,7 +45,9 @@ public class CascoController {
         }
         model.addAttribute("caschi", caschi);
         model.addAttribute("immagini", immagini);
-        System.out.println(immagini);
+        model.addAttribute("isAdmin", session.getAttribute("admin"));
+        model.addAttribute("loggato", session.getAttribute("loggato"));
+        
         return "caschi.html";
     }
 

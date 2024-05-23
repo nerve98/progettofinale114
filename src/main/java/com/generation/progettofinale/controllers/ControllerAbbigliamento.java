@@ -18,9 +18,11 @@ public class ControllerAbbigliamento {
     private ServiceAbbigliamento serviceAbbigliamento;
 
     @GetMapping("/abbigliamento")
-    public String abbigliamento(Model model){
+    public String abbigliamento(Model model, HttpSession session){
         List<Abbigliamento> ris = serviceAbbigliamento.findAll();
         model.addAttribute("vestiti", ris);
+        model.addAttribute("isAdmin", session.getAttribute("admin"));
+        model.addAttribute("loggato", session.getAttribute("loggato"));
         return "abbigliamento.html";
     }
 
@@ -45,6 +47,7 @@ public class ControllerAbbigliamento {
                           return "paginaErrore.html";
                     }
                       model.addAttribute("abbigliamento", abbigliamento);
+                      
                       return "dettaglioabbigliamento.html";
                     }
             }
