@@ -51,8 +51,8 @@
                 <td th:text="${motorone.potenzaCV}"></td>
                 <td th:text="${motorone.potenzaKV}"></td>
                 <td th:text="${motorone.consumo}"></td>
-                <td th:text="${motorone.trasmissioneM}"></td>
-                <td th:text="${motorone.elettronico}"></td>
+                <td th:text="${motorone.trasmissioneM ? 'Sì' : 'No'}"></td>
+                <td th:text="${motorone.elettronico ? 'Sì' : 'No'}"></td>
                 <td th:text="${motorone.tipoMoto}"></td>
             
             <td id="tdModifica">

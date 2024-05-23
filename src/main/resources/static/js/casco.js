@@ -55,3 +55,5 @@ function checkTheCheckBox(oggetto){
 function updateTextInput(val) {
     document.getElementById('textInput').value=val; 
   }
+
+ 

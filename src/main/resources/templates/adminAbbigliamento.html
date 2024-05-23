@@ -29,7 +29,7 @@
                 <td th:text="${abbigliamento.coloreAbbigliamento}"></td>
                 <td th:text="${abbigliamento.materiale}"></td>
                 <td th:text="${abbigliamento.brand}"></td>
-                <td th:text="${abbigliamento.protezione}"></td>
+                <td th:text="${abbigliamento.protezione ? 'Sì' : 'No'}"></td>
                 <td th:text="${abbigliamento.prezzo}"></td>
                 <td id="tdModifica">
                     <button th:modifica-id="${abbigliamento.id}"

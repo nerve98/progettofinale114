@@ -27,6 +27,50 @@ body {
 	line-height: 1;
 }
 
+#loginForm{
+	width: 300px;
+	margin-left: 40%;
+	margin-top: 45px;
+	padding: 20px;	
+	border: 1px solid #ccc;
+	background: #f9f9f9;
+	border-radius: 15px;
+	text-align: center	;
+}
+#loginForm button{
+	margin-top: 10px;
+}
+#loginForm input{
+	margin-left: 9%;
+	margin-top: 1px;
+	text-align: center	;
+}
+#loginForm a{
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: #575d59;
+}
+#loginForm a:hover{
+	color: #000000;
+}
+#loginForm input[type="date"] {
+	width: 84%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 7px;
+	font-size: 16px;
+	
+	background-color: #ffffff;
+	
+	transition: border-color 0.3s, box-shadow 0.3s;
+	margin-right: 25px;
+  }
+  
+  
+  #loginForm input[type="date"]:focus {
+	border-color: #000000;
+	box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+  }
+
 ol, ul {
 	list-style: none;
 }

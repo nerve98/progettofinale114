@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import com.generation.progettofinale.models.Abbigliamento;
-import com.generation.progettofinale.models.Casco;
+
 
 import lombok.Data;
 
