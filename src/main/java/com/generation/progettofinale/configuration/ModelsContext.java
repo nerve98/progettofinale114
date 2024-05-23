@@ -87,7 +87,11 @@ public class ModelsContext {
         return a;
     }
     
-
+    @Bean
+    @Scope("prototype")
+    public Utente newUtente() {
+        return new Utente();
+    }
     @Bean
     @Scope("prototype")
     public Immagini immagini(Map<String, String> map) {

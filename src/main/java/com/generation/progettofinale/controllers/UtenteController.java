@@ -26,6 +26,8 @@ public class UtenteController {
 
     @GetMapping("/formRegistrazione")
     public String formRegistrazione(Model model){
+        Utente u= applicationContext.getBean("utente",Utente.class);
+        model.addAttribute("utente", u);
         return "registrazioneUtente.html";
     }
 
@@ -40,12 +42,12 @@ public class UtenteController {
         Utente utenteDB;
         utenteDB=serviceUtente.findByUsername(utente.getUsername());
         if(utenteDB!=null){
-            model.addAttribute("error", "Username già presente");
+            model.addAttribute("error", "Username già in uso");
             return "registrazioneUtente.html";
         }
-        utenteDB=serviceUtente.findByUsername(utente.getEmail());
+        utenteDB=serviceUtente.findByEmail(utente.getEmail());
         if(utenteDB!=null){
-            model.addAttribute("error", "Email già presente");
+            model.addAttribute("error", "Email già in uso");
             return "registrazioneUtente.html";
         }
         
@@ -57,7 +59,7 @@ public class UtenteController {
 
        
         serviceUtente.insert(allParams);
-        
+
         session.setAttribute("utente", utente);
         return "formLogin.html";
     }
