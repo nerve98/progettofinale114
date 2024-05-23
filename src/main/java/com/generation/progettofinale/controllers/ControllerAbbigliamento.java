@@ -1,6 +1,7 @@
 package com.generation.progettofinale.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
 import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Abbigliamento;
-import com.generation.progettofinale.models.Casco;
+
 import com.generation.progettofinale.models.Immagini;
 import com.generation.progettofinale.models.Utente;
 import jakarta.servlet.http.HttpSession;
@@ -50,7 +51,7 @@ public class ControllerAbbigliamento {
         model.addAttribute("vestiti", vestiti);
         model.addAttribute("immagini", immagini);
         System.out.println(immagini);
-       
+    }
 
  
     
