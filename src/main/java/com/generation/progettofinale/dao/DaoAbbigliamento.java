@@ -44,6 +44,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         Map<Long,Abbigliamento> vestitiMap = new HashMap<>();
 
         for(Map<String,String> map : vestiti.values()){
+            map.put("protezione", map.get("protezione").equals("1")?"true":"false");
             Abbigliamento a = context.getBean(Abbigliamento.class, map);
             vestitiMap.put(a.getId(), a);
         }
@@ -85,6 +86,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         Map<Long,Map<String,String>> vestiti = databaseMySql.executeDQL(query,String.valueOf(id));
         Abbigliamento a = null;
         for(Map<String,String> map : vestiti.values()){
+            map.put("protezione", map.get("protezione").equals("1")?"true":"false");
             a = context.getBean(Abbigliamento.class, map);
         }
         

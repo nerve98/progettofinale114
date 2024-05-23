@@ -58,42 +58,91 @@
 
 							</ul>
 						</li>
-					</ul>
-				</nav>
+			</ul>
+		</nav>
 
-				
-				<!-- Main -->
-				<section id="main" style="background: #180148;">
-					<div class="container">
-						
-							
+
+		<!-- Main -->
+		<div class="immagine-sfondo">
+			<section class="main">
+				<div class="container-fluid" style="background: none;">
+					<div class="row">
+
+						<div class="col-9" style="padding-left: 50px;">
+							<br>
+							<br>
+
 							<form class="form-inline" method="get" href="/caschi">
-								<input class="form-control" type="search" placeholder="Search" aria-label="Search" id="barra-ricerca" name="casco">
-								<button class="btn btn-myblue" type="submit" id="bottone-ricerca" style="color: #007bff; border-color: #007bff;" onmouseover="this.style.backgroundColor='#007bff'; this.style.color='white';" onmouseout="this.style.color='#007bff'; this.style.backgroundColor='transparent'">Search</button>		
+								<input class="form-control" type="search" placeholder="Cerca" aria-label="Search"
+									id="barra-ricerca" name="casco">
+								<button class="btn" type="submit" id="bottone-ricerca"
+									style="color:white;background-color: hsl(126, 42%, 30%); border-color: hsl(126, 42%, 30%);"
+									onmousedown="this.style.boxShadow='none';this.style.backgroundColor='#b1ddab'; this.style.color='white'; this.style.borderColor='#b1ddab'"
+									onmouseup="this.style.color='white'; this.style.backgroundColor='hsl(126, 42%, 30%)'; this.style.borderColor='hsl(126, 42%, 30%)'">Search</button>
 							</form>
 							<br><br>
-						  
-							<div th:each="i: ${#numbers.sequence(0, #lists.size(caschi), 4)}">
-								<div class="row gtr-200">
-									<div class="col-lg-3 col-sm-6 col-12" th:each="j: ${#numbers.sequence(0, 3, 1)}" th:if="${(j+i)<#lists.size(caschi)}" >
+
+							<div th:each="i: ${#numbers.sequence(0, #lists.size(caschi), 3)}">
+								<div class="row">
+									<div class="col-lg-4 col-sm-12 col-12" th:each="j: ${#numbers.sequence(0, 2, 1)}"
+										th:if="${(j+i)<#lists.size(caschi)}">
 										<div class="card" style="border:none;">
-											<img class="card-img-top" th:if="${immagini[i+j]!=null}" th:src="@{${immagini[i+j].url}}" style="padding:10px;">
-											<img class="card-img-top" th:if="${immagini[i+j]==null}" th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}" style="padding:10px;">
-											<div class="card-body bg-two" >
-											  <h5 class="card-title" th:text="${caschi[i+j].nomeCasco}" style="color: white;"></h5>
-											  <a href="#" class="btn btn-primary" >Visualizza il prodotto</a>
+											<img class="card-img-top" th:if="${immagini[i+j]!=null}"
+												th:src="@{${immagini[i+j].url}}">
+											<img class="card-img-top" th:if="${immagini[i+j]==null}"
+												th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}">
+											<div class="card-body bg-two">
+												<h5 class="card-title" th:text="${caschi[i+j].nomeCasco}"
+													style="color: black"></h5>
+												<a href="#" class="btn"
+													style="background-color: #b1ddab; border-color: #b1ddab; color:white; font-family: 'Open Sans Condensed', sans-serif;">VISUALIZZA
+													PRODOTTO</a>
 											</div>
-										  </div>
+										</div>
 									</div>
 									<br>
 								</div>
 								<br>
 							</div>
 						</div>
-                    
-                </section>
+						<div class="col-3" style="background-color:#b1ddab; padding: 50px 30px 0 30px;">
 
-				<!--<section id="main" style="background: #180148;">
+
+							<form method="get" href="/caschi">
+								<h3>Filtra</h3>
+								<br>
+								<div class="form-group" style="min-height: 80vh;">
+									<div class="form-inline">
+										<label for="formControlRange" style="font-size: 16px; margin-right: 10px;">prezzo max</label>
+										<input type="range" style="margin-right: 10px;" class="form-control-range" id="formControlRange" min="0"
+											max="1000" value="0" oninput="this.form.prezzoMax.value=this.value" name="amountRange"/>
+										<input type="number" style="margin-right: 10px;" class="display-range" name="prezzoMax" min="0"
+											max="1000" value="0" oninput="this.form.amountRange.value=this.value"/>
+										<span>€</span>
+									</div>
+									<br>
+									<div class="form-inline">
+										<label for="visiera" style="font-size: 16px; margin-right: 10px;">Visiera oscurata</label>
+										<div class="form-check">
+											<input onclick="checkTheCheckBox(this)" class="form-check-input" type="checkbox" value="false" id="visiera" name="visiera">
+											<input type="hidden" name="visiera" value="false" />
+										</div>
+									</div>
+									<br>
+									<input type="submit" class="btn" value="Cerca" id="filtra-button">
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+
+
+
+		<!--<section id="main" style="background: #180148;">
 					<div class="container">
 							
 								<div class="row" th:each="c, iter : ${caschi}">
@@ -113,7 +162,9 @@
 						</div>
                     
                 </section>-->
-            </div>
-    </body>
-</html>
 
+	</div>
+
+</body>
+
+</html>

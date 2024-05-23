@@ -8,7 +8,9 @@
     <script src="js/casco.js" defer></script>
 </head>
 <body>
-    <table>
+    <a href="/admin" ><button id="homepage">Torna al menù</button></a>
+    <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Casco</button>
+    <table id="tableC">
         <thead>
             <tr>
                 <th>ID</th>
@@ -27,7 +29,7 @@
                     <td th:text="${elmo.visieraOscurata}"></td>
                     <td th:text="${elmo.coloreCasco}"></td>
                     <td th:text="${elmo.prezzo}"></td>
-                    <td>
+                    <td id="tdModifica">
                         <button th:modifica-id="${elmo.id}"
                         th:modifica-modello="${elmo.modello}"
                         th:modifica-nomeCasco="${elmo.nomeCasco}"
@@ -35,45 +37,45 @@
                         th:modifica-coloreCasco="${elmo.coloreCasco}"
                         th:modifica-prezzo="${elmo.prezzo}" onclick="modificaCasco(this)">Modifica</button>
                     </td>
-                        <td>
-                            <a th:href="|/elimina-casco?idCasco=${elmo.id}|"><button>Elimina</button></a> 
+                        <td id="tdElimina">
+                            <a th:href="|/elimina-casco?idCasco=${elmo.id}|"><button id="bottoneE">Elimina</button></a> 
                         </td>
                 </tr>    
             </tbody>      
     </table>
     <div id="form-Modifica" hidden >
         <form action="/modifica-casco" method="post" >
-            <h2>MODIFICA</h2>
+            <h2 id="h2">MODIFICA</h2>
         <label for="id">ID</label>
         <input type="number" id="id" name="id" readonly>
         <label for="modello">Modello</label>
-        <input type="text" id="modello" name="modello">
+        <input type="text" id="modello" name="modello" required>
         <label for="nomeCasco">Casco</label>
-        <input type="text" id="nomeCasco" name="nomeCasco">
+        <input type="text" id="nomeCasco" name="nomeCasco" required>
         <label for="visieraOscurata">Visiera Oscurata</label>
         <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true" onclick="checkTheCheckBox(this)">
         <label for="coloreCasco">Colore</label>
-        <input type="text" id="coloreCasco" name="coloreCasco">
+        <input type="text" id="coloreCasco" name="coloreCasco" required>
         <label for="prezzo">Prezzo</label>
-        <input type="number" id="prezzo" name="prezzo">
-        <button id="Salva" onclick="chiudiFormModifica()">Salva</button>
+        <input type="number" id="prezzo" name="prezzo" required>
+        <button id="Salva" onclick="chiudiFormModifica()">Salva & Chiudi</button>
         </form>
     </div>
-    <button onclick="apriFormAggiunta()">Inserisci</button>  <a href="/home"><button>Home Page</button></a>
+    
     <div id="Inserisci" hidden>
     <form  action="/inserisci-casco" method="post">
-        <h2>INSERISCI</h2>
+        <h2 id="h2">INSERISCI</h2>
         <label for="modello">Modello</label>
-        <input type="text" id="modello" name="modello">
+        <input type="text" id="modello" name="modello" required>
         <label for="nomeCasco">Casco</label>
-        <input type="text" id="nomeCasco" name="nomeCasco">
+        <input type="text" id="nomeCasco" name="nomeCasco" required>
         <label for="visieraOscurata">Visiera Oscurata</label>
         <input type="checkbox" id="visieraOscurata" name="visieraOscurata" value="true" onclick="checkTheCheckBox(this)">
         <label for="coloreCasco">Colore</label>
-        <input type="text" id="coloreCasco" name="coloreCasco">
+        <input type="text" id="coloreCasco" name="coloreCasco" required>
         <label for="prezzo">Prezzo</label>
-        <input type="number" id="prezzo" name="prezzo">
-        <button type="submit"onclick="chiudiFormIAggiunta()">Salva</button>
+        <input type="number" id="prezzo" name="prezzo" required>
+        <button type="submit"onclick="chiudiFormIAggiunta()">Salva & Chiudi</button>
     </form>
     </div>
 </body>
