@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio abbigliamento</title>
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+  
+<body>
+    <h1>Dettaglio Alimentare</h1>
+    <div>
+        <p>Nome: <span th:text = "${dettaglio.nomeAbbigliamento}"></span></p>
+        <p>Prezzo: <span th:text = "${Dettaglio.prezzo}"></span></p>
+        <p>Scadenza: <span th:text = "${dettaglio.coloreAbbigliamento}"></span></p>
+        <p>Qualità: <span th:text = "${dettaglio.materiale}"></span></p>
+        <p>Brand: <span th:text = "${dettaglio.brand}"></span></p>
+        <p>Protezione: <span th:text = "${dettaglio.protezione}"></span></p>
+    </div>
+    
+</body>
+</html>

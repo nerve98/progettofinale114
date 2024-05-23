@@ -1,11 +1,15 @@
 package com.generation.progettofinale.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import com.generation.progettofinale.models.Abbigliamento;
+import com.generation.progettofinale.models.Casco;
+
 import lombok.Data;
 
 @Data
@@ -91,6 +95,56 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         }
         
         return a;
+    }
+       public Map<Long, Abbigliamento> search(String prodotto, Integer prezzoMax, Boolean protezione) {
+        String query = "select * from abbigliamento where $1 $2 $3";
+        boolean oneParam=false;
+        List<String> parametri=new ArrayList<>();
+        if(prodotto!=null && !prodotto.isEmpty()) {
+            query=query.replace("$1", "nomeAbbigliamento like CONCAT( ?,'%')");
+            parametri.add(prodotto);
+            oneParam=true;
+        }
+        else {
+            query=query.replace("$1", "");
+        }
+        if(prezzoMax!=null) {
+            if(oneParam){
+                query=query.replace("$2"," and  $2");
+                System.out.println(query);
+            }
+            else{
+                oneParam=true;
+            }
+            query=query.replace("$2", "prezzo<=?");
+            parametri.add(String.valueOf(prezzoMax));
+        }
+        else {
+            query=query.replace("$2", "");
+        }
+        if(protezione!=null) {
+            if(oneParam){
+                query=query.replace("$3"," and  $3");
+            }
+            else{
+                oneParam=true;
+            }
+            query=query.replace("$3", "protezione=?");
+            parametri.add(protezione?"1":"0");
+        }
+        else {
+            query=query.replace("$3", "");
+        }
+        System.out.println(query);
+        Map<Long, Map<String, String>> abbigliamento = databaseMySql.executeDQL(query, parametri.toArray(new String[parametri.size()]));
+        Abbigliamento a=null;
+        Map<Long, Abbigliamento> abbiMap = new HashMap<>();
+        for(Map<String,String> map: abbigliamento.values()){
+            map.put("protezione", map.get("protezione").equals("1")?"true":"false");
+            a=context.getBean(Abbigliamento.class, map);
+            abbiMap.put(a.getId(), a);
+        }
+        return abbiMap;
     }
 
 }
