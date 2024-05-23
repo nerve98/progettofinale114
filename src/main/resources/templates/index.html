@@ -57,7 +57,6 @@
 							<ul class="dropdown-menu">
 								<li th:unless="${loggato}"><a href="/login">Login</a></li>
 								<li th:unless="${loggato}"><a href="#">Registrazione</a></li>
-
 								<li th:if="${isAdmin}"><a href="/admin">Admin-Page</a></li>
 								<li th:if="${loggato}"><a href="/logout">Logout</a></li>
 
