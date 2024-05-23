@@ -51,6 +51,7 @@ public class ControllerAbbigliamento {
         model.addAttribute("vestiti", vestiti);
         model.addAttribute("immagini", immagini);
         System.out.println(immagini);
+        return "abbigliamento.html";
     }
 
  
