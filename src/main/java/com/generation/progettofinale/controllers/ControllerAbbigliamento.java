@@ -55,6 +55,7 @@ public class ControllerAbbigliamento {
         System.out.println(immagini);
         return "abbigliamento.html";
     }
+    
 
  
     
@@ -72,7 +73,7 @@ public class ControllerAbbigliamento {
             utente = (Utente) utenteObj;
             loggato = (String) loggatoObj;
             if(loggato!=null && utente!=null){
-                if(loggato.equals("ok") && utente.isAdmin()){
+                if(loggato.equals("ok") && utente!=null){
                     Abbigliamento abbigliamento = serviceAbbigliamento.findById(idAbbigliamento); // Convert Integer to Long
                    if( abbigliamento == null){
                           model.addAttribute("error","errore nella visualizzazione dell'abbigliamento");
