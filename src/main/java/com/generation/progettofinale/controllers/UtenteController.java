@@ -59,6 +59,6 @@ public class UtenteController {
         serviceUtente.insert(allParams);
         
         session.setAttribute("utente", utente);
-        return "confermaRegistrazione.html";
+        return "formLogin.html";
     }
 }
