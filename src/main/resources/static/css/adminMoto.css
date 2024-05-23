@@ -3,13 +3,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #f1f1f1;
+    background-color:#f9f9f9;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     margin: 20px auto;
     font-family: Arial, sans-serif;
+    border-radius: 25px;
+    border:  2px solid #000;
 }
 
 label {
@@ -25,11 +27,6 @@ input[type="text"], input[type="number"], select {
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
-}
-
-input[type="checkbox"] {
-    transform: scale(1.1);
-    margin-right: 5px;
 }
 
 .error-message {
@@ -57,7 +54,8 @@ button:hover {
 
 /* Form container styles */
 #form-Modifica, #Inserisci {
-    margin-top: 15px;
+    margin-top: 50px;
+   
 }
 
 
@@ -78,46 +76,135 @@ input:focus, select:focus {
     outline: none;
     box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
 }
-th, td {
-    border: 1px solid black; /* Aggiunge un bordo nero di 1px a tutti gli elementi th e td */
-    padding: 8px; /* Aggiunge spaziatura interna ai celle */
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+.table-container {
     
+    
+    margin: 20px 0;
+    /* Personalizzazione della barra di scorrimento */
+    scrollbar-width:thin;
+    scrollbar-color: #000000 #ffffff0c; /* Colore della barra di scorrimento */
+    overflow-x: scroll;
+    overflow-y: auto;
+
 }
 table {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    table-layout: auto; /* Assicurati che il layout della tabella sia automatico */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+   
+}
+#tableC{
+    margin-left: 28%;
+
+}
+#homepage {
+    display: inline-block;
+        padding: 10px 20px;
+        background-color: #062342; /* Colore di sfondo */
+        color: #fff; /* Colore del testo */
+        text-decoration: none; /* Rimuove il sottolineato */
+        border: none; /* Rimuove il bordo */
+        border-radius: 5px; /* Bordi arrotondati */
+        cursor: pointer; 
+}
+#homepage:hover {
+    background-color: #0d4a7c;
 }
 
-thead {
-    background-color: #48b91f;  
-    color: white;
+thead tr {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
 }
 
-thead th {
-    padding: 10px;
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
     text-align: center;
 }
-
-tbody tr {
-    background-color: #f4f4f4;
+#tdModifica, #tdElimina {
+    width: 100px;
+    border: none;
+    background-color: #e6e6e6;
+    padding: 8px 3px;
+}
+#tdModifica,#tdElimina:hover {
+    background-color:  #e6e6e6;
+}ù
+#tdElimina {
+    width: 30px;
 }
 
-tbody tr:hover {
-    background-color: #cad8cbce;
+tbody tr:nth-of-type(odd) {
+    background-color: #ffffffbe;
 }
 
-tbody td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+tbody td:hover {
+    background-color: #f1f1f1;
 }
 
+#bottoneE {
+    margin-left: 5px;
+}
+button {
+    padding: 10px 20px; 
+    margin: 5px;
+    border: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+   
+}
+#tInser2{
+    margin-left: 250px;
+    position: relative;
+    top: 30%;
+}
+
+button:hover {
+    background-color: #0f7514;
+}
+
+#bottoneE {
+    background-color: #df1506; /* Red */
+}
+
+#bottoneE:hover {
+    background-color: rgb(255, 24, 44);
+}
+#tInser{
+    position:absolute;
+    margin-top : 90px;
+    margin-left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+}
+
+#bInsert{
+    background-color:#000000;
+    position: absolute;
+    margin-top:55px;
+    margin-left: 36%;
+}
+#bInsert:hover{
+    background-color: #343434;
+}
+#tInser:hover{
+    background-color: #343434;
+}
+#h2{
+    text-align: center;
+}
 body {
-    background-color: black;
-}
+  
+background-color: #e6e6e6;
+     
+    }

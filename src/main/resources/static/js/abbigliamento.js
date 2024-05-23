@@ -37,21 +37,19 @@ function chiudiFormModifica(){
 
 }
 
-function cercaAbbigliamento() {
-    var id = document.getElementById("abbigliamento-id").value;
-    window.location.href = "/abbigliamento-byId?idAbbigliamento=" + id;
-}   
+function checkTheCheckBox(oggetto){
+    oggetto.value = oggetto.checked ? "true" : "false";
+}
+
 
 function apriFormAggiunta(){
     var form = document.getElementById("Inserisci");
     form.hidden = false;
 }
 
-function chiudiFrmAggiunta(){
+function chiudiFormAggiunta(){
     var form = documento.getElementById("Inserisci");
     form.hidden = true;
 }
-function checkTheCheckBox(oggetto){
-    oggetto.value = oggetto.checked ? "true" : "false";
-}
+
 

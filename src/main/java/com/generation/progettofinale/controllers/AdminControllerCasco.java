@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.generation.progettofinale.Services.ServiceCasco;
-import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Utente;
 
 import jakarta.servlet.http.HttpSession;
@@ -20,9 +19,6 @@ public class AdminControllerCasco {
 
     @Autowired
     private ServiceCasco serviceCasco;
-
-    @Autowired
-    private ServiceImmagini serviceImmagini;
     
     @GetMapping("/admin-caschi")
     public String adminCaschi(Model model) {
