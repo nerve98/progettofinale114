@@ -864,9 +864,6 @@ input, select, textarea {
 			transition: top .15s ease-in-out;
 		}
 
-			#nav li > ul {
-				display: none;
-			}
 
 			#nav li a, #nav li span {
 				-moz-transition: background-color .075s ease-in-out, color .075s ease-in-out;
