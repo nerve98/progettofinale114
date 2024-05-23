@@ -1,13 +1,17 @@
 package com.generation.progettofinale.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
+import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Abbigliamento;
+import com.generation.progettofinale.models.Casco;
+import com.generation.progettofinale.models.Immagini;
 import com.generation.progettofinale.models.Utente;
 import jakarta.servlet.http.HttpSession;
 
@@ -17,15 +21,39 @@ public class ControllerAbbigliamento {
     @Autowired
     private ServiceAbbigliamento serviceAbbigliamento;
 
-    @GetMapping("/abbigliamento")
-    public String abbigliamento(Model model, HttpSession session){
-        List<Abbigliamento> ris = serviceAbbigliamento.findAll();
-        model.addAttribute("vestiti", ris);
-        model.addAttribute("isAdmin", session.getAttribute("admin"));
-        model.addAttribute("loggato", session.getAttribute("loggato"));
-        return "abbigliamento.html";
-    }
+    @Autowired
+    private ServiceImmagini serviceImmagini;
 
+
+
+
+
+    @GetMapping("/abbigliamento")
+    public String abbigliamento(Model model,
+        @RequestParam (name = "abbigliamento") Optional<String> paramAbbigliamento,
+        @RequestParam (name = "prezzoMax") Optional<Integer> paramPrezzoMax,
+        @RequestParam (name ="protezione") Optional<Boolean> paramProtezione){
+        String abbigliamento = paramAbbigliamento.orElse(null);
+        Integer prezzoMax = paramPrezzoMax.orElse(null);
+        Boolean protezione = paramProtezione.orElse(null);
+        System.out.println("*******\n"+abbigliamento+"\n*******");
+        List<Abbigliamento> vestiti;
+        List<Immagini> immagini;
+        if((abbigliamento==null || abbigliamento.isEmpty()) && (prezzoMax==null) && (protezione==null)){
+            vestiti = serviceAbbigliamento.findAll();
+            immagini = serviceImmagini.findImmaginiAbbigliamento(vestiti);
+        }
+        else{
+            vestiti = serviceAbbigliamento.search(abbigliamento, prezzoMax, protezione);
+            immagini = serviceImmagini.findImmaginiAbbigliamento(vestiti);
+        }
+        model.addAttribute("vestiti", vestiti);
+        model.addAttribute("immagini", immagini);
+        System.out.println(immagini);
+       
+
+ 
+    
 
     @GetMapping("/abbigliamento-byId")
     public String abbigliamentoById(@RequestParam
