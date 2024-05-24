@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="/css/register.css" type="text/css" />
     </head>
     <body class="homepage is-preload" style="padding-top: 0%;  max-height: 100%;">
-
+        
         <div id="page-wrapper" >
-    
+            
             <header id="header" >
                 <div class="logo container">
                     <div>
@@ -17,10 +17,14 @@
                     </div>
                 </div>
             </header>
-        
+            <div id="formaggio">
+                
+                <div class="linea1">  </div>
+                <div class="linea-trasparente"> </div>
+                <div class="linea2"> </div>
             <form id="loginForm" action="/register" method="post" th:object="${utente}">
                     <div>
-                    <h3>Benvenuto!</h3>
+                    <h3>BENVENUTO!</h3>
                     </div>
                 <div>
                     <label for="nome"></label>
@@ -70,8 +74,8 @@
                     <br>
                     <h8 id="h8">Sei già registrato? <a href="/login">Clicca qui</a></h8>
                 </div>
-                   
             </form>
+        </div>
         </div>
     </div>
         <footer id="footer" style="padding: 0%;">
@@ -82,7 +86,7 @@
                         <li>&copy; Alessandro</li><li>&copy; Giacomo</li><li>&copy; Gianluca</li><li>&copy; Michele</li>
                     </ul>
                 </div>
-
+                
             </div>
         </footer>
 
