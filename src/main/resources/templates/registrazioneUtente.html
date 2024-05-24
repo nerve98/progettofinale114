@@ -18,86 +18,97 @@
                     </div>
                 </div>
             </header>
+
             <div id="formaggio">
                 
                 <div class="linea-trasparente"> 
-                    <div class="h22"><h2 id="h22a" >   BENVENUTO 
-                        <br>IN MOTORONI!</h2></div>
-                    <div class="imma">
-                        <img id="ziopera" src="https://i.ibb.co/FBvkKvt/logo.png" alt="logo" >
+                    <div class="h22" style="margin-left: 10%;">
+                        <h2 id="h22a" >BENVENUTO 
+                        <br>IN MOTORONI!</h2>
                     </div>
+                    
+                    <img id="ziopera" src="https://i.ibb.co/FBvkKvt/logo.png" alt="logo" >
+                    
+
                 </div>
                 
             <form id="loginForm" action="/register" method="post" th:object="${utente}">
                
-                    <div>
+                    <div style="width: 100%;">
                     <h3>REGISTRATI</h3>
                     </div>
-                <div>
-                    <label for="nome"></label>
-                    <input type="text" id="nome" name="nome" required="required" placeholder="Nome" th:field="${utente.nome}">
-                </div>
-                <div>
-                    <label for="cognome"></label>
-                    <input type="text" id="cognome" name="cognome" required="required" placeholder="Cognome" th:field="${utente.cognome}"/>
-                </div>
-                <div>
-                    <label for="data"></label>
-                    <input type="date" id="data" name="dataNascita" required 
-                    placeholder="Data nascita"
-                    th:field="${utente.dataNascita}" 
-                    onfocus="this.type='date'" 
-                    onblur="(this.value=='')?this.type='text':this.type='date'" 
-                    oninput="this.type='date'"/>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var dateInput = document.getElementById('data');
-                                if (!dateInput.value) {
-                                    dateInput.type = 'text';
-                                }
-                            });
-                        </script>
-                </div>
-                <div>
-                    <label for="email"></label>
-                    <input type="email" id="email" name="email" required placeholder="E-mail" th:field="${utente.email}"/>
-                </div>
-                <div>
-                    <label for="username"></label>
-                    <input type="text" id="username" name="username" required placeholder="Username" th:field="${utente.username}">
-                </div>
+
+                    <div style="display: flex; gap: 50px;" >
+                        <div>
+                            <label for="nome"></label>
+                            <input type="text" id="nome" name="nome" required="required" placeholder="Nome" th:field="${utente.nome}">
+                        </div>
+                        <div>
+                            <label for="cognome"></label>
+                            <input type="text" id="cognome" name="cognome" required="required" placeholder="Cognome" th:field="${utente.cognome}"/>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 50px;" >
+                        <div>
+                            <label for="data"></label>
+                            <input type="date" id="data" name="dataNascita" required 
+                            placeholder="Data nascita"
+                            th:field="${utente.dataNascita}" 
+                            onfocus="this.type='date'" 
+                            onblur="(this.value=='')?this.type='text':this.type='date'" 
+                            oninput="this.type='date'"/>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        var dateInput = document.getElementById('data');
+                                        if (!dateInput.value) {
+                                            dateInput.type = 'text';
+                                        }
+                                    });
+                                </script>
+                        </div>
+                        <div>
+                            <label for="email"></label>
+                            <input type="email" id="email" name="email" required placeholder="E-mail" th:field="${utente.email}"/>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 50px;" >
+                        <div>
+                            <label for="username"></label>
+                            <input type="text" id="username" name="username" required placeholder="Username" th:field="${utente.username}">
+                        </div>
+
+                        <div>
+                            <label for="password"></label>
+                            <input type="password" id="password" name="password" required placeholder="Password" th:field="${utente.password}" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confermaPassword"></label>
+                        <input type="password" id="confermaPassword" name="confermaPassword" required placeholder="Conferma Password"/>
+                    </div>
                 
-                <div>
-                    <label for="password"></label>
-                    <input type="password" id="password" name="password" required placeholder="Password" th:field="${utente.password}" />
-                </div>
-                <div>
-                    <label for="confermaPassword"></label>
-                    <input type="password" id="confermaPassword" name="confermaPassword" required placeholder="Conferma Password"/>
-                </div>
-                
-                <div>
+                <div style="width: 100%;">
                     <button type="submit">Registrati</button>
                     <br>
                     <h8 id="h8">Sei già registrato? <a href="/login">Clicca qui</a></h8>
                 </div>
             </form>
-        </div>
+
+
+
         </div>
     </div>
     
     
-        <footer id="footer" style="padding: 0%;">
-            <div class="container">
 
-                <div id="copyright">
-                    <ul class="menu">
-                        <li>&copy; Alessandro</li><li>&copy; Giacomo</li><li>&copy; Gianluca</li><li>&copy; Michele</li>
-                    </ul>
-                </div>
-                
-            </div>
-        </footer>
+    <div id="copyright">
+        <ul class="menu">
+            <li>&copy; Alessandro</li><li>&copy; Giacomo</li><li>&copy; Gianluca</li><li>&copy; Michele</li>
+        </ul>
+    </div>
 
 
     </div>
