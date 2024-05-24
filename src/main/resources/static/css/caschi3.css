@@ -61,15 +61,15 @@ mark {
 		box-sizing: border-box;
 	}
 
-	*, *:before, *:after {
+	/**, *:before, *:after {
 		box-sizing: inherit;
-	}
+	}*/
 
 	body {
 		background: #f2f5f3;
 	}
 
-		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+		/*body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
 			-ms-animation: none !important;
@@ -78,7 +78,7 @@ mark {
 			-webkit-transition: none !important;
 			-ms-transition: none !important;
 			transition: none !important;
-		}
+		}*/
 
 	body, input, textarea, select {
 		font-family: 'Open Sans', sans-serif;

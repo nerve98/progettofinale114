@@ -32,10 +32,14 @@ public class ControllerMoto {
     }
 
     @GetMapping("/addtoCart")
-    public String addtoCart(@RequestParam HttpSession session, @RequestParam Entity e){
+    public String addtoCart(HttpSession session, @RequestParam(name="idmotoAdd") String id ){
+
+        Entity motoEntity = serviceMoto.findById(Long.parseLong(id));
+        System.out.println(motoEntity);
 
         List<Entity> motoadd= (List<Entity>) session.getAttribute("listaSpesa");
-        motoadd.add(e);
+        
+        motoadd.add(motoEntity);
 
         session.setAttribute("listaSpesa", motoadd ); 
         return "redirect:/sportive";
