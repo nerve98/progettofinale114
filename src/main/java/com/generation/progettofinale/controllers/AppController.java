@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.generation.progettofinale.Services.ServiceUtente;
 import com.generation.progettofinale.models.Entity;
@@ -20,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 @Controller
+@SessionAttributes("myList")
 public class AppController {
 
 @Autowired
@@ -75,8 +78,6 @@ HttpSession session){
             session.setAttribute("admin", admin);
             return "redirect:/home";
         }else if(!admin){
-            List<Entity> listaSpesa = new ArrayList<Entity>();
-            session.setAttribute("listaSpesa", listaSpesa);
             return "redirect:/home";
         }
         }return "redirect:/home";
@@ -85,5 +86,10 @@ HttpSession session){
     @GetMapping("/carrello")
     public String carrello() {
         return "cartaDiCredito.html";
+    }
+
+        @ModelAttribute("myList")
+        public List<String> createMyList() {
+        return new ArrayList<>();
     }
 }
