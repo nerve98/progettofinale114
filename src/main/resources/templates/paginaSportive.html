@@ -179,170 +179,22 @@
 
 
     <div id="main">
-        <div id="card-section">
-
+        <div id="card-section" th:each= "moto : ${motori}">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
 
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img class="img-card" src="https://storage.kawasaki.eu/public/kawasaki.eu/en-EU/model/19ZX1000Y_201GY3ARB2CG_A.jpg">
+                        <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
+                    </div>
 
-                        <p class="titlecard">Perchè</p>
-                    </div>
                     <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
+                        <a class="titlecard">Scopri di più</a>
+                        <a th:href="|/addtoCart?idmotoAdd=${moto.id}|" ><img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin"></a>
                     </div>
+
                 </div>
             </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>
-                        
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg" style="border-radius: 1rem; ">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img class="img-card" src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>            
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img class="img-card" src="https://ducaticordoba.com.ar/wp-content/uploads/sites/10/2023/07/www.ducati.com385panigale-v4s-red-my18-01-carousel-imgtext-comcept-677x740-1.jpg">
-
-                        <p class="titlecard">Perchè</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p class="titlecard">BACK</p>
-                        <p>Leave Me</p>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
     </div>
 
