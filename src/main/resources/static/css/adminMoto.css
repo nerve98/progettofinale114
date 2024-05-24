@@ -150,7 +150,8 @@ table {
    
 }
 #tableC{
-    margin-left: 28%;
+    margin-left: 18%;
+    position: static;
 
 }
 #homepage {
