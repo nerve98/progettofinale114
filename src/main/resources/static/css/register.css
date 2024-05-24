@@ -58,7 +58,11 @@ body, html {
 	position: relative;
 }
 
-
+img {
+    width: 300px; /* Imposta la larghezza dell'immagine */
+    height: auto; /* Imposta l'altezza automaticamente rispettando l'aspetto originale */
+    margin: 20px; /* Aggiunge uno spazio intorno all'immagine */
+}
 
 #loginForm{
 	width: 300px;
