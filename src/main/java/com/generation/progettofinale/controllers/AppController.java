@@ -78,4 +78,9 @@ HttpSession session){
             }
         }
     }
+    
+    @GetMapping("/carrello")
+    public String carrello() {
+        return "cartaDiCredito.html";
+    }
 }
