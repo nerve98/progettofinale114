@@ -9,7 +9,8 @@
 </head>
 <body>
     <a href="/admin" ><button id="homepage">Torna al menù</button></a>
-    <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Casco</button>
+    <button id="cInsert" onclick="apriFormAggiunta()">Aggiungi Casco</button>
+<div class="table-container">
     <table id="tableC">
         <thead>
             <tr>
@@ -43,6 +44,7 @@
                 </tr>    
             </tbody>      
     </table>
+</div>
     <div id="form-Modifica" hidden >
         <form action="/modifica-casco" method="post" >
             <h2 id="h2">MODIFICA</h2>

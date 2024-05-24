@@ -10,7 +10,8 @@
 <body>
     <a href="/admin" ><button id="homepage">Torna al menù</button></a>
     <button id="bInsert" onclick="apriFormAggiunta()">Aggiungi Capo</button> 
-    <table id="tableC">
+<div class="table-container">
+    <table id="tableA">
         <thead>
             <tr>
             <th>ID</th>
@@ -45,6 +46,7 @@
              </tr>
         </tbody>
     </table>
+</div>
     <div id="form-Modifica" hidden >
         <form action="/modifica-abbigliamento" method="post">
             <h2 id="h2">MODIFICA</h2>
@@ -66,7 +68,7 @@
             <button id="annullaCasc" type="reset" onclick="chiudiFormModifica()">Annulla</button>
         </form> 
     </div>
-
+</div>
                     
     <div id="Inserisci" hidden>
         <form action="/inserisci-abbigliamento" method="post">

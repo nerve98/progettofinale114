@@ -23,11 +23,11 @@ public class ControllerImmagini {
 @Autowired
 private ServiceImmagini serviceImmagini;
 
-    @GetMapping("/immagini")
-    public String immagini(Model model) {
+    @GetMapping("/admin-immagini")
+    public String immagini(Model model, HttpSession session) {
     List<Immagini> ris = serviceImmagini.findAll();
     model.addAttribute("immagini", ris);
-    return "immagini.html";
+    return "adminImmagini.html";
     }
     
 
@@ -47,7 +47,7 @@ private ServiceImmagini serviceImmagini;
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceImmagini.insert(paramsImm);
-                    return "redirect:/immagini";
+                    return "redirect:/admin-immagini";
                 }
             }
             return "redirect:/login";

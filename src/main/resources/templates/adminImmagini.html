@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/adminMoto.css" type="text/css" />
+    <script src="js/immagine.js" defer></script>
+</head>
+<body>
+    <a href="/admin"><button id="homepage">Torna al menù</button></a>
+    <button id="iInsert" onclick="apriFormAggiunta()">Aggiungi Immagine</button>
+<div class="table-container">
+    <table id="tableI">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>URL</th>
+                <th>ID Moto</th>
+                <th>ID Casco</th>
+                <th>ID Abbigliamento</th>
+            </tr>
+         </thead>
+            <tbody>
+                <tr th:each="immagine:${immagini}">
+                    <td th:text="${immagine.id}"></td>
+                    <td th:text="${immagine.nome}"></td>
+                    <td><a th:href="${immagine.url}" target="_blank">url</a></td>
+                    <td th:text="${immagine.idMoto}"></td>
+                    <td th:text="${immagine.idCasco}"></td>
+                    <td th:text="${immagine.idAbbigliamento}"></td>
+                    <td id="tdModifica">
+                        <button th:modifica-id="${immagine.id}"
+                        th:modifica-nome="${immagine.nome}"
+                        th:modifica-url="${immagine.url}"
+                        th:modifica-idMoto="${immagine.idMoto}"
+                        th:modifica-idCasco="${immagine.idCasco}"
+                        th:modifica-idAbbigliamento="${immagine.idAbbigliamento}" onclick="modificaImmagine(this)">Modifica</button>
+                    </td>
+                        <td id="tdElimina">
+                            <a th:href="|/elimina-immagine?idImmagine=${immagine.id}|"><button id="bottoneE">Elimina</button></a> 
+                        </td>
+                </tr>    
+            </tbody>
+    </table>
+</div>
+    <div id="form-Modifica" hidden >
+        <form action="/modifica-immagine" method="post" >
+            <h2 id="h2">MODIFICA</h2>
+        <label for="id">ID</label>
+        <input type="number" id="id" name="id" readonly>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="url">URL</label>
+        <input type="text" id="url" name="url" required>
+        <label for="idMoto">ID Moto</label>
+        <input type="number" id="idMoto" name="idMoto">
+        <label for="idCasco">ID Casco</label>
+        <input type="number" id="idCasco" name="idCasco" >
+        <label for="idAbbigliamento">ID Abbigliamento</label>
+        <input type="number" id="idAbbigliamento" name="idAbbigliamento" >
+        <button type="submit">Modifica</button>
+        <button type="reset" onclick="chiudiFormModifica()">Annulla</button>
+    </form>
+</div>
+    <div id="Inserisci" hidden >
+        <form action="/aggiungi-immagine" method="post" >
+            <h2 id="h2">INSERISCI</h2>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="url">URL</label>
+        <input type="text" id="url" name="url" required>
+        <label for="idMoto">ID Moto</label>
+        <input type="number" id="idMoto" name="idMoto" >
+        <label for="idCasco">ID Casco</label>
+        <input type="number" id="idCasco" name="idCasco" >
+        <label for="idAbbigliamento">ID Abbigliamento</label>
+        <input type="number" id="idAbbigliamento" name="idAbbigliamento" >
+        <button type="submit">Aggiungi</button>
+        <button type="reset" onclick="chiudiFormAggiunta()">Annulla</button>
+    </form>
+</div>
+   
+    
+</body>
+</html>
