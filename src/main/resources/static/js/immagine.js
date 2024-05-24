@@ -1,34 +1,34 @@
 function modificaImmagine(oggetto){
+    chiudiFormAggiunta();
     var form = document.getElementById("form-Modifica");
     form.hidden = false;
-    
-    var id = document.getElementById("modifica-id");
-    var nomeImmagine = document.getElementById("modifica-nomeImmagine");
-    var descrizione = document.getElementById("modifica-descrizione");
-    var prezzo = document.getElementById("modifica-prezzo");
-    var tipo = document.getElementById("modifica-tipo");
+    var id = document.getElementById("id");
+    var nomeImmagine = document.getElementById("nome");
+    var descrizione = document.getElementById("url");
+    var idM = document.getElementById("idMoto");
+    var idC = document.getElementById("idCasco");
+    var idA = document.getElementById("idAbbigliamento");
+
+    id.value = oggetto.getAttribute("modifica-id");
+    nomeImmagine.value = oggetto.getAttribute("modifica-nome");
+    descrizione.value = oggetto.getAttribute("modifica-url");
+    idM.value = oggetto.getAttribute("modifica-idMoto");
+    idC.value = oggetto.getAttribute("modifica-idCasco");
+    idA.value = oggetto.getAttribute("modifica-idAbbigliamento");
 }
 
 function chiudiFormModifica(){
     var form = document.getElementById("form-Modifica");
     form.hidden = true;
-    var id = document.getElementById("modifica-id");
-    id.value = "";
-    var nomeImmagine = document.getElementById("modifica-nomeImmagine");
-    nomeImmagine.value = "";
-    var descrizione = document.getElementById("modifica-descrizione");
-    descrizione.value = "";
-    var prezzo = document.getElementById("modifica-prezzo");
-    prezzo.value = "";
-    var tipo = document.getElementById("modifica-tipo");
-    tipo.value = "";
 }
+
 function apriFormAggiunta(){
+    chiudiFormModifica();
     var form = document.getElementById("Inserisci");
     form.hidden = false;
 }
 
-function chiudiFrmAggiunta(){
-    var form = documento.getElementById("Inserisci");
+function chiudiFormAggiunta(){
+     var form = document.getElementById("Inserisci");
     form.hidden = true;
 }

@@ -128,15 +128,13 @@ input:focus, select:focus {
 }
 
 .table-container {
-    
-    
     margin: 20px 0;
     /* Personalizzazione della barra di scorrimento */
-    scrollbar-width:thin;
+    scrollbar-width: thin;
     scrollbar-color: #000000 #ffffff0c; /* Colore della barra di scorrimento */
-    overflow-x: scroll;
-    overflow-y: auto;
-
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 400px; /* Imposta un'altezza massima per il contenitore */
 }
 table {
     width: auto;
@@ -154,6 +152,12 @@ table {
     position: static;
 
 }
+#tableA{
+    margin-left: 12%;
+    position: static;
+
+}
+
 #homepage {
     display: inline-block;
         padding: 10px 20px;
@@ -249,6 +253,15 @@ button:hover {
     margin-left: 36%;
 
 }
+
+#cInsert{
+    background-color:#000000;
+    position: absolute;
+    margin-top:55px;
+    margin-left: 34%;
+
+}
+
 #bInsert:hover{
     background-color: #343434;
 }
