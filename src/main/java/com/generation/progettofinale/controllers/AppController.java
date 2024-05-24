@@ -1,5 +1,9 @@
 package com.generation.progettofinale.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.generation.progettofinale.Services.ServiceUtente;
+import com.generation.progettofinale.models.Entity;
 import com.generation.progettofinale.models.Utente;
 
 import org.springframework.ui.Model;
@@ -70,12 +75,16 @@ HttpSession session){
         if(admin) {
             session.setAttribute("admin", admin);
             return "redirect:/home";
-        }else if(!admin){               
+        }else if(!admin){
+            List<Entity> listaSpesa = new ArrayList<Entity>();
+            session.setAttribute("listaSpesa", listaSpesa);
             return "redirect:/home";
-        }else{
-            session.setAttribute("loggato", null);
-            return "formLogin.html";
-            }
         }
+        }return "redirect:/home";
+    }
+    
+    @GetMapping("/carrello")
+    public String carrello() {
+        return "cartaDiCredito.html";
     }
 }
