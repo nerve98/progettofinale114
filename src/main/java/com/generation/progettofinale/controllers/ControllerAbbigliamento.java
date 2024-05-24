@@ -53,7 +53,7 @@ public class ControllerAbbigliamento {
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
         System.out.println(immagini);
-        return "abbigliamento.html";
+        return "abbigliamentoprova.html";
     }
     
 
