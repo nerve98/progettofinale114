@@ -25,16 +25,11 @@
 
 .my-main {
   font-size: 1em;
-  position: relative;
-  top: -3em;
-  left: 4.3em;
 }
 
 .my-mainsub {
   position: relative;
-  top: -10.2em;
-  left: 14em;
-  font-size: 0.6em;
+  max-width: 120px;
 }
 
 .my-card2 {
@@ -49,40 +44,45 @@
   transition: .4s ease-in-out;
 }
 
-.my-card:hover {
+.my-card:hover {               /*hover effect*/
   background-color: #FFE87C;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
-.my-card:hover + .my-card2 {
+.my-card:hover + .my-card2 {        /*hover effect*/
   height: 300px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
-.my-card:hover + .my-card2 .lower {
+.my-card:hover + .my-card2 .lower {      /*  :hover effect*/
   top: 20.2em;
 }
 
 .upper {
   display: flex;
   flex-direction: row;
-  position: relative;
+  position: absolute;
   color: black;
   left: 1.8em;
-  top: 0.5em;
+  top: 1.5em;
   gap: 4em;
+  justify-content: space-evenly;
 }
 
 .humiditytext {
-  position: relative;
   left: 3.6em;
   top: 2.7em;
   font-size: 0.6em;
 }
 
+.humidity , .air{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .airtext {
-  position: relative;
   left: 3.8em;
   top: 2.7em;
   font-size: 0.6em;
@@ -102,11 +102,12 @@
 }
 
 .aqi {
-  margin-right: 3.25em;
 }
 
 .realfeel {
   margin-right: 1.8em;
+  margin-left: 1.8em;
+
 }
 
 .my-card3 {

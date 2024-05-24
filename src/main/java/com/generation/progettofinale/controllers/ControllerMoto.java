@@ -1,9 +1,6 @@
 package com.generation.progettofinale.controllers;
-
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,14 +31,13 @@ public class ControllerMoto {
     @GetMapping("/addtoCart")
     public String addtoCart(HttpSession session, @RequestParam(name="idmotoAdd") String id ){
 
-        Entity motoEntity = serviceMoto.findById(Long.parseLong(id));
-        System.out.println(motoEntity);
+        List<Entity> motoadd= new ArrayList<Entity>();
+        motoadd = (List<Entity>) session.getAttribute("listaSpesa");
 
-        List<Entity> motoadd= (List<Entity>) session.getAttribute("listaSpesa");
-        
-        motoadd.add(motoEntity);
+        motoadd.add(serviceMoto.findById(Long.parseLong(id)));
 
         session.setAttribute("listaSpesa", motoadd ); 
         return "redirect:/sportive";
     }
+    
 }

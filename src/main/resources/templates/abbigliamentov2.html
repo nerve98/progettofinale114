@@ -95,7 +95,9 @@
 
 
 							<div class="row scroll-container"
-								style="background-color: #c1edbb21;box-shadow: 10px 10px #c1edbb50; border-radius: 25px; margin: 0px 1px 0px 1px; overflow: scroll; height:370px; padding: 20px;">
+								style="background-color: #c1edbb21;box-shadow: 10px 10px #c1edbb50; border-radius: 25px; margin: 0px 1px 0px 1px; overflow: scroll; height:370px;     display: flex;
+								padding: 20px;
+								align-items: center; ">
 								<!--<div th:each="i: ${#numbers.sequence(0, 25, 3)}">-->
 
 								<div class="col-lg-4 col-sm-12 col-12"
@@ -104,25 +106,27 @@
 									<div style="position:relative; height: 300px; ">
 
 										<div class="my-cardm">
-											<div class="my-card">
+											<div class="my-card" style="display: flex; align-items: center;">
+
 												<svg class="weather" version="1.1" id="Layer_1"
 													xmlns="http://www.w3.org/2000/svg"
 													xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 													width="100px" height="100px" viewBox="0 0 100 100"
 													xml:space="preserve">
 													<image id="image0" width="100" height="100" x="0" y="0"
-														th:href="@{${immagini[j].url}}">
-													</image>
+														th:href="@{${immagini[j].url}}"></image>
 												</svg>
-												<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
-												<div class="my-mainsub">Dunmore, Ireland</div>
+
+												<div>
+													<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
+													<div class="my-mainsub">Dunmore, Ireland</div>
+												</div>
 
 											</div>
 
 											<div class="my-card2">
 												<div class="upper">
 													<div class="humidity">
-														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}"></span></div>
 														<svg xml:space="preserve" viewBox="0 0 30 30" height="30px"
 															width="30px" y="0px" x="0px"
 															xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -133,10 +137,10 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
+														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}"></span></div>
 													</div>
 
 													<div class="air">
-														<div class="airtext">Colore<br><span th:text="${vestiti[j].coloreAbbigliamento}"></span></div>
 														<svg class="airsvg" version="1.1" id="Layer_1"
 															xmlns="http://www.w3.org/2000/svg"
 															xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -146,6 +150,8 @@
 																href="https://cdn-icons-png.flaticon.com/512/993/993814.png">
 															</image>
 														</svg>
+														<div class="airtext">Colore<br><span th:text="${vestiti[j].coloreAbbigliamento}"></span></div>
+
 													</div>
 												</div>
 
