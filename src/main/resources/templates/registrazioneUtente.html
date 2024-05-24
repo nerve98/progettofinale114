@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrazione</title>
-    <link rel="stylesheet" href="/css/register.css" type="text/css" />
+    
     </head>
     <body class="homepage is-preload" style="padding-top: 0%;  max-height: 100%;">
-        
+        <link rel="stylesheet" href="/css/register.css" type="text/css" />
         <div id="page-wrapper" >
             
             <header id="header" >
@@ -20,11 +20,18 @@
             </header>
             <div id="formaggio">
                 
-                <div class="linea-trasparente"> <img src="logo.png"> </div>
-               
+                <div class="linea-trasparente"> 
+                    <div class="h22"><h2 id="h22a" >   BENVENUTO 
+                        <br>IN MOTORONI!</h2></div>
+                    <div class="imma">
+                        <img id="ziopera" src="https://i.ibb.co/FBvkKvt/logo.png" alt="logo" >
+                    </div>
+                </div>
+                
             <form id="loginForm" action="/register" method="post" th:object="${utente}">
+               
                     <div>
-                    <h3>BENVENUTO!</h3>
+                    <h3>REGISTRATI</h3>
                     </div>
                 <div>
                     <label for="nome"></label>
@@ -78,6 +85,8 @@
         </div>
         </div>
     </div>
+    
+    
         <footer id="footer" style="padding: 0%;">
             <div class="container">
 
