@@ -896,7 +896,7 @@ mark {
 		background-image: url("https://www.aprilia.com/wlassets/aprilia/master/Aprilia_World/Racing/moto-gp-2021/news/08-MotoGP_Race_German/MotoGP_Hero_1920x800/original/MotoGP_Hero_1920x800.jpg");
 		background-position: top left, top left, center center;
 		background-repeat:no-repeat;
-		background-size: auto, auto, cover;
+		background-size: cover;
 		z-index: 1;
 		padding: 11em 0;
 	}
