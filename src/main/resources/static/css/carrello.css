@@ -13,3 +13,25 @@
   box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
   vertical-align: middle;
 }
+
+button{
+  border-radius: 5px;
+  border: black 1px solid;
+}
+button:hover{
+  cursor: pointer;
+  background-color: rgb(173, 183, 172);
+}
+
+  #button:hover{
+    background-color: #447e46;
+
+  }
+  #button{
+    background-color: #4CAF50;
+    color: white;
+  }
+  label{
+    font-weight: bold;
+    margin-left: 40%;
+  }

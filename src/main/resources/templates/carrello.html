@@ -102,18 +102,18 @@
                 </div>
                 <!-- / Shopping cart table -->
             
-                <div class="d-flex flex-wrap justify-content-between align-items-center pb-4" style="margin-left: 45%;">
+                <div class="d-flex flex-wrap justify-content-between align-items-center pb-4" style="margin-left: 90%;">
                   <div class="d-flex">
-                    <div class="text-right mt-4">
-                      <label class="text-muted font-weight-normal m-0">Total price</label>
-                      <div class="text-large"><strong th:text="${totale}+' €'"></strong></div>
+                    <div class="text-center mt-4">
+                      <label class="text-muted m-0">Prezzo totale</label>
+                      <div class="text-large" ><strong th:text="${totale}+'€'"></strong></div>
                     </div>
                   </div>
                 </div>
             
                 <div class="float-right">
-                  <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
-                  <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="history.back()" >Indietro</button>
+                    <a href="/paymethod"><button id="button" class="btn btn-lg btn-primary mt-2" >Procedi</button></a>
                 </div>
             
               </div>
