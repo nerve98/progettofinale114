@@ -36,6 +36,7 @@ private ServiceImmagini serviceImmagini;
     Map<String,String> paramsImm,
     HttpSession session, 
     Model model){
+        System.out.println("PARAMSIMM\n**********\n"+paramsImm.keySet()+"\n**********\n"+paramsImm.values());
     Object utenteObj = session.getAttribute("utente");
     Object loggatoObj = session.getAttribute("loggato");
     Utente utente = null;
