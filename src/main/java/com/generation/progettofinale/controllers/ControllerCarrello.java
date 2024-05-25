@@ -32,7 +32,10 @@ public class ControllerCarrello {
 
     @Autowired
     private ServiceCasco serviceCasco;
-
+    @GetMapping("/carrello")
+    public String carrello() {
+        return "carrello.html";
+    }
     @GetMapping("/addCarrello")
     public String abbigliamentoById(@RequestParam(name = "idProdotto") Long idProdotto,
             @RequestParam(name = "tipoProdotto") String tipoProdotto,
@@ -96,4 +99,7 @@ public class ControllerCarrello {
         model.addAttribute("totale", totale);
         return "carrello.html";
     }
+
+
+
 }
