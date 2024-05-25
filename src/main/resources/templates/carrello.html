@@ -23,9 +23,51 @@
                         <!-- Set columns width -->
                         <th class="text-center py-3 px-4" style="min-width: 400px;">PRODOTTI NEL CARRELLO</th>
                     </thead>
-                    <tbody>
+                    <tbody >
+                      <div th:each="j: ${#numbers.sequence(0, #lists.size(caschi)-1, 1)}">
+                        <tr>
+                          <!--<td class="p-4">
+                            <div class="media align-items-center">
+                              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                              
+                            </div>
+                          </td>-->
+                          <td>
+                            <h4 th:text="'Casco '+${caschi[j].modello}"></h4>
+                          </td>
+                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                        </tr>
+                      </div>
+                      <div th:each="j: ${#numbers.sequence(0, #lists.size(vestiti)-1, 1)}">
+                        <tr>
+                          <!--<td class="p-4">
+                            <div class="media align-items-center">
+                              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                              
+                            </div>
+                          </td>-->
+                          <td>
+                            <h4 th:text="${vestiti[j].nomeAbbigliamento}"></h4>
+                          </td>
+                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                        </tr>
+                      </div>
+                      <div th:each="j: ${#numbers.sequence(0, #lists.size(moto)-1, 1)}">
+                        <tr>
+                          <!--<td class="p-4">
+                            <div class="media align-items-center">
+                              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                              
+                            </div>
+                          </td>-->
+                          <td>
+                            <h4 th:text="${moto[j].marca}"></h4>
+                          </td>
+                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                        </tr>
+                      </div>
             
-                      <tr>
+                      <!--<tr>
                         <td class="p-4">
                           <div class="media align-items-center">
                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
@@ -53,7 +95,7 @@
                         </td>
                         
                         <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                      </tr>
+                      </tr>-->
             
                     </tbody>
                   </table>
@@ -64,7 +106,7 @@
                   <div class="d-flex">
                     <div class="text-right mt-4">
                       <label class="text-muted font-weight-normal m-0">Total price</label>
-                      <div class="text-large"><strong>$1164.65</strong></div>
+                      <div class="text-large"><strong th:text="${totale}+' €'"></strong></div>
                     </div>
                   </div>
                 </div>

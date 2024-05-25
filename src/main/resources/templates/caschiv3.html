@@ -75,8 +75,8 @@
                     </ul>
                 </li>
                 <li th:if="${loggato} and ${isAdmin!=true}">
-                    <div style="position: relative;">
-                        <a type="button" data-bs-toggle="dropdown" aria-expanded="false"><img
+                    <div style="position: relative;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a type="button"><img
                             src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" class="iconlogin">
                         </a>
                         <b  th:if="${numCarrello}" th:text="${numCarrello}" style="position: absolute;
