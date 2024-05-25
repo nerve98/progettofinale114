@@ -102,7 +102,7 @@ public class DaoMoto implements IDao<Long, Moto>{
     public Moto readById(Long id) {
 
        query="SELECT * FROM moto WHERE id=?";
-       db.executeDML(query, String.valueOf(id));
+       //db.executeDML(query, String.valueOf(id));
        Map<Long, Map<String, String>> motoMap=db.executeDQL(query, String.valueOf(id));
        Moto m=null;
        for(Map<String,String> map: motoMap.values()){
