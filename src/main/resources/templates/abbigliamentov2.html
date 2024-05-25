@@ -95,9 +95,9 @@
 
 
 							<div class="row scroll-container"
-								style="background-color: #c1edbb21;box-shadow: 10px 10px #c1edbb50; border-radius: 25px; margin: 0px 1px 0px 1px; overflow: scroll; height:370px;     display: flex;
+								style="background-color: #c1edbb24;box-shadow: 10px 10px #c1edbb00; border-radius: 25px; margin: 0px 1px 0px 1px; overflow: scroll; height:370px;     display: flex;
 								padding: 20px;
-								align-items: center; ">
+								align-items: center; height: 30%;">
 								<!--<div th:each="i: ${#numbers.sequence(0, 25, 3)}">-->
 
 								<div class="col-lg-4 col-sm-12 col-12"
@@ -140,7 +140,7 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
-														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}"></span></div>
+														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
 													</div>
 
 													<div class="air">

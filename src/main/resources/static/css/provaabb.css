@@ -50,9 +50,10 @@
   width: 240px;
   height: 130px;
   border-radius: 35px;
-  background: white;
+  background: whitesmoke;
   z-index: 1;
   transition: .4s ease-in-out;
+  
 }
 
 /*.my-card:hover {              
