@@ -48,7 +48,7 @@ public class CascoController {
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
         
-        return "caschi.html";
+        return "caschiv2.html";
     }
 
     
