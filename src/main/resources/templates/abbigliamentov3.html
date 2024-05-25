@@ -71,11 +71,15 @@
 					</ul>
 				</li>
                 <li th:if="${loggato} and ${isAdmin!=true}">
-                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false"><img
-                        src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" class="iconlogin">
-                    </a>
-                    <span class='badge badge-warning' id='lblCartCount' th:if="${numCarrello}" th:text="${numCarrello}" style="margin-left: 0px;"></span>
-                        <ul class="dropdown-menu">
+                    <div style="position: relative;">
+                        <a type="button" data-bs-toggle="dropdown" aria-expanded="false"><img
+                            src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" class="iconlogin">
+                        </a>
+                        <b  th:if="${numCarrello}" th:text="${numCarrello}" style="position: absolute;
+                        top: 8px;
+                        right: 16px; color: black;"></b>
+                    </div>
+                    <ul class="dropdown-menu">
                             <li><a href="/lista-carrello"
                                     style="background-color: transparent; color: #6b7770;">Carrello</a></li>
     
