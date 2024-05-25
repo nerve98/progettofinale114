@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
 import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Abbigliamento;
-
+import com.generation.progettofinale.models.Entity;
 import com.generation.progettofinale.models.Immagini;
 import com.generation.progettofinale.models.Utente;
 import jakarta.servlet.http.HttpSession;
@@ -52,6 +52,13 @@ public class ControllerAbbigliamento {
         model.addAttribute("immagini", immagini);
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
+        List<Entity> carrello=(List<Entity>) session.getAttribute("carrello");
+        if(carrello!=null && carrello.size()>0){
+            model.addAttribute("numCarrello", carrello.size());
+        }
+        /*else{
+            model.addAttribute("numCarrello", 0);
+        }*/
         System.out.println(immagini);
         return "abbigliamentov3.html";
     }

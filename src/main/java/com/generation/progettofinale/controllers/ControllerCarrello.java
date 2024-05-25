@@ -13,6 +13,7 @@ import com.generation.progettofinale.Services.ServiceAbbigliamento;
 import com.generation.progettofinale.Services.ServiceCasco;
 import com.generation.progettofinale.Services.ServiceMoto;
 import com.generation.progettofinale.models.Entity;
+import com.generation.progettofinale.models.Utente;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -30,32 +31,39 @@ public class ControllerCarrello {
     private ServiceCasco serviceCasco;
 
     @GetMapping("/addCarrello")
-    public String abbigliamentoById(@RequestParam (name="idProdotto") Long idProdotto, 
-    @RequestParam (name="tipoProdotto") String tipoProdotto,
-    HttpSession session,
-    Model model,
-    HttpServletRequest request){
+    public String abbigliamentoById(@RequestParam(name = "idProdotto") Long idProdotto,
+            @RequestParam(name = "tipoProdotto") String tipoProdotto,
+            HttpSession session,
+            Model model,
+            HttpServletRequest request) {
+        Object utenteObj = session.getAttribute("utente");
+        Object loggatoObj = (String) session.getAttribute("loggato");
+        Utente utente = null;
+        String loggato = null;
+
         List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
-        if(carrello==null){
+        if (carrello == null) {
             carrello = new ArrayList<Entity>();
         }
-        Entity entity=null;
+        Entity entity = null;
         switch (tipoProdotto) {
             case "moto":
-                entity=serviceMoto.findById(idProdotto);
+                entity = serviceMoto.findById(idProdotto);
                 break;
             case "casco":
-                entity=serviceCasco.findById(idProdotto);
+                entity = serviceCasco.findById(idProdotto);
                 break;
             case "abbigliamento":
-                entity=serviceAbbigliamento.findById(idProdotto);
+                entity = serviceAbbigliamento.findById(idProdotto);
                 break;
         }
         carrello.add(entity);
         session.setAttribute("carrello", carrello);
+
+        System.out.println("\n\n\n\n\nLISTA CARRELLO!!!!!!!!!!!: " + carrello + "\n\n\n\n\n");
+
         String referer = request.getHeader("Referer");
-        System.out.println("\n\n\n\n\nLISTA CARRELLO!!!!!!!!!!!: "+carrello+"\n\n\n\n\n");
-        return "redirect:"+ referer;
+        return "redirect:" + referer;
     }
-    
+
 }
