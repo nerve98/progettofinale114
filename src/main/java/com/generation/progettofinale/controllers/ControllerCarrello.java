@@ -69,7 +69,7 @@ public class ControllerCarrello {
         return "redirect:" + referer;
     }
 
-    @GetMapping("/carrello")
+    @GetMapping("/lista-carrello")
     public String carrello(HttpSession session, Model model) {
         List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
         List<Abbigliamento> vestiti = new ArrayList<>();
