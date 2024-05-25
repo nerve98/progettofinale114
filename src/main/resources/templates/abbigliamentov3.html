@@ -76,7 +76,7 @@
                     </a>
                     <span class='badge badge-warning' id='lblCartCount' th:if="${numCarrello}" th:text="${numCarrello}" style="margin-left: 0px;"></span>
                         <ul class="dropdown-menu">
-                            <li><a href="/carrello"
+                            <li><a href="/lista-carrello"
                                     style="background-color: transparent; color: #6b7770;">Carrello</a></li>
     
                         </ul>
@@ -136,7 +136,9 @@
 													<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
 
                                                     <!--<button class="btn"></button><a th:if="${loggato} and ${isAdmin!=true}" th:href=>Aggiungi</a></button>-->
-													<button th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}+'\''}" type="button" style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 5px;">
+													<button th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}+'\''}" 
+                                                    th:if="${loggato} and ${isAdmin!=true}"
+                                                    type="button" style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 5px;">
                                                         Aggiungi
                                                     </button>
                                                     <!--<div class="my-mainsub"></div>-->
