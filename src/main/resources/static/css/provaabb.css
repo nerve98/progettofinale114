@@ -62,7 +62,7 @@
 }*/ /*hover effect*/
 
 .my-card:hover {               /*hover effect*/
-  box-shadow: #c3a006 0px 0px 10px 0px;
+  box-shadow: #0ebd05 0px 0px 10px 0px;
   cursor: pointer;  
 }
 

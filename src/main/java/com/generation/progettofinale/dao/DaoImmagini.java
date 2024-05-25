@@ -76,18 +76,28 @@ public class DaoImmagini implements IDao<Long, Immagini>{
     }
     @Override
     public void update(Immagini e) {
-        query = "UPDATE immagini SET nome=?, url=?, idMoto=?, idCasco=?, idAbbigliamento=? WHERE id=?";
-        db.executeDML(query, 
-        e.getNome(),
-        e.getUrl(), 
-        String.valueOf(e.getIdMoto()),
-        String.valueOf(e.getIdCasco()), 
-        String.valueOf(e.getIdAbbigliamento()),
-        String.valueOf(e.getId()));
-    }
+        query = "UPDATE immagini SET nome=?, url=?";
+        List<String> values = new ArrayList<>();
+        values.add(e.getNome());
+        values.add(e.getUrl());
+        if (e.getIdMoto() != null) {
+            query += ", idMoto=?";
+            values.add(String.valueOf(e.getIdMoto()));
+        }
+        if (e.getIdCasco() != null) {
+            query += ", idCasco=?";
+            values.add(String.valueOf(e.getIdCasco()));
+        }
+        if (e.getIdAbbigliamento() != null) {
+            query += ", idAbbigliamento=?";
+            values.add(String.valueOf(e.getIdAbbigliamento()));
+        }
+        query += " WHERE id=?";
+        values.add(String.valueOf(e.getId()));
+        db.executeDML(query, values.toArray(new String[values.size()]));}
+    
     @Override
     public void delete(Long id) {
-
         query="DELETE FROM immagini WHERE id=?";
         db.executeDML(query, String.valueOf(id));
 
