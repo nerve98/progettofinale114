@@ -86,7 +86,7 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
     public Abbigliamento readById(Long id) {
 
         String query="SELECT * FROM abbigliamento WHERE id=?";
-        databaseMySql.executeDML(query,String.valueOf(id));
+        //databaseMySql.executeDML(query,String.valueOf(id));
         Map<Long,Map<String,String>> vestiti = databaseMySql.executeDQL(query,String.valueOf(id));
         Abbigliamento a = null;
         for(Map<String,String> map : vestiti.values()){
