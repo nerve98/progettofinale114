@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.generation.progettofinale.Services.ServiceCasco;
 import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.models.Casco;
+import com.generation.progettofinale.models.Entity;
 import com.generation.progettofinale.models.Immagini;
 
 
@@ -47,8 +48,11 @@ public class CascoController {
         model.addAttribute("immagini", immagini);
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
-        
-        return "caschiv2.html";
+        List<Entity> carrello=(List<Entity>) session.getAttribute("carrello");
+        if(carrello!=null && carrello.size()>0){
+            model.addAttribute("numCarrello", carrello.size());
+        }
+        return "caschiv3.html";
     }
 
     
