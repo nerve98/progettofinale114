@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;}
     
 	#centro {
-		padding-left: 40px; /* Aggiunge 20px di spazio a sinistra */
+		padding-left: 40px; 
 	}   
 body {
 	line-height: 1;
