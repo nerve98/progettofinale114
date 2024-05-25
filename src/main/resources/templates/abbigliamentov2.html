@@ -111,11 +111,11 @@
 												<svg class="weather" version="1.1" id="Layer_1"
 													xmlns="http://www.w3.org/2000/svg"
 													xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-													width="100" height="100" viewBox="0 0 100 100"
+													width="120" height="100" viewBox="0 0 100 100"
 													xml:space="preserve">
 													<image id="image0" width="100" height="100" x="0" y="0"
 														th:href="@{${immagini[j].url}}" th:if="${immagini[j]!=null}"></image>
-													<image id="image0" width="100" height="100" x="0" y="0"
+													<image id="image0" width="120" height="120" x="0" y="0"
 														th:href="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}"
 														th:if="${immagini[j]==null}"></image>
 												</svg>
@@ -140,7 +140,7 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
-														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
+														<div class="humiditytext"><b>Prezzo</b><br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
 													</div>
 
 													<div class="air">
@@ -157,7 +157,7 @@
 															</image>
 														</svg>
 														<!--<div class="airtext">Colore<br><span th:text="${vestiti[j].coloreAbbigliamento}"></span></div>-->
-														<div class="airtext">Brand<br><span th:text="${vestiti[j].brand}"></span></div>
+														<div class="airtext"><b>Brand</b><br><span th:text="${vestiti[j].brand}"></span></div>
 													</div>
 												</div>
 
@@ -172,7 +172,7 @@
 																href="https://cdn-icons-png.flaticon.com/512/3863/3863108.png">
 															</image>
 														</svg>
-														<div class="aqitext">Protezione<br>
+														<div class="aqitext"><b>Protezione</b><br>
 															<span th:if="${vestiti[j].protezione}">Sì</span>
 															<span th:unless="${vestiti[j].protezione}">No</span>
 														</div>
@@ -188,7 +188,7 @@
 																href="https://cdn-icons-png.flaticon.com/512/5522/5522064.png">
 															</image>
 														</svg>
-														<div class="realfeeltext">Materiale<br><span class="my-text" th:text="${vestiti[j].materiale}"></span></div>
+														<div class="realfeeltext"><b>Materiale</b><br><span class="my-text" th:text="${vestiti[j].materiale}"></span></div>
 													</div>
 
 													<!--<div class="pressure">
