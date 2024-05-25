@@ -150,7 +150,10 @@ table {
 #tableC{
     margin-left: 18%;
     position: static;
-
+}
+#tableI{
+    margin-left: 20%;
+    position: static;
 }
 #tableA{
     margin-left: 12%;
@@ -195,7 +198,7 @@ th, td {
 }
 #tdModifica,#tdElimina:hover {
     background-color:  #e6e6e6;
-}ù
+}
 #tdElimina {
     width: 30px;
 }
@@ -261,6 +264,19 @@ button:hover {
     margin-left: 34%;
 
 }
+#iInsert{
+    background-color:#000000;
+    position: absolute;
+    margin-top:55px;
+    margin-left: 33%;
+}
+#cInsert:hover{
+    background-color: #343434;
+}
+#iInsert:hover{
+    background-color: #343434;
+}
+
 
 #bInsert:hover{
     background-color: #343434;
