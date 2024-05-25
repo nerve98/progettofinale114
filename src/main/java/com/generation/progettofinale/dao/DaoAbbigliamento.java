@@ -101,7 +101,8 @@ public class DaoAbbigliamento implements IDao<Long, Abbigliamento>{
         boolean oneParam=false;
         List<String> parametri=new ArrayList<>();
         if(prodotto!=null && !prodotto.isEmpty()) {
-            query=query.replace("$1", "nomeAbbigliamento like CONCAT( ?,'%')");
+            query=query.replace("$1", "nomeAbbigliamento like CONCAT( ?,'%') or nomeAbbigliamento like CONCAT('% ',?,'%')");
+            parametri.add(prodotto);
             parametri.add(prodotto);
             oneParam=true;
         }
