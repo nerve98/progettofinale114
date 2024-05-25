@@ -59,8 +59,22 @@
 								<li th:unless="${loggato}"><a href="/formRegistrazione" style="background-color: transparent; color: #6b7770;">Registrazione</a></li>
 								<li th:if="${isAdmin}"><a href="/admin" style="background-color: transparent; color: #6b7770;">Admin-Page</a></li>
 								<li th:if="${loggato}"><a href="/logout" style="background-color: transparent; color: #6b7770;">Logout</a></li>
-
 							</ul>
+
+							<li th:if="${loggato} and ${isAdmin!=true}">
+								<div style="position: relative;" data-bs-toggle="dropdown" aria-expanded="false">
+									<a type="button"><img
+										src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png" class="iconlogin">
+									</a>
+									<b  th:if="${numCarrello}" th:text="${numCarrello}" style="position: absolute;
+									top: 8px;
+									right: 16px; color: black;"></b>
+								</div>
+								<ul class="dropdown-menu">
+										<li><a href="/lista-carrello"
+												style="background-color: transparent; color: #6b7770;">Carrello</a></li>
+				
+									</ul>
 						</li>
 					</ul>
 				</nav>
