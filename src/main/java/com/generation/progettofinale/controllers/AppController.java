@@ -28,6 +28,14 @@ public class AppController {
 @Autowired
 private ServiceUtente serviceUtente;
 
+@GetMapping("/acquisti")
+public String acquisti() {
+    return "paginaAcquisto.html";
+}
+@GetMapping("/pagamento")
+public String admin() {
+    return "cartaDiCredito.html";
+}
 
 @GetMapping("/home")
 public String home(Model model,

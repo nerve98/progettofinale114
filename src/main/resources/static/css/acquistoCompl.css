@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:  #b1ddab27;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 10%;
+    
+}
+
+h1 {
+    color: #4CAF50; /* Verde sbiadito */
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Verde sbiadito */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #45a049; /* Verde leggermente più scuro */
+}

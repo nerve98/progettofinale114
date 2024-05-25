@@ -134,7 +134,7 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
-														<div class="humiditytext">Prezzo<br><span th:text="${caschi[j].prezzo}+'€'"></span></div>
+														<div class="humiditytext"><b>Prezzo</b><br><span th:text="${caschi[j].prezzo}+'€'"></span></div>
 													</div>
 
 													<div class="air">
@@ -151,22 +151,22 @@
 															</image>-->
 														</svg>
 														<!--<div class="airtext">Colore<br><span th:text="${caschi[j].coloreAbbigliamento}"></span></div>-->
-														<div class="airtext">Colore<br><span th:text="${caschi[j].coloreCasco}"></span></div>
+														<div class="airtext"><b>Colore</b><br><span th:text="${caschi[j].coloreCasco}"></span></div>
 													</div>
 												</div>
 
 												<div class="lower">
 													<div class="aqi">
-														<svg class="aqisvg" version="1.1" id="Layer_1"
+														<svg class="aqisvg" version="1.1" id="Layer_1" style="margin-left: 38px; "
 															xmlns="http://www.w3.org/2000/svg"
 															xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 															width="30px" height="30px" viewBox="0 0 30 30"
 															xml:space="preserve">
 															<image id="image0" width="30" height="30" x="0" y="0"
-																href="https://cdn-icons-png.flaticon.com/512/705/705668.png">
+																href="https://cdn-icons-png.flaticon.com/512/705/705668.png" >
 															</image>
 														</svg>
-														<div class="aqitext">Visiera Oscurata<br>
+														<div class="aqitext" id="centro"><b>Visiera Oscurata</b><br>
 															<span th:if="${caschi[j].visieraOscurata}">Sì</span>
 															<span th:unless="${caschi[j].visieraOscurata}">No</span>
 														</div>
