@@ -102,4 +102,30 @@ public class ControllerCarrello {
         return "carrello.html";
     }
 
+    @GetMapping("/rimuovi-carrello")
+    public String rimuoviById(HttpSession session, Model model, @RequestParam(name = "id") Long id, @RequestParam(name = "tipo") String tipo) {
+        List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
+        if (carrello != null) {
+            for (Entity entity : carrello) {
+                if (entity.getId() == id) {
+                    if(entity instanceof Abbigliamento && tipo.equals("abbigliamento")){
+                        carrello.remove(entity);
+                        break;
+                    }
+                    else if(entity instanceof Casco && tipo.equals("casco")){
+                        carrello.remove(entity);
+                        break;
+                    }
+                    else if(entity instanceof Moto && tipo.equals("moto")){
+                        carrello.remove(entity);
+                        break;
+                    }
+                    
+                }
+            }
+        }
+        session.setAttribute("carrello", carrello);
+        return "redirect:/lista-carrello";
+    }
+
 }

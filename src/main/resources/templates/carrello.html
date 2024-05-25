@@ -35,7 +35,7 @@
                           <td>
                             <h4 th:text="'Casco '+${caschi[j].modello}"></h4>
                           </td>
-                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                          <td class="text-center align-middle px-0"><a th:href="@{'/rimuovi-carrello?id='+${caschi[j].id}}+'&tipo=casco'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                         </tr>
                       </div>
                       <div th:each="j: ${#numbers.sequence(0, #lists.size(vestiti)-1, 1)}">
@@ -49,7 +49,7 @@
                           <td>
                             <h4 th:text="${vestiti[j].nomeAbbigliamento}"></h4>
                           </td>
-                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                          <td class="text-center align-middle px-0"><a th:href="@{'/rimuovi-carrello?id='+${vestiti[j].id}}+'&tipo=abbigliamento'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                         </tr>
                       </div>
                       <div th:each="j: ${#numbers.sequence(0, #lists.size(moto)-1, 1)}">
@@ -63,7 +63,7 @@
                           <td>
                             <h4 th:text="${moto[j].marca}"></h4>
                           </td>
-                          <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                          <td class="text-center align-middle px-0"><a th:href="@{'/rimuovi-carrello?id='+${moto[j].id}}+'&tipo=moto'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                         </tr>
                       </div>
             
