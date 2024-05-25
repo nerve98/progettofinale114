@@ -71,8 +71,8 @@ body, html {
 #ziopera {
     width: 350px; 
 	height: 350px;
-	margin-right: 10%;
-
+	margin-right: 6%;
+	margin-bottom: 3%;
 }
 
 #loginForm{
