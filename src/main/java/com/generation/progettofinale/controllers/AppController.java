@@ -91,7 +91,7 @@ HttpSession session){
         }return "redirect:/home";
     }
     
-    @GetMapping("/carrello")
+    @GetMapping("/paymethod")
     public String carrello() {
         return "cartaDiCredito.html";
     }
