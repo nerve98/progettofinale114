@@ -32,10 +32,12 @@ public class ControllerCarrello {
 
     @Autowired
     private ServiceCasco serviceCasco;
+
     @GetMapping("/carrello")
     public String carrello() {
         return "carrello.html";
     }
+
     @GetMapping("/addCarrello")
     public String abbigliamentoById(@RequestParam(name = "idProdotto") Long idProdotto,
             @RequestParam(name = "tipoProdotto") String tipoProdotto,
@@ -79,18 +81,18 @@ public class ControllerCarrello {
         List<Casco> caschi = new ArrayList<>();
         List<Moto> moto = new ArrayList<>();
         double totale = 0;
-        for (Entity entity : carrello) {
-            if (entity instanceof Abbigliamento) {
-                vestiti.add((Abbigliamento) entity);
-                totale+=((Abbigliamento) entity).getPrezzo();
-            }
-            else if (entity instanceof Casco) {
-                caschi.add((Casco) entity);
-                totale+=((Casco) entity).getPrezzo();
-            }
-            else if (entity instanceof Moto) {
-                moto.add((Moto) entity);
-                totale+=((Moto) entity).getPrezzo();
+        if (carrello != null) {
+            for (Entity entity : carrello) {
+                if (entity instanceof Abbigliamento) {
+                    vestiti.add((Abbigliamento) entity);
+                    totale += ((Abbigliamento) entity).getPrezzo();
+                } else if (entity instanceof Casco) {
+                    caschi.add((Casco) entity);
+                    totale += ((Casco) entity).getPrezzo();
+                } else if (entity instanceof Moto) {
+                    moto.add((Moto) entity);
+                    totale += ((Moto) entity).getPrezzo();
+                }
             }
         }
         model.addAttribute("vestiti", vestiti);
@@ -99,7 +101,5 @@ public class ControllerCarrello {
         model.addAttribute("totale", totale);
         return "carrello.html";
     }
-
-
 
 }
