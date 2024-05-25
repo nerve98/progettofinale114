@@ -78,7 +78,7 @@ private ServiceImmagini serviceImmagini;
             if(loggato!=null && utente!=null){
                 if(loggato.equals("ok") && utente.isAdmin()){
                     serviceImmagini.update(paramsImm);
-                    return "redirect:/immagini";
+                    return "redirect:/admin-immagini";
                 }
             }
             return "redirect:/login";
