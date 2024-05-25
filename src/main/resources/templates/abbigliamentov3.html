@@ -74,7 +74,7 @@
                     <a type="button" data-bs-toggle="dropdown" aria-expanded="false"><img
                         src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" class="iconlogin">
                     </a>
-                    <span class='badge badge-warning' id='lblCartCount' th:text="${numCarrello}"></span>
+                    <span class='badge badge-warning' id='lblCartCount' th:if="${numCarrello}" th:text="${numCarrello}"></span>
                         <ul class="dropdown-menu">
                             <li><a href="/lista-carrello"
                                     style="background-color: transparent; color: #6b7770;">Carrello</a></li>
@@ -134,8 +134,12 @@
 
 												<div>
 													<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
-                                                    <a th:if="${loggato} and ${isAdmin!=true}" th:href="@{'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}}">Aggiungi</a>
-													<!--<div class="my-mainsub"></div>-->
+
+                                                    <!--<button class="btn"></button><a th:if="${loggato} and ${isAdmin!=true}" th:href=>Aggiungi</a></button>-->
+													<button th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}+'\''}" type="button" style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 5px;">
+                                                        Aggiungi
+                                                    </button>
+                                                    <!--<div class="my-mainsub"></div>-->
 												</div>
 
 											</div>
