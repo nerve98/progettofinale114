@@ -1,6 +1,8 @@
 package com.generation.progettofinale.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
@@ -23,13 +25,41 @@ public class DaoImmagini implements IDao<Long, Immagini>{
     
     @Override
     public Long create(Immagini e) {
-        query = "INSERT INTO immagini (nome,url,idMoto,idCasco,idAbbigliamento) VALUES (?,?,?,?,?)";
-        return db.executeDML(query, 
+        query = "INSERT INTO immagini (nome,url,idMoto,idCasco,idAbbigliamento) VALUES (?,?,$1?,$2?,$3?)";
+        List<String> values = new ArrayList<>();
+        values.add(e.getNome());
+        values.add(e.getUrl());
+        if(e.getIdMoto()==null){
+            query=query.replace(",idMoto", "");
+            query=query.replace(",$1?", "");
+        }
+        else{
+            query=query.replace("$1?", "?");
+            values.add(String.valueOf(e.getIdMoto()));
+        }
+        if(e.getIdCasco()==null){
+            query=query.replace(",idCasco", "");
+            query=query.replace(",$2?", "");
+        }
+        else{
+            query=query.replace("$2?", "?");
+            values.add(String.valueOf(e.getIdCasco()));
+        }
+        if(e.getIdAbbigliamento()==null){
+            query=query.replace(",idAbbigliamento", "");
+            query=query.replace(",$3?", "");
+        }
+        else{
+            query=query.replace("$3?", "?");
+            values.add(String.valueOf(e.getIdAbbigliamento()));
+        }
+        /*return db.executeDML(query, 
         e.getNome(),
         e.getUrl(), 
         String.valueOf(e.getIdMoto()),
         String.valueOf(e.getIdCasco()), 
-        String.valueOf(e.getIdAbbigliamento()));
+        String.valueOf(e.getIdAbbigliamento()));*/
+        return db.executeDML(query, values.toArray(new String[values.size()]));
     }
 
     @Override

@@ -114,12 +114,15 @@
 													width="100px" height="100px" viewBox="0 0 100 100"
 													xml:space="preserve">
 													<image id="image0" width="100" height="100" x="0" y="0"
-														th:href="@{${immagini[j].url}}"></image>
+														th:href="@{${immagini[j].url}}" th:if="${immagini[j]!=null}"></image>
+													<image id="image0" width="100" height="100" x="0" y="0"
+														th:href="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}"
+														th:if="${immagini[j]==null}"></image>
 												</svg>
 
 												<div>
 													<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
-													<div class="my-mainsub">Dunmore, Ireland</div>
+													<!--<div class="my-mainsub">Dunmore, Ireland</div>-->
 												</div>
 
 											</div>
@@ -167,8 +170,8 @@
 															</image>
 														</svg>
 														<div class="aqitext">Protezione<br>
-															<span th:if="vestiti[j].protezione==1">Sì</span>
-															<span th:unless="vestiti[j].protezione==1">No</span>
+															<span th:if="${vestiti[j].protezione}">Sì</span>
+															<span th:unless="${vestiti[j].protezione}">No</span>
 														</div>
 													</div>
 

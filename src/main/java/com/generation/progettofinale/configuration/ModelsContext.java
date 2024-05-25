@@ -109,18 +109,19 @@ public class ModelsContext {
         i.setUrl(map.get("url"));
 
 
-        if (map.containsKey("idMoto") && map.get("idMoto") != null) {
+        if (map.containsKey("idMoto") && map.get("idMoto")!=null && !map.get("idMoto").isEmpty()) {
             moto = Long.parseLong(map.get("idMoto"));
             i.setIdMoto(moto);
         }
-        else if (map.containsKey("idCasco") && map.get("idCasco") != null){
+        else if (map.containsKey("idCasco") && map.get("idCasco")!=null && !map.get("idCasco").isEmpty()){
             casco = Long.parseLong(map.get("idCasco"));
             i.setIdCasco(casco);
         }
-        else if (map.containsKey("idAbbigliamento") && map.get("idAbbigliamento") != null){
+        else if (map.containsKey("idAbbigliamento") && map.get("idAbbigliamento")!=null && !map.get("idAbbigliamento").isEmpty()){
             abbigliamento = Long.parseLong(map.get("idAbbigliamento"));
             i.setIdAbbigliamento(abbigliamento);
         }
+        System.out.println("oggetto incriminato:"+i.toString()+"\n");
         return i;
     }
     
