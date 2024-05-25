@@ -51,7 +51,10 @@ public class DaoCasco implements IDao<Long, Casco>{
         boolean oneParam=false;
         List<String> parametri=new ArrayList<>();
         if(prodotto!=null && !prodotto.isEmpty()) {
-            query=query.replace("$1", "nomeCasco like CONCAT( ?,'%')");
+            query=query.replace("$1", "nomeCasco like CONCAT( ?,'%') or nomeCasco like CONCAT('% ',?,'%') or modello like CONCAT( ?,'%') or modello like CONCAT('% ',?,'%')");
+            parametri.add(prodotto);
+            parametri.add(prodotto);
+            parametri.add(prodotto);
             parametri.add(prodotto);
             oneParam=true;
         }
