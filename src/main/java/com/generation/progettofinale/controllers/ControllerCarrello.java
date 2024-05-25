@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.generation.progettofinale.Services.ServiceAbbigliamento;
 import com.generation.progettofinale.Services.ServiceCasco;
 import com.generation.progettofinale.Services.ServiceMoto;
+import com.generation.progettofinale.models.Abbigliamento;
+import com.generation.progettofinale.models.Casco;
 import com.generation.progettofinale.models.Entity;
+import com.generation.progettofinale.models.Moto;
 import com.generation.progettofinale.models.Utente;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -66,4 +69,31 @@ public class ControllerCarrello {
         return "redirect:" + referer;
     }
 
+    @GetMapping("/carrello")
+    public String carrello(HttpSession session, Model model) {
+        List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
+        List<Abbigliamento> vestiti = new ArrayList<>();
+        List<Casco> caschi = new ArrayList<>();
+        List<Moto> moto = new ArrayList<>();
+        double totale = 0;
+        for (Entity entity : carrello) {
+            if (entity instanceof Abbigliamento) {
+                vestiti.add((Abbigliamento) entity);
+                totale+=((Abbigliamento) entity).getPrezzo();
+            }
+            else if (entity instanceof Casco) {
+                caschi.add((Casco) entity);
+                totale+=((Casco) entity).getPrezzo();
+            }
+            else if (entity instanceof Moto) {
+                moto.add((Moto) entity);
+                totale+=((Moto) entity).getPrezzo();
+            }
+        }
+        model.addAttribute("vestiti", vestiti);
+        model.addAttribute("caschi", caschi);
+        model.addAttribute("moto", moto);
+        model.addAttribute("totale", totale);
+        return "carrello.html";
+    }
 }
