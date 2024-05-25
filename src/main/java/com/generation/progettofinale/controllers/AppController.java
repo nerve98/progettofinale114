@@ -42,6 +42,10 @@ public String home(Model model,
 HttpSession session) {
     model.addAttribute("isAdmin", session.getAttribute("admin"));
     model.addAttribute("loggato", session.getAttribute("loggato"));
+    List<Entity> carrello=(List<Entity>) session.getAttribute("carrello");
+    if(carrello!=null && carrello.size()>0){
+        model.addAttribute("numCarrello", carrello.size());
+    }
     return "index.html";
 }
 

@@ -1,6 +1,13 @@
 .card{
   box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
 }
+.table thead th {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #333;
+  text-align: center;
+  padding: 1em;
+} 
 
 .ui-product-color {
   display: inline-block;
@@ -13,10 +20,12 @@
   box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
   vertical-align: middle;
 }
-
+.btn-primary {
+ border: none;
+}
 button{
   border-radius: 5px;
-  border: black 1px solid;
+  border: black 1px solid;;
 }
 button:hover{
   cursor: pointer;
@@ -24,14 +33,22 @@ button:hover{
 }
 
   #button:hover{
-    background-color: #447e46;
+    background-color: #5e9357;
 
   }
   #button{
-    background-color: #4CAF50;
+    background-color:#b1ddab;
     color: white;
   }
   label{
     font-weight: bold;
     margin-left: 40%;
   }
+
+  tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
