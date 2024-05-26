@@ -163,7 +163,7 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
-														<div class="humiditytext">Prezzo<br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
+														<div class="humiditytext"><b>Prezzo</b><br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
 													</div>
 
 													<div class="air">
@@ -180,7 +180,7 @@
 															</image>
 														</svg>
 														<!--<div class="airtext">Colore<br><span th:text="${vestiti[j].coloreAbbigliamento}"></span></div>-->
-														<div class="airtext">Brand<br><span th:text="${vestiti[j].brand}"></span></div>
+														<div class="airtext"><b>Brand</b><br><span th:text="${vestiti[j].brand}"></span></div>
 													</div>
 												</div>
 
@@ -195,7 +195,7 @@
 																href="https://cdn-icons-png.flaticon.com/512/3863/3863108.png">
 															</image>
 														</svg>
-														<div class="aqitext">Protezione<br>
+														<div class="aqitext"><B>Protezione</B><br>
 															<span th:if="${vestiti[j].protezione}">Sì</span>
 															<span th:unless="${vestiti[j].protezione}">No</span>
 														</div>
@@ -211,7 +211,7 @@
 																href="https://cdn-icons-png.flaticon.com/512/5522/5522064.png">
 															</image>
 														</svg>
-														<div class="realfeeltext">Materiale<br><span class="my-text" th:text="${vestiti[j].materiale}"></span></div>
+														<div class="realfeeltext"><B>Materiale</B><br><span class="my-text" th:text="${vestiti[j].materiale}"></span></div>
 													</div>
 
 													<!--<div class="pressure">
