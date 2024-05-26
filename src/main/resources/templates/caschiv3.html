@@ -143,7 +143,7 @@
                                                     <button id="bottone-aggiungi"
                                                         th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=casco&idProdotto='+${caschi[j].id}+'\''}"
                                                         th:if="${loggato} and ${isAdmin!=true}" type="button"
-                                                        style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 15px;">
+                                                        style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 15px; font-weight: 800;">
                                                         +Aggiungi
                                                     </button>
                                                 </div>
@@ -163,7 +163,7 @@
                                                                 y="0" x="0" height="30" width="30" id="image0">
                                                             </image>
                                                         </svg>
-                                                        <div class="humiditytext"><b>Prezzo</b><br><b style="color: black; "><span
+                                                        <div class="humiditytext"><b >Prezzo</b><br><b style="color: black; font-size: 110%;"><span
                                                                 th:text="${caschi[j].prezzo}+'€'"></span></b></div>
                                                     </div>
 
@@ -181,8 +181,8 @@
 															</image>-->
                                                         </svg>
                                                         <!--<div class="airtext">Colore<br><span th:text="${caschi[j].coloreAbbigliamento}"></span></div>-->
-                                                        <div class="airtext"><b>Colore</b><br><span 
-                                                                th:text="${caschi[j].coloreCasco}"></span></div>
+                                                        <div class="airtext"><b>Colore</b><br><b style="color: black; font-style: italic;"><span 
+                                                                th:text="${caschi[j].coloreCasco}"></b></span></div>
                                                     </div>
                                                 </div>
 
