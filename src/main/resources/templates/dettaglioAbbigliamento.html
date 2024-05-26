@@ -2,18 +2,18 @@
 <html>
 <head>
     <title>Dettaglio Abbigliamento</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
 <body>
     <h1>Dettaglio Abbigliamento</h1>
     
     <div>
         <p>Nome: <span th:text = "${abbigliamento.nomeAbbigliamento}"></span></p>
-        <p>Prezzo: <span th:text = "${abbigliamento.prezzo}+ ' €'"></span></p>
+        <p>Prezzo: <span th:text = "${abbigliamento.prezzo}"></span></p>
         <p>Colore: <span th:text = "${abbigliamento.coloreAbbigliamento}"></span></p>
         <p>Marca: <span th:text = "${abbigliamento.brand}"></span></p>
-        <p>Materiale: <span th:text = "${abbigliamento.materiale}"></span></p>
-        <p>Protettivo: <span th:text = "${abbigliamento.protezione ? 'Sì' : 'No'}"></span></p>
+        <p>materiale: <span th:text = "${abbigliamento.materiale}"></span></p>
+        <p>protezione: <span th:text = "${abbigliamento.protezione}"></span></p>
     </div>
 </body>
 </html>
