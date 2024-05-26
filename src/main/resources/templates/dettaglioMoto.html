@@ -12,174 +12,108 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/main.css" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+    <body  id="pagina-specifica">
+        <header id="header" >
+            <div class="logo container">
+                <div>
+                    <h1><a href="/home" id="logo">Motoroni</a></h1>
+                    <p>i più belli di sempre</p>
                 </div>
             </div>
+        </header>
+        <nav id="nav">
+					
+            <ul style="display: flex; align-items: center; justify-content: center; top: -2px;">
+                <li class="current"><a href="/home">Home</a></li>
+                
+                <li>
+                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false" >Motoroni</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/sportive" style="background-color: transparent; color: #6b7770;">Sportive</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/caschi">Caschi</a>
+                </li>
+
+                <li>
+                    <a href="/abbigliamento">Abbigliamento</a>
+                </li>
+
+                <li>
+                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false" ><img src="https://cdn-icons-png.flaticon.com/512/5029/5029739.png" class="iconlogin"></a>
+                    <ul class="dropdown-menu">
+                        <li th:unless="${loggato}"><a href="/login" style="background-color: transparent; color: #6b7770;">Login</a></li>
+                        <li th:unless="${loggato}"><a href="/formRegistrazione" style="background-color: transparent; color: #6b7770;">Registrazione</a></li>
+                        <li th:if="${isAdmin}"><a href="/admin" style="background-color: transparent; color: #6b7770;">Admin-Page</a></li>
+                        <li th:if="${loggato}"><a href="/logout" style="background-color: transparent; color: #6b7770;">Logout</a></li>
+                    </ul>
+
+                    <li th:if="${loggato} and ${isAdmin!=true}">
+                        <div style="position: relative;" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a type="button"><img
+                                src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png" class="iconlogin">
+                            </a>
+                            <b  th:if="${numCarrello}" th:text="${numCarrello}" style="position: absolute;
+                            top: 8px;
+                            right: 16px; color: black;"></b>
+                        </div>
+                        <ul class="dropdown-menu">
+                                <li><a href="/lista-carrello"
+                                        style="background-color: transparent; color: #6b7770;">Carrello</a></li>
+        
+                            </ul>
+                </li>
+            </ul>
         </nav>
         <!-- Product section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." style="border-radius: 40px;"/></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
                         <h1 class="display-5 fw-bolder">Shop item template</h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$45.00</span>
                             <span>$40.00</span>
                         </div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                        <ul>
+                            <li><strong>Anno:</strong> <span>2024</span></li>
+                            <li><strong>Altezza sella:</strong> <span>850 mm</span></li>
+                            <li><strong>Peso:</strong> <span>220 kg</span></li>
+                            <li><strong>Cilindrata:</strong> <span>1000 cc</span></li>
+                            <li><strong>Potenza CV:</strong> <span>150 CV</span></li>
+                            <li><strong>Potenza KW:</strong> <span>110 kW</span></li>
+                            <li><strong>Consumo:</strong> <span>5 l/100km</span></li>
+                            <li><strong>Trasmissione Manuale:</strong> <span>Sì</span></li>
+                            <li><strong>Avvio Elettronico:</strong> <span>Sì</span></li>
+                          </ul>
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="INDIETRO" >
+                                Torna<br>Indietro
+                            </button>
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="carrello">
                                 <i class="bi-cart-fill me-1"></i>
-                                Add to cart
+                                Aggiungi
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Related items section-->
-        <section class="py-5 bg-light">
-            <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="fw-bolder mb-4">Related products</h2>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $40.00 - $80.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        <div id="copyright">
+            <ul class="menu">
+                <li>&copy; Alessandro</li><li>&copy; Giacomo</li><li>&copy; Gianluca</li><li>&copy; Michele</li>
+            </ul>
+        </div>
+      
+
+
 </html>

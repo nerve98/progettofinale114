@@ -52,7 +52,7 @@ public class ControllerMoto {
         if (carrello != null && carrello.size() > 0) {
             model.addAttribute("numCarrello", carrello.size());
         }
-        return "paginaSportive.html";
+        return "dettaglioMoto.html";
     }
 
     @GetMapping("/addtoCart")
