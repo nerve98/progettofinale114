@@ -52,3 +52,12 @@ button:hover{
 tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
+
+#hcarrello,#buttonC{
+  background-color: #3c8732;
+  border: none;
+}
+#hcarrello:hover,#buttonC:hover{
+  background-color: #135700;
+}
+

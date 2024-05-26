@@ -84,9 +84,9 @@
                 </div>
             
                 <div class="float-right">
-                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="location.href='/home'"><b style="color: white;">Torna alla home</b></button>
+                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="location.href='/home'" id="hcarrello"><b style="color: white;">Torna alla home</b></button>
                     
-                    <a href="/paymethod"><button id="button" class="btn btn-lg btn-primary mt-2" th:if="${totale!=0}"><b style="color: white;">Procedi</b></button></a>
+                    <a href="/paymethod"><button type="button" id="buttonC" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" th:if="${totale!=0}" ><b style="color: white; ">Procedi</b></button></a>
                 </div>
             
               </div>
