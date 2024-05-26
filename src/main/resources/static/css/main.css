@@ -1787,7 +1787,7 @@ input, select, textarea {
 		font-weight: 700;
 		text-transform: uppercase;
 		text-decoration: none;
-		background: #b1ddab;
+		background: #3c8732;
 		color: #fff;
 		border: 0;
 		line-height: 1em;
@@ -1825,7 +1825,7 @@ input, select, textarea {
 		input[type="reset"].alt,
 		button.alt,
 		.button.alt {
-			background: #c1cac5;
+			background: #7d8982;
 		}
 
 			input[type="button"].alt:hover,
