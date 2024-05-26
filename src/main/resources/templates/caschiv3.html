@@ -200,7 +200,7 @@
                                                         </svg>
                                                         <div class="aqitext" id="centro"><b>Visiera Oscurata</b><br>
                                                             <span th:if="${caschi[j].visieraOscurata}"><b style="color: black;">Sì</b></span>
-                                                            <span th:unless="${caschi[j].visieraOscurata}"><b style="color: black;">No</b>/span>
+                                                            <span th:unless="${caschi[j].visieraOscurata}"><b style="color: black;">No</b></span>
                                                         </div>
                                                     </div>
 
@@ -246,7 +246,7 @@
                             <form method="get" href="/caschi" >
                                 <h3>Filtra</h3>
                                 <br>
-                                <div class="form-group" style="min-height: 80vh;margin: 0 0 1em 0; ">
+                                <div class="form-group" style="min-height: 80vh;">
                                     <div class="form-inline">
                                         <label for="formControlRange"
                                             style="font-size: 16px; margin-right: 10px;">prezzo max</label>
