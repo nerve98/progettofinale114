@@ -31,8 +31,8 @@ public class ControllerMoto {
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
         List<Entity> carrello=(List<Entity>) session.getAttribute("carrello");
-        List<Immagini> imm = serviceImmagini.findAll();
-        model.addAttribute("immagini", ris);
+        List<Immagini> images = serviceImmagini.findImmaginiMoto(ris);
+        model.addAttribute("immagini", images);
         if(carrello!=null && carrello.size()>0){
         model.addAttribute("numCarrello", carrello.size());
     }

@@ -203,7 +203,7 @@
 
                     <div class="flip-card-back">
                         <a class="titlecard">Scopri di più</a>
-                        <a th:href="|/addtoCart?idmotoAdd=${moto.id}|" ><img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin"></a>
+                        <a th:if="${loggato}" th:href="|/addtoCart?idmotoAdd=${moto.id}|" ><img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin"></a>
                     </div>
 
                 </div>
