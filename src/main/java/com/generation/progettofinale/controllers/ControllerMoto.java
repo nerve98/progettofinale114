@@ -40,6 +40,21 @@ public class ControllerMoto {
         return "paginaSportive.html";
     }
 
+    @GetMapping("/sportiveById")
+    public String sportiveById(@RequestParam(name = "idMoto") Long idMoto, Model model, HttpSession session) {
+        Moto ris = serviceMoto.findById(idMoto);
+        model.addAttribute("moto", ris);
+        model.addAttribute("isAdmin", session.getAttribute("admin"));
+        model.addAttribute("loggato", session.getAttribute("loggato"));
+        List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
+        Immagini images = serviceImmagini.findImmagine(ris);
+        model.addAttribute("immagine", images);
+        if (carrello != null && carrello.size() > 0) {
+            model.addAttribute("numCarrello", carrello.size());
+        }
+        return "paginaSportive.html";
+    }
+
     @GetMapping("/addtoCart")
     public String addtoCart(HttpSession session, @RequestParam(name = "idmotoAdd") String id) {
 
