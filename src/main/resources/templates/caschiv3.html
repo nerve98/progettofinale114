@@ -138,8 +138,8 @@
                                                 </svg>
 
                                                 <div>
-                                                    <b style="color: rgb(57, 55, 55); font-style: italic; "><div class="my-main" th:text="${caschi[j].modello}"></div> </b>
-                                                    <b style="color: black; text-align: center; "><div class="my-mainsub" th:text="${caschi[j].nomeCasco}"></div> </b>
+                                                    <b style="color: rgb(57, 55, 55); font-style: italic;  "><div class="my-main" th:text="${caschi[j].modello}"></div> </b>
+                                                    <b style="color: black; "><div class="my-mainsub" th:text="${caschi[j].nomeCasco}"></div> </b>
                                                     <button id="bottone-aggiungi"
                                                         th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=casco&idProdotto='+${caschi[j].id}+'\''}"
                                                         th:if="${loggato} and ${isAdmin!=true}" type="button"
