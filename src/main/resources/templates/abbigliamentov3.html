@@ -42,8 +42,6 @@
 					<a type="button" data-bs-toggle="dropdown" aria-expanded="false">Motoroni</a>
 					<ul class="dropdown-menu">
 						<li><a href="/sportive" style="background-color: transparent; color: #6b7770;">Sportive</a></li>
-						<li><a href="#" style="background-color: transparent; color: #6b7770;">Cross</a></li>
-						<li><a href="#" style="background-color: transparent; color: #6b7770;">Scooter</a></li>
 					</ul>
 				</li>
 
@@ -137,12 +135,12 @@
 												</svg>
 
 												<div>
-													<div class="my-main" th:text="${vestiti[j].nomeAbbigliamento}"></div>
+													<b style="color:rgb(57, 55, 55); font-style: italic;"><div class="my-main"  th:text="${vestiti[j].nomeAbbigliamento}"></div></b>
 
                                                     <!--<button class="btn"></button><a th:if="${loggato} and ${isAdmin!=true}" th:href=>Aggiungi</a></button>-->
-													<button th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}+'\''}" 
+													<button id="bottone-aggiungi" th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=abbigliamento&idProdotto='+${vestiti[j].id}+'\''}" 
                                                     th:if="${loggato} and ${isAdmin!=true}"
-                                                    type="button" style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 5px;">
+                                                    type="button" style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 15px;">
                                                         Aggiungi
                                                     </button>
                                                     <!--<div class="my-mainsub"></div>-->
@@ -163,7 +161,7 @@
 																y="0" x="0" height="30" width="30" id="image0">
 															</image>
 														</svg>
-														<div class="humiditytext"><b>Prezzo</b><br><span th:text="${vestiti[j].prezzo}+'€'"></span></div>
+														<div class="humiditytext"><b >Prezzo</b><br> <b style="color: black; "><span th:text="${vestiti[j].prezzo}+'€'"></span></b></div>
 													</div>
 
 													<div class="air">
@@ -180,7 +178,7 @@
 															</image>
 														</svg>
 														<!--<div class="airtext">Colore<br><span th:text="${vestiti[j].coloreAbbigliamento}"></span></div>-->
-														<div class="airtext"><b>Brand</b><br><span th:text="${vestiti[j].brand}"></span></div>
+														<div class="airtext"><b>Brand</b><br> <b style="color: black; "><span th:text="${vestiti[j].brand}"></b></span></div>
 													</div>
 												</div>
 
@@ -196,8 +194,8 @@
 															</image>
 														</svg>
 														<div class="aqitext"><B>Protezione</B><br>
-															<span th:if="${vestiti[j].protezione}">Sì</span>
-															<span th:unless="${vestiti[j].protezione}">No</span>
+															<span th:if="${vestiti[j].protezione}"><b style="color: black;">Sì</b></span>
+															<span th:unless="${vestiti[j].protezione}"><b style="color: black;">No</b></span>
 														</div>
 													</div>
 

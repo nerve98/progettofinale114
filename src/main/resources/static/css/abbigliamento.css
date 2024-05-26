@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+#bottone-aggiungi {
+  border: none;
+}
+
+
+#bottone-aggiungi:hover {
+background-color: #2d6a25;
+box-shadow: #2d6a25 0px 0px 5px;
+
+}
 .flex-container {
   height: 100vh;
  
