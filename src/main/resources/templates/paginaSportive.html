@@ -75,10 +75,6 @@
                         <!-- descrizione -->
                         214 CV, 124 Nm, 174 kg
                     </div>
-                    <div class="buttons">
-                        
-                        <button th:if="${loggato} and ${isAdmin!=true}" style="border-radius: 5px;" >Acquista</button>
-                    </div>
                 </div>
             </div>
             <div class="item">
@@ -89,10 +85,6 @@
                     <div class="des">
                         <!-- descrizione -->
                         310 CV, 165 Nm, 216 kg
-                    </div>
-                    <div class="buttons">
-                        
-                        <button th:if="${loggato} and ${isAdmin!=true}" style="border-radius: 5px;" >Acquista</button>
                     </div>
                 </div>
             </div>
@@ -105,10 +97,6 @@
                         <!-- descrizione -->
                         207 CV, 113 Nm, 197 kg
                     </div>
-                    <div class="buttons">
-                        
-                        <button th:if="${loggato} and ${isAdmin!=true}" style="border-radius: 5px;" >Acquista</button>
-                    </div>
                 </div>
             </div>
             <div class="item">
@@ -119,10 +107,6 @@
                     <div class="des">
                         <!-- descrizione -->
                         200 CV, 112 Nm, 200 kg
-                    </div>
-                    <div class="buttons">
-                        
-                        <button th:if="${loggato} and ${isAdmin!=true}" style="border-radius: 5px;" >Acquista</button>
                     </div>
                 </div>
             </div>
@@ -197,7 +181,7 @@
                     </div>
 
                     <div class="flip-card-back">
-                        <a class="titlecard" href="#" style="color: black;">Scopri di più</a>
+                        <a class="titlecard" href="#" style="color: black; ">Scopri di più</a>
 
                         <a
                             th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=moto&idProdotto='+${moto.id}+'\''}"
