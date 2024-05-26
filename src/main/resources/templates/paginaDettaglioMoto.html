@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="/css/carrello.css">
+
+<head>
+    <title>Dettaglio moto</title>
+</head>
+<body>
+
+    
+    <div>
+        <div th:each = " img : ${immagini}">
+            <img th:src = "${img.url}">
+        </div>
+    </div>
+
+
+    <div class="container px-3 my-5 clearfix" style="background-color: #b1ddab71;; border-radius: 15px;">
+        <!-- Shopping cart table -->
+        <div class="card">
+            <div class="card-header">
+                <h2 style="margin-left: 38%;" th:text = "${moto.nomeMotore}"></h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered m-0">
+                    <tbody>
+
+                        <div class="row-odd" >
+                            <tr >
+                                <td style="width: 600px;">
+                                    <h4 th:text="${moto.marca}"></h4>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="row-odd" >
+                            <tr >
+                                <td style="width: 600px;">
+                                    <h4 th:text="${moto.nomeMotore}"></h4>
+                                </td>
+                            </tr>
+                        </div>
+
+                        
+                    </tbody>
+                  </table>
+                </div>
+
+            
+              </div>
+          </div>
+      </div>
+</body>
+</html>

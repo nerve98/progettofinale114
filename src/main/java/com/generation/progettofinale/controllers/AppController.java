@@ -108,4 +108,10 @@ public class AppController {
     public List<String> createMyList() {
         return new ArrayList<>();
     }
+
+    @GetMapping("/errore")
+    public String error() {
+        return "paginaErrore.html";
+    }
+
 }

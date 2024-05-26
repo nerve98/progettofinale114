@@ -7,8 +7,23 @@
 </head>
 <body style="background-image: url(https://www.m-motocorsa.it/ANM22WebBase/upload/it_officina_12.png); background-repeat: no-repeat; background-size: cover;">
 
-        <h1 style="color: red;">Errore</h1>
+    <div style="
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);">
+    <div style="    
+    display: flex;
+    flex-direction: column;
+    background-color:   #ffffffab;
+    border-radius: 10%;
+    padding: 30px;
+    align-items: center;">
+
+        <h1 style="color: rgb(66, 66, 66);">Errore</h1>
         <h3><span th:text="${error}"></span></h3>
-        <a href="/home">Ritorna alla home</a>
+        <a href="/home" style="text-decoration: none; color: rgb(67, 67, 67);">Ritorna alla home</a>
+        </div>
+    </div>
 </body>
 </html>

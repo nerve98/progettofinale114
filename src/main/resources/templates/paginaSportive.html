@@ -183,7 +183,8 @@
                     </div>
 
                     <div class="flip-card-back">
-                        <a class="titlecard" href="#" style="color: black; ">Scopri di più</a>
+
+                        <a class="titlecard" th:href="|/moto-byId?idMoto=${moto.id}|" style="color: black; ">Scopri di più</a>
 
                         <a
                             th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=moto&idProdotto='+${moto.id}+'\''}"

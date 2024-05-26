@@ -67,4 +67,19 @@ public class ControllerMoto {
         return "redirect:/sportive";
     }
 
+
+    @GetMapping("/moto-byId")
+    public String motoById(@RequestParam(
+        name="idMoto", 
+        defaultValue = "0")
+        Long id, Model model){
+
+        List<Immagini> imgByMoto = serviceImmagini.findImmaginiMoto((List)serviceMoto.findById(id));{
+        Moto moto = serviceMoto.findById(id);
+        model.addAttribute("moto", moto);
+        model.addAttribute("immagini", imgByMoto);
+        return "paginaDettaglioMoto.html";
+        }
+    }
+
 }
