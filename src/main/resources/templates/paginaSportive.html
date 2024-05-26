@@ -197,13 +197,17 @@
                 <div class="flip-card-inner">
 
                     <div class="flip-card-front" >
-                        <img class="img-card"  src="${images.url}">
+                        <img class="img-card"  src="${immagini.url}">
                         <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
                     </div>
 
                     <div class="flip-card-back">
                         <a class="titlecard">Scopri di più</a>
-                        <a th:if="${loggato}" th:href="|/addtoCart?idmotoAdd=${moto.id}|" ><img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin"></a>
+
+                        <a
+                            th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=moto&idProdotto='+${moto.id}+'\''}"
+                            th:if="${loggato} and ${isAdmin!=true}"> <img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin" style="cursor: pointer;">
+                        </a>
                     </div>
 
                 </div>
