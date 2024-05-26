@@ -5,12 +5,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/carrello.css">
+    <link rel="stylesheet" href="/css/main.css">
     <script src="js/carrello.js" defer></script>
     <title>Carrello</title>
    
 </head>
 
-<body>
+<body style="padding-top: 0px;">
+    <header id="header" >
+        <div class="logo container">
+            <div>
+                <h1><a href="/home" id="logo">Motoroni</a></h1>
+                <p>i più belli di sempre</p>
+            </div>
+        </div>
+
+    </header>
     <div class="container px-3 my-5 clearfix" style="background-color: #b1ddab71;; border-radius: 15px;">
         <!-- Shopping cart table -->
         <div class="card">
@@ -33,7 +43,7 @@
                                     <h5 th:text="€ + '  ' + ${caschi[j].prezzo}"></h5>
                                 </td>
                                 <td class="text-center align-middle px-0">
-                                    <a th:href="@{'/rimuovi-carrello?id='+${caschi[j].id}}+'&tipo=casco'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a>
+                                    <a th:href="@{'/rimuovi-carrello?id='+${caschi[j].id}}+'&tipo=casco'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove"><b style="text-decoration: none;">X</b></a>
                                 </td>
                             </tr>
                         </div>
@@ -74,9 +84,9 @@
                 </div>
             
                 <div class="float-right">
-                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="location.href='/home'"><b>Torna alla home</b></button>
+                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="location.href='/home'"><b style="color: white;">Torna alla home</b></button>
                     
-                    <a href="/paymethod"><button id="button" class="btn btn-lg btn-primary mt-2" th:if="${totale!=0}"><b>Procedi</b></button></a>
+                    <a href="/paymethod"><button id="button" class="btn btn-lg btn-primary mt-2" th:if="${totale!=0}"><b style="color: white;">Procedi</b></button></a>
                 </div>
             
               </div>
