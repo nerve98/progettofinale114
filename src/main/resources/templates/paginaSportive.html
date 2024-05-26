@@ -176,7 +176,9 @@
                 <div class="flip-card-inner">
 
                     <div class="flip-card-front" >
-                        <img class="img-card"  th:src="${immagini[i.index].url}">
+                        <img class="img-card" th:if="${immagini[i.index]!=null}"  th:src="${immagini[i.index].url}" >
+                        <img th:if="${immagini[i.index]==null}" class="img-card"
+                            th:src="@{${'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'}}"></img>
                         <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
                     </div>
 
