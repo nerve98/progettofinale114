@@ -172,11 +172,11 @@
 
     <div id="main">
         <div id="card-section" >
-            <div class="flip-card" th:each= "moto : ${motori}">
+            <div class="flip-card" th:each= "moto, i : ${motori}">
                 <div class="flip-card-inner">
 
                     <div class="flip-card-front" >
-                        <img class="img-card"  src="${immagini.url}">
+                        <img class="img-card"  th:src="${immagini[i.index].url}">
                         <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
                     </div>
 
