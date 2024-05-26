@@ -24,11 +24,6 @@
                 
                 <li class="current">
                     <a type="button" data-bs-toggle="dropdown" aria-expanded="false" >Motoroni</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/sportive" style="background-color: transparent; color: #6b7770;">Sportive</a></li>
-                        <li><a href="#" style="background-color: transparent; color: #6b7770;">Cross</a></li>
-                        <li><a href="#" style="background-color: transparent; color: #6b7770;">Scooter</a></li>
-                    </ul>
                 </li>
 
                 <li>
@@ -80,10 +75,6 @@
                         <!-- descrizione -->
                         214 CV, 124 Nm, 174 kg
                     </div>
-                    <div class="buttons">
-                        <button>Specifiche</button>
-                        <button>Acquista</button>
-                    </div>
                 </div>
             </div>
             <div class="item">
@@ -94,10 +85,6 @@
                     <div class="des">
                         <!-- descrizione -->
                         310 CV, 165 Nm, 216 kg
-                    </div>
-                    <div class="buttons">
-                        <button>Specifiche</button>
-                        <button>Acquista</button>
                     </div>
                 </div>
             </div>
@@ -110,10 +97,6 @@
                         <!-- descrizione -->
                         207 CV, 113 Nm, 197 kg
                     </div>
-                    <div class="buttons">
-                        <button>Specifiche</button>
-                        <button>Acquista</button>
-                    </div>
                 </div>
             </div>
             <div class="item">
@@ -124,10 +107,6 @@
                     <div class="des">
                         <!-- descrizione -->
                         200 CV, 112 Nm, 200 kg
-                    </div>
-                    <div class="buttons">
-                        <button>Specifiche</button>
-                        <button>Acquista</button>
                     </div>
                 </div>
             </div>
@@ -183,8 +162,8 @@
         <!-- next prev -->
 
         <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
+            <button id="prev"><<</button>
+            <button id="next">>></button>
         </div>
         <!-- tempo -->
         <div class="time"></div>
@@ -192,18 +171,22 @@
 
 
     <div id="main">
-        <div id="card-section" th:each= "moto : ${motori}">
-            <div class="flip-card">
+        <div id="card-section" >
+            <div class="flip-card" th:each= "moto : ${motori}">
                 <div class="flip-card-inner">
 
-                    <div class="flip-card-front">
-                        <img class="img-card" src="https://storage.kawasaki.eu/public/kawasaki.eu/en-EU/model/19ZX1000Y_201GY3ARB2CG_A.jpg">
+                    <div class="flip-card-front" >
+                        <img class="img-card"  src="${immagini.url}">
                         <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
                     </div>
 
                     <div class="flip-card-back">
-                        <a class="titlecard">Scopri di più</a>
-                        <a th:href="|/addtoCart?idmotoAdd=${moto.id}|" ><img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin"></a>
+                        <a class="titlecard" href="#" style="color: black; ">Scopri di più</a>
+
+                        <a
+                            th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=moto&idProdotto='+${moto.id}+'\''}"
+                            th:if="${loggato} and ${isAdmin!=true}"> <img src="https://cdn-icons-png.flaticon.com/512/7183/7183228.png" class="iconlogin" style="cursor: pointer;">
+                        </a>
                     </div>
 
                 </div>

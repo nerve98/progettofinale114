@@ -46,8 +46,6 @@
                     <a type="button" data-bs-toggle="dropdown" aria-expanded="false">Motoroni</a>
                     <ul class="dropdown-menu">
                         <li><a href="/sportive" style="background-color: transparent; color: #6b7770;">Sportive</a></li>
-                        <li><a href="#" style="background-color: transparent; color: #6b7770;">Cross</a></li>
-                        <li><a href="#" style="background-color: transparent; color: #6b7770;">Scooter</a></li>
                     </ul>
                 </li>
 
@@ -108,9 +106,9 @@
                                 <input class="form-control" type="search" placeholder="Cerca" aria-label="Search"
                                     id="barra-ricerca" name="casco">
                                 <button class="btn" type="submit" id="bottone-ricerca"
-                                    style="color:white;background-color: hsl(126, 42%, 30%); border-color: hsl(126, 42%, 30%);"
+                                    style="color:white;background-color: hsl(126, 36%, 37%); border-color: hsl(126, 42%, 30%);"
                                     onmousedown="this.style.boxShadow='none';this.style.backgroundColor='#b1ddab'; this.style.color='white'; this.style.borderColor='#b1ddab'"
-                                    onmouseup="this.style.color='white'; this.style.backgroundColor='hsl(126, 42%, 30%)'; this.style.borderColor='hsl(126, 42%, 30%)'">Search</button>
+                                    onmouseup="this.style.color='white'; this.style.backgroundColor='hsl(126, 42%, 30%)'; this.style.borderColor='hsl(126, 42%, 30%)'">Cerca</button>
                             </form>
                             <br><br>
 
@@ -140,13 +138,13 @@
                                                 </svg>
 
                                                 <div>
-                                                    <div class="my-main" th:text="${caschi[j].modello}"></div>
-                                                    <div class="my-mainsub" th:text="${caschi[j].nomeCasco}"></div>
-                                                    <button
+                                                    <b style="color: rgb(57, 55, 55); font-style: italic; "><div class="my-main" th:text="${caschi[j].modello}"></div> </b>
+                                                    <b style="color: black; text-align: center; "><div class="my-mainsub" th:text="${caschi[j].nomeCasco}"></div> </b>
+                                                    <button id="bottone-aggiungi"
                                                         th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=casco&idProdotto='+${caschi[j].id}+'\''}"
                                                         th:if="${loggato} and ${isAdmin!=true}" type="button"
-                                                        style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 5px;">
-                                                        Aggiungi
+                                                        style="padding: 0.25em 0.85em; margin-top: 10px; border-radius: 15px;">
+                                                        +Aggiungi
                                                     </button>
                                                 </div>
 
@@ -165,8 +163,8 @@
                                                                 y="0" x="0" height="30" width="30" id="image0">
                                                             </image>
                                                         </svg>
-                                                        <div class="humiditytext"><b>Prezzo</b><br><span
-                                                                th:text="${caschi[j].prezzo}+'€'"></span></div>
+                                                        <div class="humiditytext"><b>Prezzo</b><br><b style="color: black; "><span
+                                                                th:text="${caschi[j].prezzo}+'€'"></span></b></div>
                                                     </div>
 
                                                     <div class="air">
@@ -183,7 +181,7 @@
 															</image>-->
                                                         </svg>
                                                         <!--<div class="airtext">Colore<br><span th:text="${caschi[j].coloreAbbigliamento}"></span></div>-->
-                                                        <div class="airtext"><b>Colore</b><br><span
+                                                        <div class="airtext"><b>Colore</b><br><span 
                                                                 th:text="${caschi[j].coloreCasco}"></span></div>
                                                     </div>
                                                 </div>
@@ -201,8 +199,8 @@
                                                             </image>
                                                         </svg>
                                                         <div class="aqitext" id="centro"><b>Visiera Oscurata</b><br>
-                                                            <span th:if="${caschi[j].visieraOscurata}">Sì</span>
-                                                            <span th:unless="${caschi[j].visieraOscurata}">No</span>
+                                                            <span th:if="${caschi[j].visieraOscurata}"><b style="color: black;">Sì</b></span>
+                                                            <span th:unless="${caschi[j].visieraOscurata}"><b style="color: black;">No</b></span>
                                                         </div>
                                                     </div>
 
@@ -245,7 +243,7 @@
                             </div>
                         </div>
                         <div class="col-3" style="padding: 50px 30px 0 30px;">
-                            <form method="get" href="/caschi">
+                            <form method="get" href="/caschi" >
                                 <h3>Filtra</h3>
                                 <br>
                                 <div class="form-group" style="min-height: 80vh;">

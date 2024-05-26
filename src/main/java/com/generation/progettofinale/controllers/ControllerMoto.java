@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.generation.progettofinale.Services.ServiceImmagini;
 import com.generation.progettofinale.Services.ServiceMoto;
 import com.generation.progettofinale.models.Entity;
+import com.generation.progettofinale.models.Immagini;
 import com.generation.progettofinale.models.Moto;
 
 import jakarta.servlet.http.HttpSession;
@@ -19,6 +21,9 @@ public class ControllerMoto {
     @Autowired
     private ServiceMoto serviceMoto;
 
+    @Autowired
+    private ServiceImmagini serviceImmagini;
+
     @GetMapping("/sportive")
     public String sportive(Model model,HttpSession session){
         List<Moto> ris = serviceMoto.readByTipoMoto("sportiva");
@@ -26,6 +31,8 @@ public class ControllerMoto {
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
         List<Entity> carrello=(List<Entity>) session.getAttribute("carrello");
+        List<Immagini> images = serviceImmagini.findImmaginiMoto(ris);
+        model.addAttribute("immagini", images);
         if(carrello!=null && carrello.size()>0){
         model.addAttribute("numCarrello", carrello.size());
     }

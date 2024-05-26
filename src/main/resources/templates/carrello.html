@@ -29,7 +29,8 @@
                         <div th:each="j: ${#numbers.sequence(0, #lists.size(caschi)-1, 1)}" class="row-even">
                             <tr>
                                 <td>
-                                    <h4 th:text="'Casco '+${caschi[j].modello}"></h4>
+                                    <h4 th:text="'Casco '+${caschi[j].nomeCasco}"></h4>
+                                    <h5 th:text="€ + '  ' + ${caschi[j].prezzo}"></h5>
                                 </td>
                                 <td class="text-center align-middle px-0">
                                     <a th:href="@{'/rimuovi-carrello?id='+${caschi[j].id}}+'&tipo=casco'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a>
@@ -40,6 +41,7 @@
                             <tr>
                                 <td>
                                     <h4 th:text="${vestiti[j].nomeAbbigliamento}"></h4>
+                                    <h5 th:text="€ + '  ' + ${vestiti[j].prezzo}"></h5>
                                 </td>
                                 <td class="text-center align-middle px-0">
                                     <a th:href="@{'/rimuovi-carrello?id='+${vestiti[j].id}}+'&tipo=abbigliamento'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a>
@@ -49,7 +51,8 @@
                         <div th:each="j: ${#numbers.sequence(0, #lists.size(moto)-1, 1)}" class="row-even">
                             <tr>
                                 <td>
-                                    <h4 th:text="${moto[j].marca}"></h4>
+                                    <h4 th:text="${moto[j].nomeMotore}"></h4>
+                                    <h5 th:text="€ + '  ' + ${moto[j].prezzo}"></h5>
                                 </td>
                                 <td class="text-center align-middle px-0">
                                     <a th:href="@{'/rimuovi-carrello?id='+${moto[j].id}}+'&tipo=moto'" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a>

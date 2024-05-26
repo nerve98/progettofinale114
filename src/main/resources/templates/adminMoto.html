@@ -94,7 +94,7 @@
             <label for="targa">Targa</label>
             <input type="text" name="targa" id="targa" maxlength="7" minlength="7" required>
             <div class="error-message">Inserisci 7 caratteri</div>
-            <label for="euro">Euro</label>
+            <label for="euro">Standard</label>
             <input type="text" name="euro" id="euro" required >
             <label for="nomeMotore">Motore</label>
             <input type="text" name="nomeMotore" id="nomeMotore" required>
@@ -128,11 +128,7 @@
             <label for="elettronico">Avviamento Elettronico</label>
             <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
             <label for="tipoMoto">Tipo</label>
-            <select name="tipoMoto" id="tipoMoto" required> 
-                <option value="sportiva">Sportiva</option>
-                <option value="scooter">Scooter</option>
-                <option value="cross">Cross</option>
-            </select>
+            <input type="text" name="tipoMoto" id="tipoMoto" value="Sportiva" readonly> 
             <button id="salvaCasc" onclick="chiudiFormModifica()">Salva & Chiudi</button>
             <button id="annullaCasc" type="reset" onclick="chiudiFormModifica()">Annulla</button>
         </form>
@@ -147,7 +143,7 @@
             <label for="targa">Targa</label>
             <input type="text" name="targa" id="targa" required maxlength="7" minlength="7">
             <div class="error-message">Inserisci 7 caratteri.</div>
-            <label for="euro">Euro</label>
+            <label for="euro">Standard</label>
             <input type="text" name="euro" id="euro" required >
             <label for="nomeMotore">Motore</label>
             <input type="text" name="nomeMotore" id="nomeMotore" required>
@@ -180,12 +176,8 @@
             <input type="checkbox" name="trasmissioneM" id="trasmissioneM" value="true" onclick="checkTheCheckBox(this)">
             <label for="elettronico">Avviamento Elettronico</label>
             <input type="checkbox" name="elettronico" id="elettronico" value="true" onclick="checkTheCheckBox(this)">
-            <label for="tipoMoto">Tipo</label >
-            <select name="tipoMoto" id="tipoMoto" required> 
-                <option value="sportiva">Sportiva</option>
-                <option value="scooter">Scooter</option>
-                <option value="cross">Cross</option>
-            </select>
+            <label for="tipoMoto">Tipo</label>
+            <input type="text" name="tipoMoto" id="tipoMoto" value="Sportiva" readonly> 
             <button id="salvaCasc" onclick="chiudiFormAggiunta()">Salva & Chiudi</button> 
             <button id="annullaCasc" type="reset" onclick="chiudiFormAggiunta()">Annulla</button> 
 
