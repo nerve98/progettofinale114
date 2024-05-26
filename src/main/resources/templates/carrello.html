@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/carrello.css">
-    <script src="carrello.js" defer></script>
+    <script src="js/carrello.js" defer></script>
     <title>Carrello</title>
    
 </head>
@@ -71,7 +71,7 @@
                 </div>
             
                 <div class="float-right">
-                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="history.back()" >Indietro</button>
+                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" onclick="location.href='/'">Torna alla home</button>
                     
                     <a href="/paymethod"><button id="button" class="btn btn-lg btn-primary mt-2" th:if="${totale!=0}">Procedi</button></a>
                 </div>
