@@ -192,12 +192,12 @@
 
 
     <div id="main">
-        <div id="card-section" th:each= "moto : ${motori}">
-            <div class="flip-card">
+        <div id="card-section" >
+            <div class="flip-card" th:each= "moto : ${motori}">
                 <div class="flip-card-inner">
 
-                    <div class="flip-card-front">
-                        <img class="img-card" src="https://storage.kawasaki.eu/public/kawasaki.eu/en-EU/model/19ZX1000Y_201GY3ARB2CG_A.jpg">
+                    <div class="flip-card-front" >
+                        <img class="img-card"  src="${images.url}">
                         <p class="titlecard" th:text = "${moto.nomeMotore}"> a</p>
                     </div>
 
