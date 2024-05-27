@@ -54,10 +54,10 @@ tr:nth-child(odd) {
 }
 
 #hcarrello,#buttonC{
-  background-color: #3c8732;
+  background-color: #9eda96;
   border: none;
 }
 #hcarrello:hover,#buttonC:hover{
-  background-color: #135700;
+  background-color: #2d6a25;
 }
 
