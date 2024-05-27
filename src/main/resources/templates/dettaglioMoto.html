@@ -76,26 +76,59 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." style="border-radius: 40px;
-                    width: 72%; "></div>
+                    
                     <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder">Shop item template</h1>
+
+                            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" >
+                              <ol class="carousel-indicators">
+                                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+                                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+                              </ol>
+                              <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                  <img th:src="*{immagine[0].url}" class="w-100 d-block" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                  <img th:src="*{immagine[1].url}" class="w-100 d-block" alt="Second slide" >
+                                </div>
+                                <div class="carousel-item">
+                                    <img th:src="*{immagine[2].url}" class="w-100 d-block" alt="Third slide" >
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                                </button>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="display-5 fw-bolder" th:text="${moto.nomeMotore}"></h1>
+                        <h4 th:text="${moto.marca}"></h4>
+
                         <div class="fs-5 mb-5">
-                            <span>$40.00</span>
+                            <span th:text="'€  ' + ${moto.prezzo}"></span>
                         </div>
                         <ul>
-                            <li><strong>Anno:</strong> <span>2024</span></li>
-                            <li><strong>Altezza sella:</strong> <span>850 mm</span></li>
-                            <li><strong>Peso:</strong> <span>220 kg</span></li>
-                            <li><strong>Cilindrata:</strong> <span>1000 cc</span></li>
-                            <li><strong>Potenza CV:</strong> <span>150 CV</span></li>
-                            <li><strong>Potenza KW:</strong> <span>110 kW</span></li>
-                            <li><strong>Consumo:</strong> <span>5 l/100km</span></li>
-                            <li><strong>Trasmissione Manuale:</strong> <span>Sì</span></li>
-                            <li><strong>Avvio Elettronico:</strong> <span>Sì</span></li>
-                          </ul>
+
+                            <li><strong>Anno:</strong> <span th:text="${moto.annoProduzione}"></span></li>
+                            <li><strong>Altezza sella:</strong> <span th:text="${moto.altezzaSella} + '  cm'"></span></li>
+                            <li><strong>Peso:</strong> <span th:text="${moto.peso} + '  Kg'"></span></li>
+                            <li><strong>Cilindrata:</strong> <span th:text="${moto.cilindrata} + '  cc'"> </span></li>
+                            <li><strong>Potenza CV:</strong> <span th:text="${moto.potenzaCV} + '  CV'" > </span></li>
+                            <li><strong>Potenza KW:</strong> <span th:text="${moto.potenzaKV} + '  KV'"> </span></li>
+                            <li><strong>Capacità serbatoio:</strong> <span th:text="${moto.capacitaSerbatoio} + '  l'"></span></li>
+                            <li><strong>Consumo:</strong> <span th:text="${moto.consumo} + '  l/km'"></span></li>
+                            <li><strong>Trasmissione Manuale:</strong> <span th:text="${moto.trasmissioneM}"></span></li>
+                            <li><strong>Avvio Elettronico:</strong> <span th:text="${moto.elettronico}"></span></li>
+
+                        </ul>
                         <div class="d-flex">
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="INDIETRO" onclick="window.location.href='/sportive'">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="INDIETRO" onclick="window.location.href='/sportive'" style="margin-right: 50px;">
                                 Torna<br>Indietro
                             </button>
                             <button class="btn btn-outline-dark flex-shrink-0" type="button" id="carrello">

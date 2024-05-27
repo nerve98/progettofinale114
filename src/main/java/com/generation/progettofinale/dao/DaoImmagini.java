@@ -136,6 +136,25 @@ public class DaoImmagini implements IDao<Long, Immagini>{
         return i;
     }
 
+    public List<Immagini> readByForeignKeyLista(Entity e) {
+        String queryS="SELECT * FROM immagini";
+        if(e instanceof Moto){
+            queryS+=" WHERE idMoto=?";
+        }
+        else if(e instanceof Casco){
+            queryS+=" WHERE idCasco=?";
+        }
+        else {
+            queryS+=" WHERE idAbbigliamento=?";
+        }
+        Map<Long, Map<String, String>> immaginiMap=db.executeDQL(queryS, String.valueOf(e.getId()));
+        List<Immagini> ris=new ArrayList<>();
+        for(Map<String,String> map: immaginiMap.values()){
+            ris.add(context.getBean(Immagini.class,map));
+        }
+        return ris;
+    }
+
 
 
     

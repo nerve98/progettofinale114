@@ -42,4 +42,10 @@ public class ServiceImmagini extends GenericService<Long, Immagini, DaoImmagini>
         Immagini img= getDao().readByForeignKey(e);
         return img;
     }
+
+
+    public List<Immagini> findImmagineLista(Entity e){
+        List<Immagini> img= getDao().readByForeignKeyLista(e);
+        return img;
+    }
 }
