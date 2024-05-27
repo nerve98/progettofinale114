@@ -79,9 +79,9 @@
                     
                     <div class="col-md-6">
 
-                            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" th:if="${(#lists.size(immagine))>0}">
+                            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" th:if="${(#lists.size(immagine))>0}" style="display: inline-block; ">
                               <ol class="carousel-indicators">
-                                <li th:if="${(#lists.size(immagine))>0}" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                                <li th:if="${(#lists.size(immagine))>0}" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide" "></li>
                                 <li th:if="${(#lists.size(immagine))>1}" data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
                                 <li th:if="${(#lists.size(immagine))>2}" data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
                               </ol>
@@ -105,6 +105,7 @@
                                 <span class="visually-hidden">Next</span>
                                 </button>
 
+                            </div>
                     </div>
                     <div class="col-md-6">
                         <h1 class="display-5 fw-bolder" th:text="${moto.nomeMotore}"></h1>
@@ -123,15 +124,16 @@
                             <li><strong>Potenza KW:</strong> <span th:text="${moto.potenzaKV} + '  KV'"> </span></li>
                             <li><strong>Capacità serbatoio:</strong> <span th:text="${moto.capacitaSerbatoio} + '  l'"></span></li>
                             <li><strong>Consumo:</strong> <span th:text="${moto.consumo} + '  l/km'"></span></li>
-                            <li><strong>Trasmissione Manuale:</strong> <span th:text="${moto.trasmissioneM}"></span></li>
-                            <li><strong>Avvio Elettronico:</strong> <span th:text="${moto.elettronico}"></span></li>
+                            <li><strong>Trasmissione Manuale:</strong> <span th:text="${moto.trasmissioneM ? 'Sì':'No'}"></span></li>
+                            <li><strong>Avvio Elettronico:</strong> <span th:text="${moto.elettronico ? 'Sì':'No'}"></span></li>
 
                         </ul>
                         <div class="d-flex">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button" id="INDIETRO" onclick="window.location.href='/sportive'" style="margin-right: 50px;">
                                 Torna<br>Indietro
                             </button>
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="carrello">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="carrello" th:if="${loggato} and ${isAdmin!=true}" 
+                                    th:onclick="@{'location.href=\'/addCarrello?tipoProdotto=moto&idProdotto='+${moto.id}+'\''}"   >
                                 <i class="bi-cart-fill me-1"></i>
                                 Aggiungi
                             </button>
