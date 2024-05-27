@@ -79,21 +79,21 @@
                     
                     <div class="col-md-6">
 
-                            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" >
+                            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" th:if="${(#lists.size(immagine))>0}">
                               <ol class="carousel-indicators">
-                                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-                                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+                                <li th:if="${(#lists.size(immagine))>0}" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                                <li th:if="${(#lists.size(immagine))>1}" data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+                                <li th:if="${(#lists.size(immagine))>2}" data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
                               </ol>
                               <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-                                  <img th:src="*{immagine[0].url}" class="w-100 d-block" alt="First slide">
+                                  <img th:src="*{immagine[0].url}" class="w-100 d-block" alt="First slide" th:if="${(#lists.size(immagine))>0}">
                                 </div>
                                 <div class="carousel-item">
-                                  <img th:src="*{immagine[1].url}" class="w-100 d-block" alt="Second slide" >
+                                  <img th:src="*{immagine[1].url}" class="w-100 d-block" alt="Second slide" th:if="${(#lists.size(immagine))>1}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img th:src="*{immagine[2].url}" class="w-100 d-block" alt="Third slide" >
+                                    <img th:src="*{immagine[2].url}" class="w-100 d-block" alt="Third slide" th:if="${(#lists.size(immagine))>2}" >
                                 </div>
                               </div>
                               <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
