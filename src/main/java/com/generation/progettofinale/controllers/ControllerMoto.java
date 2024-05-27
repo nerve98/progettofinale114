@@ -47,7 +47,7 @@ public class ControllerMoto {
         model.addAttribute("isAdmin", session.getAttribute("admin"));
         model.addAttribute("loggato", session.getAttribute("loggato"));
         List<Entity> carrello = (List<Entity>) session.getAttribute("carrello");
-        Immagini images = serviceImmagini.findImmagine(ris);
+        List<Immagini> images = serviceImmagini.findImmagineLista(ris);
         model.addAttribute("immagine", images);
         if (carrello != null && carrello.size() > 0) {
             model.addAttribute("numCarrello", carrello.size());
@@ -65,21 +65,6 @@ public class ControllerMoto {
 
         session.setAttribute("listaSpesa", motoadd);
         return "redirect:/sportive";
-    }
-
-
-    @GetMapping("/moto-byId")
-    public String motoById(@RequestParam(
-        name="idMoto", 
-        defaultValue = "0")
-        Long id, Model model){
-
-        List<Immagini> imgByMoto = serviceImmagini.findImmaginiMoto((List)serviceMoto.findById(id));{
-        Moto moto = serviceMoto.findById(id);
-        model.addAttribute("moto", moto);
-        model.addAttribute("immagini", imgByMoto);
-        return "paginaDettaglioMoto.html";
-        }
     }
 
 }
